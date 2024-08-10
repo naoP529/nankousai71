@@ -40,7 +40,7 @@ export default function Pamphlet () {
                     pagination={{el:"#pagination",clickable:true}}
                 >
                     {img.map((value) => (
-                        <SwiperSlide>
+                        <SwiperSlide key={value}>
                             <div className="w-[75vw] mx-auto drop-shadow-lg">
                                 <Image src={value} alt='パンフレット' width={2000} height={1000} className='w-full aspect-auto'></Image>
                             </div>
