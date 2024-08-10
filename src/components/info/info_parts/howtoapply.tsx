@@ -13,7 +13,7 @@ export default function HowToApply() {
     return(
         <div className="w-full"> 
             {steps.map((value) => (
-                <div className="my-[15vw]">
+                <div key={value.step} className="my-[15vw]">
                     <div className="flex">
                         <div className="ml-[6vw] w-[2vw] bg-[darkturquoise]"></div>
                         <p className={`${kaiseiDecol.className} text-[10vw] ml-[2vw] text-[darkturquoise] `}>{value.step}</p>

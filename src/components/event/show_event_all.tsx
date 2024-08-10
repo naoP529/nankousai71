@@ -188,7 +188,7 @@ export default function ShowEvent(
                 <ScrollContainer>
                     <div className="flex mt-[5vw] ">
                         {allTags.map((value) => (
-                            <div className={`flex-shrink-0  cursor-pointer  rounded-lg mx-[2vw] bg-gradient-to-br p-[0.5%] ${value.color} h-[10vw]   inline-block ${selected.includes(value.name) == true && "drop-shadow-lg relative bottom-[1vw]"}`}>    
+                            <div key={value.id} className={`flex-shrink-0  cursor-pointer  rounded-lg mx-[2vw] bg-gradient-to-br p-[0.5%] ${value.color} h-[10vw]   inline-block ${selected.includes(value.name) == true && "drop-shadow-lg relative bottom-[1vw]"}`}>    
                                 <input 
                                     id={value.id}
                                     value={value.name} 
@@ -230,7 +230,7 @@ export default function ShowEvent(
                 }
 
                 {selected_card.map((value) => (
-                    <div className="mx-[4vw] h-[36vw] mt-[8vw]
+                    <div key={value.name} className="mx-[4vw] h-[36vw] mt-[8vw]
                     bg-slate-100  flex justify-between p-[0.2vw] opacity-90 drop-shadow rounded-lg">
                         <div className="w-full h-full rounded-md bg-white flex">
                             <div className="flex-grow rounded-l-md pl-[2vw] pr-[0.5vw] my-auto flex flex-col">
@@ -250,7 +250,7 @@ export default function ShowEvent(
                                 </div>
                                 <div className={`w-full flex  ${value.title.length < 12 ? "my-[5%]": "my-[3%]"}`}>
                                     {value.types.map((value) => (
-                                        <div className={`w-1/3 aspect-[3.3/1] bg-gradient-to-br ${Tags.find((item) => (item.name == value))?.color} rounded-md flex mr-[5%] opacity-90`}>
+                                        <div key={value} className={`w-1/3 aspect-[3.3/1] bg-gradient-to-br ${Tags.find((item) => (item.name == value))?.color} rounded-md flex mr-[5%] opacity-90`}>
                                             <p className="m-auto text-[2vw] text-gray-50 font-medium">{value}</p>
                                         </div>
                                     ))}

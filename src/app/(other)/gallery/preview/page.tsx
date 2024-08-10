@@ -9,7 +9,7 @@ import NotFound from "@/components/global/parts/notFound";
 
 const kaiseiDecol = Kaisei_Decol({weight:["400","700"],subsets:["latin"]})
 
-export default function page() {
+export default function Page() {
     const img_tags = [
         {title:"第71回南高祭ポスター", img:"/第71回 南高祭ポスター（376x524mm）.jpg", artist:"作者不明"},
         {title:"rondo表紙", img:"/rondo.jpg",  artist:"作者不明"},

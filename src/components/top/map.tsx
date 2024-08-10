@@ -76,7 +76,7 @@ export default function Map() {
                      z-0 `}
                 >
                     {imgs.map((value) => (
-                        <SwiperSlide>
+                        <SwiperSlide key={value.img}>
                             <div className="w-[82vw] mx-auto my-[10vw]">
                                 <ScrollMap img={value.img}></ScrollMap>
                             </div>

@@ -23,7 +23,7 @@ export default function Access() {
                 <p className="text-[3vw] text-center mt-[2vw]">タグから探す（横にスクロール可能）</p>
             </div>
             {roots.map((value) => (
-                <div id={value.id} className="mx-[5vw] my-[12vw]">
+                <div key={value.id} id={value.id} className="mx-[5vw] my-[12vw]">
                     <div className="flex">
                         <div className=" w-[2vw] bg-white"></div>
                         <p className={`${kaiseiDecol.className} text-[7vw] ml-[2vw] py-[1vw] text-white font-bold`}>{value.title}</p>
@@ -48,7 +48,7 @@ export default function Access() {
                         </div>
                         <div className="mt-[5vw]">
                             {value.busStop!.map((value) => (
-                                <div className="my-[6vw]">
+                                <div key={value.name} className="my-[6vw]">
                                     <div className="flex justify-between">
                                         <p className="text-[6vw] font-medium">{value.name}</p>
                                         <div className="w-[23vw] mr-[1vw] translate-y-[10%]">
@@ -57,7 +57,7 @@ export default function Access() {
                                     </div>
                                     <div className="flex justify-around ">
                                         {value.bus.map((value) => (
-                                            <div className="rounded-lg bg-white mt-[3vw]">
+                                            <div key={value} className="rounded-lg bg-white mt-[3vw]">
                                                 <p className={`text-[3.5vw] font-medium tracking-tight  text-[darkturquoise] py-[1vw] px-[4vw]   inline-block`}>
                                                     {value}
                                                 </p>

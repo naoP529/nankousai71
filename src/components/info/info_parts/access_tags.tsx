@@ -20,7 +20,7 @@ export default function AccessTags() {
             <ScrollContainer>
                 <div className="flex mt-[5vw] ">
                     {tags.map((value) => (
-                        <Scroll to={value.id} smooth className="cursor-pointer p-[1vw] h-[10vw] inline-block flex-shrink-0 mx-[2vw] bg-white rounded-lg">    
+                        <Scroll key={value.id} to={value.id} smooth className="cursor-pointer p-[1vw] h-[10vw] inline-block flex-shrink-0 mx-[2vw] bg-white rounded-lg">    
                                 <div 
                                     className={`text-[4vw] 
                                     font-medium  flex h-full relative`}

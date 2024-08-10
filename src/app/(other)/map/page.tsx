@@ -22,7 +22,7 @@ export default function page() {
 
             <div className="my-[15vw] w-full">
                 {mapImages.map((value) => (
-                    <div className="my-[15vw]">
+                    <div className="my-[15vw]" key={value.href}>
                         <div className="flex  mx-[3vw] mb-[5vw]">
                             <div className=" w-[2vw] bg-[darkturquoise]"></div>
                             <p className={`${kaiseiDecol.className} text-[10vw] ml-[2vw] text-[darkturquoise] `}>{value.floor}</p>

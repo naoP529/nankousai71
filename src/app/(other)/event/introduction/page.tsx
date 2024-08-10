@@ -28,7 +28,7 @@ type eventData = {
     }>
 }
 
-export default function page() {
+export default function Page() {
     const [data, setData] = useState<eventData>()
 
     const params = useSearchParams()

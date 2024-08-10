@@ -141,7 +141,7 @@ export default function ShowDetails (
                 </div>
                 <div className="w-full">
                 {newDetails.map((value) => (
-                    <div className="mb-[15vw] mx-[4vw]">
+                    <div key={value.title} className="mb-[15vw] mx-[4vw]">
                         <div className="flex shadow-slate-100 shadow-md">
                             <div className=" w-[2vw] bg-gradient-to-b from-[#01e1e5] to-[#039fa2]"></div>
                             <p className={`${kaiseiDecol.className} text-[7vw] ml-[2vw] py-[1vw] bg-gradient-to-b from-[#01e1e5] to-[#009294] text-transparent bg-clip-text font-bold`}>{value.title}</p>
@@ -163,7 +163,7 @@ export default function ShowDetails (
                 <p className={`my-[3vw] ${kaiseiDecol.className} text-[5vw] text-[darkturquoise] text-center`}>・・・関連タグ・・・</p>
                 <div className=" flex flex-wrap mx-[3vw] justify-start">
                     {event.tags.map((value) => (
-                        <Link href={{pathname:"/event", query:{type:value} }}>
+                        <Link key={value} href={{pathname:"/event", query:{type:value} }}>
                             <div className={`my-[2vw] w-[27vw] aspect-[3/1] bg-gradient-to-br ${Tags.find((item) => (item.name == value))?.color} rounded-md flex mx-[2vw] opacity-90`}>
                                 <p className="m-auto  text-[3vw]  text-gray-50 font-medium">{value}</p>
                             </div>

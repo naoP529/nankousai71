@@ -18,7 +18,7 @@ export default function Attention() {
             </div>
             <div className="mx-[5vw] my-[5vw]">
                 {attentions.map((value) => (
-                    <p className="text-[4.5vw] tracking-wide my-[2vw] font-normal text-rose-600">〇{value}</p>
+                    <p key={value} className="text-[4.5vw] tracking-wide my-[2vw] font-normal text-rose-600">〇{value}</p>
                 ))}
             </div>
         </div>
