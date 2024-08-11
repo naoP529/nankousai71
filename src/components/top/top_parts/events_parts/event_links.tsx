@@ -2,13 +2,9 @@
 
 import Image from "next/image"
 
-import { Splide, SplideSlide } from "@splidejs/react-splide";
-import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
 import { RoundButtonTurquoise } from "../../../global/parts/rounded_button";
 import { RoundButtonPurple } from "../../../global/parts/rounded_button";
 import { RoundButtonOrange } from "../../../global/parts/rounded_button";
-import { URLSearchParams } from "url";
-import { useRouter } from "next/router";
 import '@splidejs/splide/css';
 import Link from "next/link";
 

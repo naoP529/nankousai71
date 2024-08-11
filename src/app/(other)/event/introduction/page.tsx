@@ -1,6 +1,4 @@
 "use client"
-import Link from "next/link"
-import { SquareButtonPinkShadow } from "@/components/global/parts/square_button"
 import ShowDetails from "@/components/introduction/showDetails"
 import { useSearchParams } from "next/navigation"
 import { getEventDetails } from "./action"

@@ -1,9 +1,9 @@
 import Image from "next/image"
-
+import { KaiseiDecol } from "@/app/fonts";
 import { RiArrowDownWideFill } from "react-icons/ri";
 import Link from "next/link";
 
-const kaiseiDecol = Kaisei_Decol({weight:["700"],subsets:["latin"]})
+const kaiseiDecol = KaiseiDecol
 
 
 export default function MainTitle() {

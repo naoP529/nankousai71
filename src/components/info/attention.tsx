@@ -1,5 +1,3 @@
-import { vault } from "googleapis/build/src/apis/vault"
-
 
 import { KaiseiDecol } from "@/app/fonts";
 

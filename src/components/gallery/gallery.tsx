@@ -1,7 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
 
-import { title } from "process"
 
 import { KaiseiDecol } from "@/app/fonts";
 

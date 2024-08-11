@@ -1,9 +1,7 @@
 "use client"
-import { time } from "console";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { SquareButtonPinkShadow } from "@/components/global/parts/square_button";
 
 import NotFound from "@/components/global/parts/notFound";
 

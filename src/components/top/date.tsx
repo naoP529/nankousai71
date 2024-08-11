@@ -3,11 +3,11 @@ import Date2 from "./top_parts/9798"
 import RoundButtonPink from "../global/parts/rounded_button"
 import { RoundButtonBlue } from "../global/parts/rounded_button"
 import { RoundButtonRed } from "../global/parts/rounded_button"
-import { text } from "stream/consumers"
+import { KaiseiDecol } from "@/app/fonts"
 import Link from "next/link"
 
 
-const kaiseiDecol = Kaisei_Decol({weight:["700"],subsets:["latin"]})
+const kaiseiDecol = KaiseiDecol
 
 export default function Date() {
     return(

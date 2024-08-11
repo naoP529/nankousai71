@@ -1,6 +1,6 @@
+import { KaiseiDecol } from "@/app/fonts"
 
-
-const kaiseiDecol = Kaisei_Decol({weight:["700"],subsets:["latin"]})
+const kaiseiDecol = KaiseiDecol
 
 export default function Date2 () {
     return(
