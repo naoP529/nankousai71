@@ -30,9 +30,12 @@ export default function RootLayout({
           </div>
         </div>
         
+        {requestUrl &&
         <div className="">
           <iframe className="mx-auto hidden md:block w-[50vh] h-[100vh] hidden-scrollbar " src={requestUrl}></iframe>
         </div>
+        }
+        
         
       </body>
     </html>
