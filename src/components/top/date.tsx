@@ -1,4 +1,4 @@
-import { Kaisei_Decol } from "next/font/google"
+
 import Date2 from "./top_parts/9798"
 import RoundButtonPink from "../global/parts/rounded_button"
 import { RoundButtonBlue } from "../global/parts/rounded_button"

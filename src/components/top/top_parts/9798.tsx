@@ -1,4 +1,4 @@
-import { Kaisei_Decol } from "next/font/google"
+
 
 const kaiseiDecol = Kaisei_Decol({weight:["700"],subsets:["latin"]})
 

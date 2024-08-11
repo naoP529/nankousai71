@@ -6,11 +6,13 @@ import { useSearchParams } from "next/navigation"
 import { getEventDetails } from "./action"
 import { useEffect } from "react"
 import { useState } from "react"
-import { Kaisei_Decol } from "next/font/google"
+
 import Loading from "@/components/global/parts/loading"
 import NotFound from "@/components/global/parts/notFound"
 
-const kaiseiDecol = Kaisei_Decol({weight:["400","700"],subsets:["latin"]})
+import { KaiseiDecol } from "@/app/fonts";
+
+const kaiseiDecol = KaiseiDecol
 
 type eventData = {
     event:{

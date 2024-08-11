@@ -4,10 +4,12 @@ import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { SquareButtonPinkShadow } from "@/components/global/parts/square_button";
-import { Kaisei_Decol } from "next/font/google"
+
 import NotFound from "@/components/global/parts/notFound";
 
-const kaiseiDecol = Kaisei_Decol({weight:["400","700"],subsets:["latin"]})
+import { KaiseiDecol } from "@/app/fonts";
+
+const kaiseiDecol = KaiseiDecol
 
 export default function Page() {
     const img_tags = [

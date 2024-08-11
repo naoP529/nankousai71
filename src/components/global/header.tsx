@@ -3,11 +3,13 @@
 import { useState } from "react";
 import { BsPlusLg } from "react-icons/bs";
 import Image from "next/image";
-import { Kaisei_Decol } from "next/font/google"
+
 import Link from "next/link";
 import { SquareButtonPinkShadow2 } from "./parts/square_button";
 
-const kaiseiDecol = Kaisei_Decol({weight:["400","700"],subsets:["latin"]})
+import { KaiseiDecol } from "@/app/fonts";
+
+const kaiseiDecol = KaiseiDecol
 
 export default function Header() {
     const color = ["05a8bd", "f3e50a"]

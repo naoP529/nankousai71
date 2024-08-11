@@ -1,7 +1,9 @@
-import { Kaisei_Decol } from "next/font/google"
+
 import Image from "next/image"
 
-const kaiseiDecol = Kaisei_Decol({weight:["400","700"],subsets:["latin"]})
+import { KaiseiDecol } from "@/app/fonts";
+
+const kaiseiDecol = KaiseiDecol
 
 export default function HowToApply() {
     const steps = [

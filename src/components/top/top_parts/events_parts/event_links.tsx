@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { Kaisei_Decol } from "next/font/google"
+
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
 import { RoundButtonTurquoise } from "../../../global/parts/rounded_button";
@@ -12,7 +12,9 @@ import { useRouter } from "next/router";
 import '@splidejs/splide/css';
 import Link from "next/link";
 
-const kaiseiDecol = Kaisei_Decol({weight:["400","700"],subsets:["latin"]})
+import { KaiseiDecol } from "@/app/fonts";
+
+const kaiseiDecol = KaiseiDecol
 
 // const classToEvent = (e:any) => {
 //     const params = new URLSearchParams();

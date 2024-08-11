@@ -1,9 +1,11 @@
 "use client"
-import { Kaisei_Decol } from "next/font/google"
+
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import Image from "next/image"
 
-const kaiseiDecol = Kaisei_Decol({weight:["400","700"],subsets:["latin"]})
+import { KaiseiDecol } from "@/app/fonts";
+
+const kaiseiDecol = KaiseiDecol
 
 export default function page() {
     const mapImages = [

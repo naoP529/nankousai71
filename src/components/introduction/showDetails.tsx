@@ -1,11 +1,13 @@
 import Image from "next/image"
-import { Kaisei_Decol } from "next/font/google"
+
 import { MdOutlinePlace } from "react-icons/md";
 import { IoTimeOutline } from "react-icons/io5";
 import NotReady from "../global/parts/notReady";
 import Link from "next/link";
 
-const kaiseiDecol = Kaisei_Decol({weight:["400","700"],subsets:["latin"]})
+import { KaiseiDecol } from "@/app/fonts";
+
+const kaiseiDecol = KaiseiDecol
 
 type eventData = {
     event:{

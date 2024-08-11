@@ -3,8 +3,10 @@ import Image from "next/image"
 import { BsExclamationCircle } from "react-icons/bs";
 import { FaExclamationCircle } from "react-icons/fa";
 import AccessTags from "./info_parts/access_tags";
-import { Kaisei_Decol } from "next/font/google"
-const kaiseiDecol = Kaisei_Decol({weight:["400","700"],subsets:["latin"]})
+
+import { KaiseiDecol } from "@/app/fonts";
+
+const kaiseiDecol = KaiseiDecol
 
 
 export default function Access() {

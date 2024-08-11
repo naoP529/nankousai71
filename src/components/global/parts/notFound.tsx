@@ -1,8 +1,10 @@
 import Link from "next/link"
 import { SquareButtonPinkShadow } from "@/components/global/parts/square_button"
-import { Kaisei_Decol } from "next/font/google"
 
-const kaiseiDecol = Kaisei_Decol({weight:["400","700"],subsets:["latin"]})
+
+import { KaiseiDecol } from "@/app/fonts";
+
+const kaiseiDecol = KaiseiDecol
 
 type Props = {
     text:string,

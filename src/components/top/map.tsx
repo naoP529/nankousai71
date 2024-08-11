@@ -1,6 +1,6 @@
 "use client"
 
-import { Kaisei_Decol } from "next/font/google"
+
 import { RoundButtonTurquoise } from "../global/parts/rounded_button"
 import ScrollMap from "./top_parts/map_parts/scroll_map"
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -10,7 +10,9 @@ import "swiper/css";
 import { useState } from "react";
 import Link from "next/link";
 
-const kaiseiDecol = Kaisei_Decol({weight:["400","700"],subsets:["latin"]})
+import { KaiseiDecol } from "@/app/fonts";
+
+const kaiseiDecol = KaiseiDecol
 
 export default function Map() {
     const imgs = [

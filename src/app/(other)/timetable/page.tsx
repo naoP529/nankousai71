@@ -1,7 +1,7 @@
-import { Kaisei_Decol } from "next/font/google";
 import NotReady from "@/components/global/parts/notReady";
+import { KaiseiDecol } from "@/app/fonts";
 
-const kaiseiDecol = Kaisei_Decol({weight:["400","700"],subsets:["latin"]})
+const kaiseiDecol = KaiseiDecol
 
 export default function page() {
     return(

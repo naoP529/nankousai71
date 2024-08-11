@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { Kaisei_Decol } from "next/font/google"
+
 import { RiArrowDownWideFill } from "react-icons/ri";
 import Link from "next/link";
 

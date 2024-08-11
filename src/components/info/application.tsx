@@ -1,10 +1,12 @@
-import { Kaisei_Decol } from "next/font/google"
+
 import AboutTeket from "./info_parts/about_teket"
 import HowToApply from "./info_parts/howtoapply"
 import { SquareButtonPinkShadow } from "../global/parts/square_button"
 
 
-const kaiseiDecol = Kaisei_Decol({weight:["400","700"],subsets:["latin"]})
+import { KaiseiDecol } from "@/app/fonts";
+
+const kaiseiDecol = KaiseiDecol
 
 export default function Application() {
     return(

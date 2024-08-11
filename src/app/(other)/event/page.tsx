@@ -1,11 +1,13 @@
 
 import Image from "next/image"
-import { Kaisei_Decol } from "next/font/google"
+
 import { Suspense } from "react"
 import GetEvent from "@/components/event/get_event"
 import Loading from "@/components/global/parts/loading"
 
-const kaiseiDecol = Kaisei_Decol({weight:["400","700"],subsets:["latin"]})
+import { KaiseiDecol } from "@/app/fonts";
+
+const kaiseiDecol = KaiseiDecol
 
 export default function page() {
     return(
