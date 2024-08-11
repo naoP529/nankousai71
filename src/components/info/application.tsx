@@ -19,10 +19,10 @@ export default function Application() {
                     <SquareButtonPinkShadow text="申し込みページへ"></SquareButtonPinkShadow>
                 </div>
             </div>
-            <div className="w-[90vw] mx-auto my-[15vw] opacity-95">
+            <div className="w-[90vw] mx-auto mt-[15vw] opacity-95">
                 <AboutTeket></AboutTeket>
             </div>
-            <div className="py-[15vw] ">
+            <div className="py-[5vw] ">
                 <HowToApply></HowToApply>
             </div>
         </div>

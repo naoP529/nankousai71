@@ -1,7 +1,7 @@
 import Header from "@/components/global/header";
 
 
-
+import { LoadingLayout } from "@/components/global/parts/loading_layout";
 import { KaiseiDecol } from "@/app/fonts";
 
 const kaiseiDecol = KaiseiDecol
@@ -13,6 +13,9 @@ export default function RootLayout({
   }>) {
     return (
         <div>
+            <div className="fixed top-0 left-0 z-[9999]">
+              <LoadingLayout></LoadingLayout>
+            </div> 
             <div className="w-full fixed top-0 left-0 z-40">
               <Header></Header>
             </div>

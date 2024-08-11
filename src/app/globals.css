@@ -36,7 +36,35 @@ body {
     /* Chrome, Safari 対応 */
     display: none!important;
   }
-  iframe::-webkit-scrollbar {
+  .scrollbar-y {
+    overflow-y: scroll;
+  }
+
+  .scrollbar-y::-webkit-scrollbar {
+    width:0.4vw;
+    min-width: 5px; 
+    /* width: 10px; */
+  }
+
+  .scrollbar-y::-webkit-scrollbar-track {
+    background-color: white;
+  }
+
+  .scrollbar-y::-webkit-scrollbar-thumb {
+    background-color: gainsboro;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .scrollbar-y::-webkit-scrollbar-thumb:hover {
+    background-color: gray;
+  }
+
+  .scrollbar-y::-webkit-scrollbar-button {
     display: none;
-  } 
+  }
+}
+
+@layer base {
+  
 }

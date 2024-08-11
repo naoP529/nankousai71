@@ -32,20 +32,26 @@ export default function page() {
                         <TransformWrapper
                             smooth={true} 
                             wheel={{
-                                step:0.7,
-                                smoothStep:0.0025
+                                step:0.5,
+                                smoothStep:0.0022
                             }}
+                            initialScale={1}
+                            minScale={0.5}
                         >
                             <TransformComponent
                                 wrapperStyle={{
-                                    width:"94vw",
+                                    width:"90vw",
                                     marginLeft:"3vw",
                                     marginRight:"3vw",
                                     borderRadius:"2vw",
+                                    cursor:"pointer",
+                                    border:"solid",
+                                    borderWidth:"0.8vw",
+                                    borderColor:"#EEEEEE"
                                 }}
 
                                 contentStyle={{
-                                    width:"150vw",
+                                    width:"120vw",
                                     padding:"",
                                 }}
                             >

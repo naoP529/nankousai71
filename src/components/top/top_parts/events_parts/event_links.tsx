@@ -1,7 +1,8 @@
 "use client"
 
 import Image from "next/image"
-
+import { skeleton } from "@/components/global/skeleton";
+import { toBase64 } from "@/components/global/skeleton";
 import { RoundButtonTurquoise } from "../../../global/parts/rounded_button";
 import { RoundButtonPurple } from "../../../global/parts/rounded_button";
 import { RoundButtonOrange } from "../../../global/parts/rounded_button";
@@ -31,7 +32,7 @@ export default function ClassEvent() {
                     <p className={`text-[darkturquoise] font-normal text-justify text-[3.5vw] leading-[150%] tracking-tight my-[2vw]`}>27クラスによる色彩豊かな展示を体験できます。</p>
                 </div>         
                 <div className="grow bg-yellow-100 aspect-[5/4] ml-[5vw] mr-[8vw] mt-[8vw]  relative"> 
-                    <Image src={"/IMG_20240705_174147757.jpg"} alt="展示の様子" fill className="rounded-xl opacity-90 object-cover "></Image>
+                    <Image src={"/IMG_20240705_174147757.jpg"} alt="展示の様子" fill className="rounded-xl opacity-90 object-cover " placeholder={`data:image/svg+xml;base64,${toBase64(skeleton(128, 128))}`}></Image>
                 </div>
                 <div className="w-full mt-[7vw]">
                     <Link href={{pathname:"/event", query:{type:"クラス展示"}}}>
@@ -56,7 +57,7 @@ export function ClubEvent() {
                     <p className={`text-[darkturquoise] font-normal text-justify text-[3.5vw] leading-[150%] tracking-tight my-[2vw]`}>中高の部活動によるアクティビティや体験の数々</p>
                 </div>         
                 <div className="grow bg-yellow-100 aspect-[5/4] ml-[5vw] mr-[8vw] mt-[8vw]  relative"> 
-                    <Image src={"/IMG_20240705_174147757.jpg"} alt="展示の様子" fill className="rounded-xl opacity-90 object-cover "></Image>
+                    <Image src={"/IMG_20240705_174147757.jpg"} alt="展示の様子" fill className="rounded-xl opacity-90 object-cover " placeholder={`data:image/svg+xml;base64,${toBase64(skeleton(128, 128))}`}></Image>
                 </div>
                 <div className="w-full mt-[7vw]">
                     <Link href={{pathname:"/event", query:{type:"部活動展示"}}}>
@@ -81,7 +82,7 @@ export function FoodEvent() {
                     <p className={`text-[darkturquoise] font-normal text-justify text-[3.5vw] leading-[150%] tracking-tight my-[2vw]`}>高校3年、PTAなどによる絶品フードとドリンク</p>
                 </div>         
                 <div className="grow bg-yellow-100 aspect-[5/4] ml-[5vw] mr-[8vw] mt-[8vw]  relative"> 
-                    <Image src={"/IMG_20240705_174147757.jpg"} alt="展示の様子" fill className="rounded-xl opacity-90 object-cover "></Image>
+                    <Image src={"/IMG_20240705_174147757.jpg"} alt="展示の様子" fill className="rounded-xl opacity-90 object-cover " placeholder={`data:image/svg+xml;base64,${toBase64(skeleton(128, 128))}`}></Image>
                 </div>
                 <div className="w-full mt-[7vw]">
                     <Link href={{pathname:"/event", query:{type:"フード"}}}>

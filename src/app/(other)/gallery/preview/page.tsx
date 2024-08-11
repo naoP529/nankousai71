@@ -2,7 +2,8 @@
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-
+import { skeleton } from "@/components/global/skeleton";
+import { toBase64 } from "@/components/global/skeleton";
 import NotFound from "@/components/global/parts/notFound";
 
 import { KaiseiDecol } from "@/app/fonts";
@@ -21,14 +22,14 @@ export default function Page() {
     const found = img_tags.find((value) => value.title == title)
 
     return(
-        <div className="w-full pt-[25vw]">
-            {found ? <div className="w-full pb-[20vw]">
+        <div className="w-full pt-[25vw] h-screen bg-white">
+            {found ? <div className="w-full bg-white pb-[20vw]">
                 <h2 className={`mb-[8vw] ${kaiseiDecol.className} text-center text-[12vw] text-[darkturquoise] `}>プレビュー</h2>
-                <Image src={found.img} alt={found.title} width={2000} height={3000} className="w-[90%] aspect-auto mx-auto drop-shadow-lg" priority></Image>
+                <Image src={found.img} alt={found.title} width={2000} height={3000} placeholder={`data:image/svg+xml;base64,${toBase64(skeleton(128, 128))}`} className="w-[90%] aspect-auto mx-auto drop-shadow-lg" priority></Image>
                 <p className="text-[5vw] text-center mt-[5vw] mb-[2vw] text-slate-600">{found.title}</p>
                 <p className="text-[4vw] text-right mr-[5vw] text-slate-800 ">作者：{found.artist}</p>
                 <Link href={"/gallery"} className="fixed  bottom-0 left-0">
-                    <p className="text-[5vw] ml-[3vw] mb-[2vw] text-gray-200 hover:text-gray-800">←ギャラリーに戻る</p>
+                    <p className="text-[3.5vw] ml-[3vw] mb-[2vw] text-gray-300 hover:text-gray-800">←ギャラリーに戻る</p>
                 </Link>
             </div>
             :  <NotFound text="ギャラリー" link="/gallery"></NotFound>

@@ -1,8 +1,9 @@
 import { SquareButtonPinkShadow2 } from "../global/parts/square_button"
 import Image from "next/image"
-import { BsExclamationCircle } from "react-icons/bs";
 import { FaExclamationCircle } from "react-icons/fa";
 import AccessTags from "./info_parts/access_tags";
+import { skeleton } from "@/components/global/skeleton";
+import { toBase64 } from "@/components/global/skeleton";
 
 import { KaiseiDecol } from "@/app/fonts";
 
@@ -17,7 +18,7 @@ export default function Access() {
     ]
 
     return(
-        <div className="mt-[30vw] pt-[20vw] pb-[10vw] bg-[darkturquoise] text-white">
+        <div className="mt-[10vw] pt-[20vw] pb-[10vw] bg-[darkturquoise] text-white">
             <h2 className={`${kaiseiDecol.className} text-center text-[12vw]`}>アクセス</h2>
             <p className="text-[3.5vw] text-center mt-[1vw] mb-[4vw] ">必ず公共交通機関を使ってご来校ください</p>   
             <div className="">
@@ -45,7 +46,7 @@ export default function Access() {
                             バス         
                         </p>
                         <div className="w-full relative">
-                            <Image src={value.img!} alt="バス停マップ" width={1000} height={500} className="w-full aspect-auto rounded-lg"></Image>
+                            <Image src={value.img!} alt="バス停マップ" width={1000} height={500} className="w-full aspect-auto rounded-lg" placeholder={`data:image/svg+xml;base64,${toBase64(skeleton(128, 128))}`}></Image>
                             <p className="absolute -top-[6vw] left-1/2 -translate-x-1/2 text-[3.5vw]">のりば案内</p>
                         </div>
                         <div className="mt-[5vw]">

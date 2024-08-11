@@ -5,7 +5,7 @@ const kaiseiDecol = KaiseiDecol
 export default function Date2 () {
     return(
         <div>
-            <p className={`${kaiseiDecol.className} text-[20vw] text-[darkturquoise] flex justify-center`}>
+            <p className={`${kaiseiDecol.className} text-[20vw] text-[darkturquoise] font-bold flex justify-center`}>
                 <span>
                     9/7
                 </span>

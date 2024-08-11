@@ -12,7 +12,7 @@ export default function Attention() {
     ]
 
     return(
-        <div className="my-[20vw] ">
+        <div className="py-[20vw] ">
             <div>
                 <h2 className={`${kaiseiDecol.className} text-center text-[12vw] text-rose-600 font-bold`}>注意事項</h2>
             </div>

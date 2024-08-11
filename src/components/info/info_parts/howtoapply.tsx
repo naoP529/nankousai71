@@ -1,4 +1,5 @@
-
+import { skeleton } from "@/components/global/skeleton";
+import { toBase64 } from "@/components/global/skeleton";
 import Image from "next/image"
 
 import { KaiseiDecol } from "@/app/fonts";
@@ -24,7 +25,7 @@ export default function HowToApply() {
                         <p>{value.text}</p>
                     </div>
                     <div className="my-[5vw] mx-[6vw] ">
-                        <Image src={value.img} alt="説明画像" width={1000} height={2000} className="rounded-md"></Image>
+                        <Image src={value.img} alt="説明画像" width={1000} height={2000}  className="rounded-md w-full aspect-auto" placeholder={`data:image/svg+xml;base64,${toBase64(skeleton(128, 128))}`}></Image>
                     </div>
                 </div>
             ))}

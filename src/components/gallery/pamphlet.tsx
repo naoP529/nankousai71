@@ -7,6 +7,8 @@ import "swiper/css/navigation";
 import "swiper/css";
 import { IoIosArrowDropleftCircle } from "react-icons/io";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
+import { skeleton } from "@/components/global/skeleton";
+import { toBase64 } from "@/components/global/skeleton";
 
 
 import { KaiseiDecol } from "@/app/fonts";
@@ -28,7 +30,7 @@ export default function Pamphlet () {
 
     return(
         <div className="w-full">
-            <h2 className={`mb-[5vw] ${kaiseiDecol.className} text-center text-[12vw] text-[darkturquoise]`}>パンフレット</h2>
+            <h2 className={`pb-[5vw] ${kaiseiDecol.className} text-center text-[12vw] text-[darkturquoise]`}>パンフレット</h2>
             <div className='relative'>
                 <Swiper
                     modules={[Navigation, Pagination]}
@@ -44,7 +46,7 @@ export default function Pamphlet () {
                     {img.map((value) => (
                         <SwiperSlide key={value}>
                             <div className="w-[75vw] mx-auto drop-shadow-lg">
-                                <Image src={value} alt='パンフレット' width={2000} height={1000} className='w-full aspect-auto'></Image>
+                                <Image src={value} alt='パンフレット' width={2000} height={1000} className='w-full aspect-auto' placeholder={`data:image/svg+xml;base64,${toBase64(skeleton(128, 128))}`} ></Image>
                             </div>
                         </SwiperSlide>
                     ))}
