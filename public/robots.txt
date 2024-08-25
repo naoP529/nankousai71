@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://nankousai71.vercel.app/
+
+# Sitemaps
+Sitemap: https://nankousai71.vercel.app/sitemap.xml

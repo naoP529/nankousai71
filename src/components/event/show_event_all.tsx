@@ -82,10 +82,10 @@ export default function ShowEvent(
         {id:"other", name:"その他", color:"from-sky-600 to-sky-200"},
     ]
 
-    const [selected, setSelected] = useState<any>()
-    const [allTags, setTags] = useState<any>()
+    
+    
     const [notfound, setNotfound] = useState(false)
-    const [selected_card, setSelectCard] = useState<any>()
+    
 
     const params = useSearchParams();
     const type = params.get("type")?.toString()
@@ -96,18 +96,53 @@ export default function ShowEvent(
     if(type != undefined) {
         types.push(type)
         let find_tag = Tags.find((value) => value.name == type)
-        if(!find_tag) {
-            return
+        if(find_tag) {
+            newTag.push(find_tag)
+            let others = Tags.filter(value => value.name != type)
+            others.forEach((value) => newTag.push(value))
         }
-        newTag.push(find_tag)
-        let others = Tags.filter(value => value.name != type)
-        others.forEach((value) => newTag.push(value))
-    } else {
+    }  else {
         newTag = Tags
     }
 
-    selected(types)
-    setTags(newTag)
+    const [selected, setSelected] = useState<Array<string>>(types)
+    const [allTags, setTags] = useState<Array<{id:string, name:string, color:string}>>(newTag)
+
+    
+    const selectCard = (newData:Array<string>) => {
+        if(newData.length == 0) {
+            // console.log("タグ無し")
+            return new_contents
+        } else {
+            const find_tag = (item:any) => {
+                const tags = item.tags
+                for(let i =0; i < tags.length; i++) {
+                    if(newData.includes(tags[i])) {
+                        return true
+                    }
+                }
+    
+                return false
+            }
+    
+            let found = new_contents.filter(find_tag)
+    
+            return found
+        }
+    }
+
+    const initContent = (tag:string | undefined) => {
+        if(tag == undefined) {
+            return new_contents
+        }
+
+        const select = selectCard([tag])
+        return select
+    }
+
+    const init = initContent(type)
+    const [selected_card, setSelectCard] = useState<Array<any>>(init)
+    
 
     // const textColors = [
     //     { name:"中学1年", color:"text-amber-500"},
@@ -174,38 +209,7 @@ export default function ShowEvent(
 
     
 
-    
-    const selectCard = (newData:Array<string>) => {
-        if(newData.length == 0) {
-            // console.log("タグ無し")
-            return new_contents
-        } else {
-            const find_tag = (item:any) => {
-                const tags = item.tags
-                for(let i =0; i < tags.length; i++) {
-                    if(newData.includes(tags[i])) {
-                        return true
-                    }
-                }
-    
-                return false
-            }
-    
-            let found = new_contents.filter(find_tag)
-    
-            return found
-        }
-    }
 
-    const initContent = (tag:string | undefined) => {
-        if(tag == undefined) {
-            return new_contents
-        }
-
-        const selected = selectCard([tag])
-        return selected
-    }
-    setSelectCard(initContent(type))
 
     const tagButtonChange = (e:any) => {
         // let nullOrNot = false
@@ -231,7 +235,7 @@ export default function ShowEvent(
         const selectedData = selectCard(newData)
         // console.log(selectedData)
         setSelectCard(selectedData)
-        console.log(selectedData.length)
+        console.log("取得展示数："+selectedData.length)
         if(selectedData.length == 0) {
             setNotfound(true)
         } else {
@@ -258,16 +262,6 @@ export default function ShowEvent(
         const index = selected_card.findIndex((item:any) => item == target)
         console.log(index)
         return index
-    }
-
-
-    const hoverStart = (name:string) => {
-        setHover(name)
-        return
-    }   
-
-    const hoverEnd = () => {
-        setHover("")
     }
 
     const variants = {
