@@ -17,7 +17,7 @@ type eventData = {
         title:string,
         comment:string,
         place:string,
-        time:string,
+        time:Array<string>,
         type:string,
         tags:Array<string>,
         available:boolean
@@ -54,7 +54,7 @@ export default function Page() {
     return(
         <div className="h-screen bg-white">
             {name?
-            <div className="w-screen">
+            <div className="w-full">
                 {data? 
                 <div>
                     <ShowDetails event={data.event} detail={data.detail} name={name}></ShowDetails>

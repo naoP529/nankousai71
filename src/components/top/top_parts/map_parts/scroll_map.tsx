@@ -28,14 +28,14 @@ export default function ScrollMap(
                     smooth={true} 
                     wheel={{
                         step:0.7,
-                        smoothStep:0.0025
+                        smoothStep:0.0022
                     }}
                     initialScale={0.8}
                     minScale={0.3}
                 >
                     <TransformComponent 
                         wrapperStyle={{
-                            height:"100%",          width:"100%",        borderRadius:"50%",
+                            height:"100%",          width:"100%",        borderRadius:"50%", cursor:"pointer"
                         }}
 
                         contentStyle={{

@@ -6,12 +6,15 @@ export default async function GetEvent() {
 
     const {data:events} = await supabase.from('contents').select(`*` );
 
+    const {data:new_event} = await supabase.from('new_content').select(`*` );
+
+    const allEvents = events?.concat(new_event)
 
     let eventData = []
 
     
-    for(let i = 0; i < events!.length; i++) {
-        const item = events![i]
+    for(let i = 0; i < allEvents!.length; i++) {
+        const item = allEvents![i]
         let tags = [item.type, item.name]
         let types = [item.type]
         
@@ -40,12 +43,44 @@ export default async function GetEvent() {
         }
 
         if(item.time == null) {
-            item.time = "allTime"
+            item.time = ["終日開催"]
+        } else {
+            const splitTime = item.time.split(" ")
+            const editedTimeText = splitTime.map((value:string) => (
+                value.split("~")
+            ))
+            var newTimes:any = []
+            for(let i = 0; i < editedTimeText.length; i++) {
+                const time = editedTimeText[i]
+                const newTime = time.map((value:string) =>(
+                    value.replace("2024-", "").split("-")
+                ))
+                const timeNeo = newTime.map((value:Array<string>) => {
+                    // console.log(item.name)
+                    // console.log(splitTime + " "+ value[3])
+                    if(value[3].length == 1){
+                        return value[2] + ":0" + value[3]
+                    } else {
+                        return value[2] + ":" + value[3]
+                    }
+                })
+
+                var result:string = ""
+                if(time[0].includes("9-7")) {
+
+                    result = "9/7 "+ timeNeo[0] + "~" + timeNeo[1]
+                } else {
+                    result = "9/8 "+ timeNeo[0] + "~" + timeNeo[1]
+                }
+                newTimes.push(result)
+            }
+            item.time= newTimes
         }
+
 
         item.types = types
         item.tags = tags
-        item.img = "/450-20180828001840181017.jpg"
+        item.img = `/${item.name}.png`
 
         const {type,language, genre, create_at,id, ...newItem} = item
 

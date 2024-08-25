@@ -16,12 +16,69 @@ const kaiseiDecol = KaiseiDecol
 
 export default function Map() {
     const imgs = [
-        {img:"/map_placeholder.jpg", test:"bg-slate-50"},
-        {img:"/map_placeholder.jpg", test:"bg-slate-100"},
-        {img:"/map_placeholder.jpg", test:"bg-slate-200"},
-        {img:"/map_placeholder.jpg", test:"bg-slate-300"},
-        {img:"/map_placeholder.jpg", test:"bg-slate-300"},
-        {img:"/map_placeholder.jpg", test:"bg-slate-300"},
+        {img:"/フロアマップ1.png", test:[
+            {num:"1",name:"高校3年1組"},
+            {num:"2",name:"高校3年2組"},
+            {num:"3",name:"高校3年3組"},
+            {num:"4",name:"高校3年4組"},
+            {num:"5",name:"高校3年5組"},
+            {num:"6",name:"生徒会本部"},
+            {num:"7",name:"高校文芸同好会"},
+            {num:"8",name:"書道部"},
+        ]},
+        {img:"/フロアマップ2.png", test:[
+            {num:"9",name:"中学1年1組"},
+            {num:"10",name:"中学1年2組"},
+            {num:"11",name:"中学1年3組"},
+            {num:"12",name:"中学1年4組"},
+            {num:"13",name:"高校1年1組"},
+            {num:"14",name:"高校1年2組"},
+            {num:"15",name:"高校1年3組"},
+            {num:"16",name:"高校1年4組"},
+            {num:"17",name:"高校1年5組"},
+            {num:"18",name:"M-BOX"},
+            {num:"19",name:"美術部"},
+            {num:"20",name:"図書委員会"},
+            {num:"21",name:"書道部"},
+            {num:"22",name:"高校軽音楽部"},
+            {num:"23",name:"高校ダンス部"},
+            {num:"24",name:"吹奏楽部"},
+            {num:"25",name:"茶道部"},
+            {num:"26",name:"中学演劇部"},
+            {num:"27",name:"高校演劇部"},
+            {num:"28",name:"弦楽部"},
+        ]},
+        {img:"/フロアマップ3.png", test:[
+            {num:"29",name:"70・10周年委員会"},
+            {num:"30",name:"PTA"},
+            {num:"31",name:"PTA合唱団"},
+            {num:"32",name:"風の章実行委員会"},
+            {num:"33",name:"高校料理部"},
+            {num:"34",name:"PTAリサイクル"},
+            {num:"35",name:"科学部"},
+            {num:"36",name:"プラネタリウム"},
+        ]},
+        {img:"/フロアマップ4.png", test:[
+            {num:"37",name:"中学2年1組"},
+            {num:"38",name:"中学2年2組"},
+            {num:"39",name:"中学2年3組"},
+            {num:"40",name:"中学2年4組"},
+            {num:"41",name:"高校2年1組"},
+            {num:"42",name:"高校2年2組"},
+            {num:"43",name:"高校2年3組"},
+            {num:"44",name:"高校2年4組"},
+            {num:"45",name:"高校2年5組"},
+        ]},
+        {img:"/フロアマップ5.png", test:[
+            {num:"46",name:"中学3年1組"},
+            {num:"47",name:"中学3年2組"},
+            {num:"48",name:"中学3年3組"},
+            {num:"49",name:"中学3年4組"},
+            {num:"50",name:"母親の読書会"},
+            {num:"51",name:"学校説明"},
+            {num:"52",name:"港南区選挙管理委員会"},
+            {num:"53",name:"同窓会"},
+        ]},
     ]
 
     const properties = ["text-[10vw]", "font-bold", "text-transparent", "bg-clip-text", "bg-gradient-to-br", "from-sky-500", "via-[#05bd92]", "to-[#f3e50a]"]
@@ -45,12 +102,13 @@ export default function Map() {
                     <RoundButtonTurquoise text="別ページで見る" size={40}></RoundButtonTurquoise>
                 </div>   
             </Link>
-            <div className="relative">
-                <div className="text-[15vw] left-[3vw] top-[-2%] absolute  z-10">
+            <div className="relative  ">
+                <div className="text-[15vw] left-[3vw] top-[-8%] absolute  z-10">
                     <p className={`${kaiseiDecol.className} bg-gradient-to-br text-transparent bg-clip-text from-sky-500 via-[#05bd92] to-[#f3e50a]  tracking-wide`}>{active}F</p>  
                 </div>    
  
                 <Swiper
+                    allowTouchMove={false}
                     onInit={getActiveSlide}
                     onRealIndexChange={getActiveSlide}
                     modules={[Navigation]}
@@ -60,8 +118,9 @@ export default function Map() {
                     loop={true}
                     navigation
                     className={` 
-                        [&_.swiper-button-prev]:w-[4vw]
-                        [&_.swiper-button-next]:w-[4vw]
+                        my-[5vw] mt-[10vw]
+                        [&_.swiper-button-prev]:w-[3vw]
+                        [&_.swiper-button-next]:w-[3vw]
                         ${styles.join(" ")}
                         [&_.swiper-button-prev::after]:bg-gradient-to-br
                         [&_.swiper-button-prev::after]:text-transparent
@@ -79,12 +138,22 @@ export default function Map() {
                 >
                     {imgs.map((value) => (
                         <SwiperSlide key={value.img}>
-                            <div className="w-[82vw] mx-auto my-[10vw]">
+                            <div className="w-[82vw] mx-auto">
                                 <ScrollMap img={value.img}></ScrollMap>
                             </div>
                         </SwiperSlide>
                     ))}
                 </Swiper>
+                <div className=" h-[25vw]">
+                    {/* <p className="text-center text-[3vw] text-gray-400">展示一覧</p> */}
+                    <div className="flex flex-wrap mx-[4vw] justify-center">
+                        {imgs[active - 1].test.map((value, index) => (
+                            <div key={index} className="pr-[2vw]">
+                                <Link href={{pathname:"/event/introduction", query:{name:value.name}}} className="text-[2.8vw] text-gray-500">#{value.num} {value.name}</Link>
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </div>
             
 {/* 

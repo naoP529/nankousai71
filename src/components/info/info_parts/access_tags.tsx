@@ -1,6 +1,7 @@
 "use client"
 import ScrollContainer from "react-indiana-drag-scroll"
 import { Link as Scroll } from 'react-scroll';
+import { motion } from "framer-motion";
 
 export default function AccessTags() {
     const tags= [
@@ -20,16 +21,17 @@ export default function AccessTags() {
             <ScrollContainer>
                 <div className="flex mt-[5vw] ">
                     {tags.map((value) => (
-                        <Scroll key={value.id} to={value.id} smooth className="cursor-pointer p-[1vw] h-[10vw] inline-block flex-shrink-0 mx-[2vw] bg-white rounded-lg">    
-                                <div 
+                        <Scroll key={value.id} to={value.id} smooth className="cursor-pointer  inline-block flex-shrink-0 mx-[2vw] ">    
+                                <motion.div 
                                     className={`text-[4vw] 
-                                    font-medium  flex h-full relative`}
+                                    font-medium  flex p-[1vw] h-[10vw] relative bg-white rounded-lg`}
+                                    whileHover={{opacity:0.8}} transition={{duration:0.1}}
                                 >
                                     <p className={`px-[4vw] my-auto  z-[5]
                                         text-[darkturquoise] `}>
                                         {value.name}
                                     </p>
-                                </div>
+                                </motion.div>
                         </Scroll>
                         
                     ))}

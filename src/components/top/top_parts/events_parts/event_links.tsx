@@ -32,7 +32,7 @@ export default function ClassEvent() {
                     <p className={`text-[darkturquoise] font-normal text-justify text-[3.5vw] leading-[150%] tracking-tight my-[2vw]`}>27クラスによる色彩豊かな展示を体験できます。</p>
                 </div>         
                 <div className="grow bg-yellow-100 aspect-[5/4] ml-[5vw] mr-[8vw] mt-[8vw]  relative"> 
-                    <Image src={"/IMG_20240705_174147757.jpg"} alt="展示の様子" fill className="rounded-xl opacity-90 object-cover " placeholder={`data:image/svg+xml;base64,${toBase64(skeleton(128, 128))}`}></Image>
+                    <Image src={"/クラス展示.png"} alt="展示の様子" fill className="rounded-xl opacity-90 object-cover " placeholder={`data:image/svg+xml;base64,${toBase64(skeleton(128, 128))}`}></Image>
                 </div>
                 <div className="w-full mt-[7vw]">
                     <Link href={{pathname:"/event", query:{type:"クラス展示"}}}>
@@ -57,7 +57,7 @@ export function ClubEvent() {
                     <p className={`text-[darkturquoise] font-normal text-justify text-[3.5vw] leading-[150%] tracking-tight my-[2vw]`}>中高の部活動によるアクティビティや体験の数々</p>
                 </div>         
                 <div className="grow bg-yellow-100 aspect-[5/4] ml-[5vw] mr-[8vw] mt-[8vw]  relative"> 
-                    <Image src={"/IMG_20240705_174147757.jpg"} alt="展示の様子" fill className="rounded-xl opacity-90 object-cover " placeholder={`data:image/svg+xml;base64,${toBase64(skeleton(128, 128))}`}></Image>
+                    <Image src={"/部活動展示.png"} alt="展示の様子" fill className="rounded-xl opacity-90 object-cover " placeholder={`data:image/svg+xml;base64,${toBase64(skeleton(128, 128))}`}></Image>
                 </div>
                 <div className="w-full mt-[7vw]">
                     <Link href={{pathname:"/event", query:{type:"部活動展示"}}}>
@@ -82,7 +82,7 @@ export function FoodEvent() {
                     <p className={`text-[darkturquoise] font-normal text-justify text-[3.5vw] leading-[150%] tracking-tight my-[2vw]`}>高校3年、PTAなどによる絶品フードとドリンク</p>
                 </div>         
                 <div className="grow bg-yellow-100 aspect-[5/4] ml-[5vw] mr-[8vw] mt-[8vw]  relative"> 
-                    <Image src={"/IMG_20240705_174147757.jpg"} alt="展示の様子" fill className="rounded-xl opacity-90 object-cover " placeholder={`data:image/svg+xml;base64,${toBase64(skeleton(128, 128))}`}></Image>
+                    <Image src={"/フード販売.png"} alt="展示の様子" fill className="rounded-xl opacity-90 object-cover " placeholder={`data:image/svg+xml;base64,${toBase64(skeleton(128, 128))}`}></Image>
                 </div>
                 <div className="w-full mt-[7vw]">
                     <Link href={{pathname:"/event", query:{type:"フード"}}}>

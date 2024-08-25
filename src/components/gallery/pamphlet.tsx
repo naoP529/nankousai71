@@ -17,14 +17,20 @@ const kaiseiDecol = KaiseiDecol
 
 export default function Pamphlet () {
     const img = [
-        "/ダウンロード.jpeg",
-        "/ダウンロード.jpeg",
-        "/ダウンロード.jpeg",
-        "/ダウンロード.jpeg",
-        "/ダウンロード.jpeg",
-        "/ダウンロード.jpeg",
-        "/ダウンロード.jpeg",
-        "/ダウンロード.jpeg",
+        "/24年度rondo 暫定版-1.png",
+        "/24年度rondo 暫定版-2.png",
+        "/24年度rondo 暫定版-3.png",
+        "/24年度rondo 暫定版-4.png",
+        "/24年度rondo 暫定版-5.png",
+        "/24年度rondo 暫定版-6.png",
+        "/24年度rondo 暫定版-7.png",
+        "/24年度rondo 暫定版-8.png",
+        "/24年度rondo 暫定版-9.png",
+        "/24年度rondo 暫定版-10.png",
+        "/24年度rondo 暫定版-11.png",
+        "/24年度rondo 暫定版-12.png",
+        "/24年度rondo 暫定版015B.png",
+        "/24年度rondo 暫定版-16.png",
     ]
 
 

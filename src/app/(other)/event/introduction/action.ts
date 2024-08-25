@@ -1,22 +1,73 @@
 "use server"
 
 import { serverClient } from "@/utils/supabase/server"
+import { title } from "process";
 
 export async function getEventDetails(name:string) {
     const supabase = await serverClient()
 
-    const {data:event} = await supabase.from('contents').select(`title, genre, type, comment, place, time, available`).eq("name", name);
-    const {data:detail} = await supabase.from('introduction').select(`title, content`).eq("name", name)
+    const {data:event} = await supabase.from('contents').select(`*` );
 
-    if(event == null || detail == null) {
+    const {data:new_event} = await supabase.from('new_content').select(`*`);
+
+    const allEvents = event?.concat(new_event)
+
+    if(allEvents == null) {
         return "failed"
     }
 
-    let newEvent:any = []
-    newEvent = event[0]
+    let newContent = allEvents?.find((value) => (
+        value.name == name
+    ))
+
+    console.log(newContent)
+
+    const {data:detail} = await supabase.from('introduction').select(`title, content`).eq("name", name)
+
+    let details:any = []
+
+    if(detail == null) {
+        if(newContent != null) {
+            details = [{title:"何か", content:"テキストテキスト"}]     
+        } else {
+            return "failed"
+        }
+    } else {
+        details = detail
+    }
+
+    let newEvent = newContent
     
-    if(event[0].time == null) {   
-        newEvent.time = "全日開催" 
+    if(newContent.time == null) {   
+        newEvent.time = ["終日開催"] 
+    } else {
+        const splitTime = newContent.time.split(" ")
+        const editedTimeText = splitTime.map((value:string) => (
+            value.split("~")
+        ))
+        var newTimes:any = []
+        for(let i = 0; i < editedTimeText.length; i++) {
+            const time = editedTimeText[i]
+            const newTime = time.map((value:string) =>(
+                value.replace("2024-", "").split("-")
+            ))
+            const timeNeo = newTime.map((value:Array<string>) => {
+                if(value[3].length == 1){
+                    return value[2] + ":0" + value[3]
+                } else {
+                    return value[2] + ":" + value[3]
+                }
+            })
+
+            var text:string = ""
+            if(time[0].includes("9-7")) {
+                text = "9/7  "+ timeNeo[0] + "~" + timeNeo[1]
+            } else {
+                text = "9/8  "+ timeNeo[0] + "~" + timeNeo[1]
+            }
+            newTimes.push(text)
+        }
+        newEvent.time= newTimes
     }
    
     let tags = [newEvent.type]
@@ -42,8 +93,10 @@ export async function getEventDetails(name:string) {
 
     newEvent.tags = tags
 
+    console.log(tags)
+
     const result = {
-        event:newEvent, detail:detail
+        event:newEvent, detail:details
     }
 
     return result
