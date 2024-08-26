@@ -25,11 +25,12 @@ export default async function page() {
 
     console.log("allイベント:" + event.length)
 
-    const event_filter = places.map((value) => (
-        {place:value, event:event.filter((e) => e.place == value)}
-    ))
+    const event_filter = places.map((value) => {
+        const test = event.filter((e) => e.place.includes(value))
+        console.log("place:" + test)
 
-    
+        return    {place:value, event:event.filter((e) => e.place.includes(value))}
+    })
 
     const newEvent:any = []
 
@@ -49,7 +50,9 @@ export default async function page() {
 
             const [length97, length98] = [endDate97 - startDate97, endDate98 - startDate98] 
 
-            console.log("Date0907"+ new Date(2024,9,7,9,0))
+            // console.log("Date0907"+ new Date(2024,9,7,9,0))
+
+
             // if(split_time_space.length == 1) {
             //     console.log(split_time_space[0])
             //     const split:Array<string> = split_time_space[0].split("~")
@@ -143,22 +146,22 @@ export default async function page() {
                 // console.log("editC" + edit_timeC)
 
                 const timesForDate = edit_timeB.map((e) => {
-                    console.log(`times_number:${e[0]},${e[1]}, ${e[2]},${e[3]}`)
+                    // console.log(`times_number:${e[0]},${e[1]}, ${e[2]},${e[3]}`)
                     return new Date(e[0], e[1] - 1, e[2], e[3], e[4])
                 })
 
                 // const test = edit_timeB[0]
                 // console.log("date"+ new Date(test[0], test[1] -1, test[2], test[3], test[4]))
                 
-                console.log("time:"+ edit_timeB+ "  " + "name:" + event[n].name)
-                console.log("date:" + timesForDate)
+                // console.log("time:"+ edit_timeB+ "  " + "name:" + event[n].name)
+                // console.log("date:" + timesForDate)
                 const TimeStamps = timesForDate.map((value) => (Math.floor(value.getTime() / 1000)))
-                console.log("timestamp:" + TimeStamps)
+                // console.log("timestamp:" + TimeStamps)
 
                 var [startPercent, contentPercent] = [0, 0]
                 var [startText, contentText] = ["", ""]
 
-                console.log(split[0])
+                // console.log(split[0])
                 if(split[0].includes("9-7")) {
                     const startLength = TimeStamps[0] - startDate97
                     startPercent = startLength / length97 * 100
@@ -178,8 +181,8 @@ export default async function page() {
                 startText = startPerString + "%"
                 contentText = contentPerString + "%"
 
-                console.log("位置："+ startText)
-                console.log( "高さ:"+contentText + "\n")
+                // console.log("位置："+ startText)
+                // console.log( "高さ:"+contentText + "\n")
 
                 timeStamp.push({start:split[0], end:split[1], name:event[n].name, title:event[n].title, startPosition:startText, contentLength:contentText})
             }
@@ -190,22 +193,32 @@ export default async function page() {
 
             const onSep7 = timeStamp.filter((e:any) => e.start.includes("9-7"))
             const onSep8 = timeStamp.filter((e:any) => e.start.includes("9-8"))
+            // console.log( "9/7 " +onSep7,)
+            // console.log("9/8 " +onSep8)
             // console.log("onSep7:"+onSep7)
             // console.log("onSep8:"+onSep8)
 
-            newEventData.onSep7 = onSep7
-            newEventData.onSep8 = onSep8
+            const anyArray = onSep7.map((t:any) => {
+                newEventData.onSep7.push(t)
+            })
+            const anyArray2 = onSep8.map((t:any) => {
+                newEventData.onSep8.push(t)
+            })
+            // newEventData.onSep7 = onSep7
+            // newEventData.onSep8 = onSep8
+            // console.log(newEventData)
         }
 
-        console.log("newEventData:"+newEventData)
+        // console.log("newEventData:"+newEventData)
         newEvent.push({place:event_filter[i].place, event:newEventData})
+        console.log(newEvent)
     }
 
-    const test = newEvent.map((value:any) => (
-        console.log("onSep7:"+ value.event.onSep7.length + "\n"
-            + "onSep8:" + value.event.onSep8.length
-        )
-    ))
+    // const test = newEvent.map((value:any) => (
+    //     console.log("onSep7:"+ value.event.onSep7.length + "\n"
+    //         + "onSep8:" + value.event.onSep8.length
+    //     )
+    // ))
 
     return(
         <div className="py-[30vw] h-full bg-white">

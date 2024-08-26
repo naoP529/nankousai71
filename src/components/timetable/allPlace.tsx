@@ -42,6 +42,7 @@ type newEventType = {
 export default function AllPlace (
     {content}:events
 ) {
+    console.log(content)
     const [day, setDay] = useState("9/7")
 
     const places = [
@@ -246,7 +247,7 @@ export default function AllPlace (
                                     <div className= "w-full h-full relative flex justify-center">
                                         {(function() {
                                             const events = content.find((e) => (e.place == value))?.event
-                                            console.log(events)
+                                            console.log( events)
                                             var event_array:Array<event_type> | never[] = []
 
                                             if(day == "9/7") {
@@ -254,6 +255,7 @@ export default function AllPlace (
                                                     return 
                                                 }
                                                 event_array = events?.onSep7
+                                                console.log(event_array)
                                             } else {
                                                 if(events?.onSep8 == null) {
                                                     return 
