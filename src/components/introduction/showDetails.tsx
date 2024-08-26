@@ -9,6 +9,11 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { KaiseiDecol } from "@/app/fonts";
 import { FaAngleDown } from "react-icons/fa";
+import Keion from "./Keion";
+import { HowToPay } from "./atentions";
+import GetFood from "./show_foods";
+import SadouClub from "./sadou_club";
+import Pranetarium_tiket from "./atentions";
 
 const kaiseiDecol = KaiseiDecol
 
@@ -210,18 +215,41 @@ export default function ShowDetails (
             <div className="w-full my-[7vw] px-[6vw]">
                     <p className={`text-[3.5vw] font-medium tracking-tight text-slate-500 text-center ${kaiseiDecol.className}`}>{event.comment}</p>
             </div>
+            {name == "プラネタリウム" &&
+                <div className="w-full px-[4vw] mb-[15vw]">
+                    <Pranetarium_tiket></Pranetarium_tiket>
+                </div>
+            }
+            {name == "茶道部" &&
+                <div className="w-full px-[4vw] pb-[3vw]">
+                    <SadouClub></SadouClub>
+                </div>
+            }
+            {name == "高校軽音楽部" &&
+                <Keion></Keion>
+            }
+            {event.tags.includes("高校3年") && 
+                <div className="w-full px-[4vw] mb-[10vw]">
+                    <HowToPay></HowToPay>
+                </div>
+            }
+            {event.tags.includes("フード") &&
+                <div className="w-full px-[4vw] mb-[15vw]">
+                    <GetFood name={name}></GetFood>
+                </div>
+            }
             {event.available == true ?
             <div>
                 
                 <div className="w-auto">
                 {newDetails.map((value) => (
-                    <div key={value.title} className="mb-[15vw] mx-[4vw]">
+                    <div key={value.title} className="mb-[12vw]  mx-[4vw] ">
                         <div className="flex shadow-slate-100 shadow-md">
                             <div className=" w-[2vw] bg-gradient-to-b from-[#01e1e5] to-[#039fa2]"></div>
-                            <p className={`${kaiseiDecol.className} text-[7vw] ml-[2vw] py-[1vw] bg-gradient-to-b from-[#01e1e5] to-[#009294] text-transparent bg-clip-text font-bold`}>{value.title}</p>
+                            <p className={`${kaiseiDecol.className} text-[7vw] ml-[2vw] py-[1vw] bg-gradient-to-b from-[#01e1e5] to-[#009294]  text-transparent bg-clip-text font-bold`}>{value.title}</p>
                         </div>
-                        <div className="ml-[3vw] mr-[4vw] my-[4vw] text-[4.5vw] text-[#00b2b5] font-light  opacity-80 leading-[160%] text-justify">
-                            <p>&emsp;{value.content}</p>
+                        <div className="ml-[2vw] mr-[3vw] my-[3vw] text-[4vw] text-[#00b2b5] font-light tracking-[-0.01rem]  opacity-80 leading-[160%] text-justify">
+                            <p> &ensp;{value.content}</p>
                         </div>
                     </div>
                 ))}
@@ -231,9 +259,10 @@ export default function ShowDetails (
                 <NotReady></NotReady>
             </div>
             }
+            
 
             
-            <div className="my-[5vw]">
+            <div className="my-[5vw] pb-[10vw]">
                 <p className={`my-[3vw] ${kaiseiDecol.className} text-[5vw] text-[darkturquoise] text-center`}>・・・関連タグ・・・</p>
                 <div className=" flex flex-wrap mx-[3vw] justify-start">
                     {event.tags.map((value) => (

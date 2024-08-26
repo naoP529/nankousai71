@@ -260,7 +260,6 @@ export default function ShowEvent(
             return 0
         }
         const index = selected_card.findIndex((item:any) => item == target)
-        console.log(index)
         return index
     }
 

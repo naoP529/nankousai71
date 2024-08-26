@@ -1,4 +1,10 @@
-import { serverClient } from "@/utils/supabase/server" 
+"use client" 
+import { useState, useEffect } from "react";
+import { IoTimeOutline } from "react-icons/io5";
+import { getBandData } from "./get_band";
+import { MdMusicNote } from "react-icons/md";
+import Loading from "../global/parts/loading";
+import { FaMusic } from "react-icons/fa6";
 
 type band_type = {
     name:string,
@@ -16,62 +22,54 @@ type new_data = {
     timeText:Array<string>
 }
 
-export default async function Keion() {
-    const supabase = await serverClient()
+export default function Keion() {
+    console.log("軽音楽部だよ")
+    const [data, setData] = useState<Array<new_data>>()
 
-    const {data:band} = await supabase.from('band').select(`*` );
-
-    if(band == null) {
-        return
-    }
-    let new_data:Array<new_data>  = []
-
-    let edit_data = band.map(({name, time, comment, available}:band_type) => {
-        const split = time.split(" ")
-
-        const split_map = split.map((i:string) =>{
-            const splitTime = i.split("~")
-            const edit_Times = splitTime.map((value) => (
-                value.split("-")
-            )) 
-            const new_edit_Times = edit_Times.map((value) => {
-                var newData = []
-                if(value[3].charAt(0) == "0") {
-                    newData = [value[3].replace("0", ""),value[4]]
-                } else {
-                    newData = [value[3], value[4]]
-                }
-                return newData
-            })
-            const time_numbers = edit_Times.map((value) => (
-                value.map((e) => (
-                    Number(e)
-                ))
-            ))
-            const timesAsDate = time_numbers.map((e) => {
-                return new Date(e[0], e[1] - 1, e[2], e[3], e[4])
-            })
-            const timeAsTimeStamp = timesAsDate.map((value) => (Math.floor(value.getTime() / 1000)))
-            let timeText = ["",new_edit_Times[0][0] + ":" + new_edit_Times[0][1], new_edit_Times[1][0] + ":" + new_edit_Times[1][1]]
-
-            if(i.includes("09-07")) {
-                timeText[0] = "9/7"
-            } else {
-                timeText[1] = "9/8"
+    useEffect(() => {
+        const getData = async () => {
+            const result = await getBandData()
+            if(result == null || result == "failed") {
+                console.log("failed")
+                return
             }
-            new_data.push({
-                name:name, time:time, comment:comment, available:available, timeStamp:timeAsTimeStamp, timeText:timeText
-            })
-        })
-    })
+            setData(result)
+        }
 
-    const sorted = Array.from(new_data).sort((a,b) => {
-        return a.timeStamp[0] - b.timeStamp[0]
-    })
+        getData()
+    },[])
 
     return(
-        <div>
-
+        <div className="w-full px-[5vw]">
+            {data? 
+                <div className="w-full">
+                    {data.map((value, index) => (
+                        <div key={index} className="rounded-md text-gray-600 my-[8vw] bg-gradient-to-br  from-purple-50 via-fuchsia-200 to-pink-200 drop-shadow-md">
+                            <p className="font-medium px-[3vw] pt-[2vw] text-[4vw] flex items-center">
+                                <span className="pr-[2vw]">{value.timeText[0]}</span>
+                                <IoTimeOutline className="relative top-[0.1vw] mr-[1vw]"></IoTimeOutline>
+                                <span>{value.timeText[1]}</span>
+                                <span >~</span>
+                                <span>{value.timeText[2]}</span>
+                                
+                            </p>
+                            <div className="flex items-center justify-center text-[6vw] pt-[1.5vw] pb-[2vw]">
+                                <MdMusicNote className="mr-[1vw] relative top-[0.1vw]"></MdMusicNote>
+                                {value.name}
+                            </div>
+                            {value.comment == null ? <div>
+                                <p className="text-center pb-[2.5vw] text-[3.5vw]">ぜひ聴きに来てください！</p>
+                            </div> : <div>
+                                <p></p>    
+                            </div>}
+                        </div>
+                    ))}
+                </div>
+            :
+            <div className="pt-[10vw]">
+                    <Loading></Loading>
+                    {/* <p className={`text-[5vw] ${kaiseiDecol.className} text-center bg-gradient-to-br from-fuchsia-500 via-purple-400 to-sky-400 bg-clip-text text-transparent`}>・・・読み込み中・・・</p> */}
+            </div>}  
         </div>
     )
 }

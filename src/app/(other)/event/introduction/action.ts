@@ -1,7 +1,6 @@
 "use server"
 
 import { serverClient } from "@/utils/supabase/server"
-import { title } from "process";
 
 export async function getEventDetails(name:string) {
     const supabase = await serverClient()
@@ -20,7 +19,7 @@ export async function getEventDetails(name:string) {
         value.name == name
     ))
 
-    console.log(newContent)
+    // console.log(newContent)
 
     const {data:detail} = await supabase.from('introduction').select(`title, content`).eq("name", name)
 
@@ -93,7 +92,7 @@ export async function getEventDetails(name:string) {
 
     newEvent.tags = tags
 
-    console.log(tags)
+    // console.log(tags)
 
     const result = {
         event:newEvent, detail:details
