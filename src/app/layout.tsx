@@ -4,6 +4,7 @@ import { Kiwi_Maru } from "next/font/google";
 import "./globals.css";
 import { headers } from "next/headers";
 import { LoadingLayout } from "@/components/global/parts/loading_layout";
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,6 +29,7 @@ export default function RootLayout({
             <div className="w-full h-full bg-white absolute -z-10"></div>
             <div className="md:hidden z-0">
               {children}
+              
             </div>
             <div className="fixed top-0 left-0 z-[9999]">
               <LoadingLayout></LoadingLayout>
@@ -39,7 +41,7 @@ export default function RootLayout({
           <iframe className="mx-auto hidden md:block w-[50vh] h-[100vh] scrollbar-y drop-shadow-xl" src={requestUrl}></iframe>
         </div>
         }
-        
+        <Analytics />
         
       </body>
     </html>
