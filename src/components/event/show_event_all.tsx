@@ -76,9 +76,9 @@ export default function ShowEvent(
         {id:"j-1", name:"中学1年", color:" from-yellow-300  to-amber-400"},
         {id:"j-2", name:"中学2年", color:"from-sky-400 via-blue-400 to-indigo-400"},
         {id:"j-3", name:"中学3年", color:"from-pink-300 via-rose-400 to-red-400"},
-        {id:"h-1", name:"高校1年", color:"from-sky-400 via-blue-400 to-indigo-400"},
+        {id:"h-1", name:"高校1年", color:"from-yellow-300 to-amber-400"},
         {id:"h-2", name:"高校2年", color:"from-pink-300 via-rose-400 to-red-400"},
-        {id:"h-3", name:"高校3年", color:"from-yellow-300 to-amber-400"},
+        {id:"h-3", name:"高校3年", color:"from-sky-400 via-blue-400 to-indigo-400" },
         {id:"other", name:"その他", color:"from-sky-600 to-sky-200"},
     ]
 
@@ -320,7 +320,7 @@ export default function ShowEvent(
                     initial={{y:20, opacity:0}} animate={{y:0, opacity:1}} transition={{ease:"easeOut", duration:0.4, delay:find_cardIndex(value) * 0.1}}>
                         <div className="w-full h-full rounded-md bg-white flex">
                             <div className="flex-grow rounded-l-md pl-[2vw] pr-[1vw] my-auto flex flex-col">
-                                <Link href={{pathname:"/event/introduction", query:{name:value.name}}} className="relative">
+                                <Link href={{pathname:"/event/introduction", query:{name:value.name}}} className="relative" replace>
                                     <motion.div onHoverStart={e => setHover(value.name)} onHoverEnd={e => setHover("")}>
                                         <p className={`${setTextColor(value.tags)} pl-[0.5vw] text-[2.5vw] font-normal`}>{value.name}</p>
                                         <p className={`${setTextColor(value.tags)} font-medium  mb-[2.5%] ${value.title.length < 11 ? "text-[4.8vw] mt-[1%]" : "text-[4vw] mt-[1.2%]"} leading-[130%]`}>{value.title}</p>
@@ -345,7 +345,7 @@ export default function ShowEvent(
                                     ))}
                                 </div>
                             </div>
-                            <Link href={{pathname:"/event/introduction", query:{name:value.name}}}>
+                            <Link href={{pathname:"/event/introduction", query:{name:value.name}}} replace>
                                 <div className="h-full aspect-square border-l-2 border-gray-50">
                                     <Image src={value.img} alt="展示イラスト" width={1000} height={1000} className=" h-full w-full rounded-r-md object-cover"></Image>
                                 </div>

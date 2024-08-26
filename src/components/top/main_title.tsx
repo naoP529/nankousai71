@@ -8,7 +8,7 @@ const kaiseiDecol = KaiseiDecol
 
 export default function MainTitle() {
     return(
-        <div className="h-screen w-full overflow-x-hidden relative">
+        <div className="h-[100svh] w-full overflow-x-hidden relative">
             <Image src={"/南高祭ポスター背景.png"} alt="背景" fill  priority className="object-cover -z-10 object-top"></Image>
             <Image src={"/センター鳥.png"} alt="ちゅんちゅん" width={500} height={500} priority className="aspect-auto w-[26%] top-[81.5vw] left-[43.5%] absolute z-10"></Image>
             <Image src={"/鳥1.png"} alt="ちゅんちゅん1号" width={500} height={500} priority className="aspect-auto w-[35%] top-[14vw] left-[65%] absolute z-10"></Image>

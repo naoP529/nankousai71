@@ -79,7 +79,7 @@ export function FoodEvent() {
             <div className="w-full  absolute z-10 my-[4vw] flex flex-wrap items-center">
                 <div className="flex flex-col w-[45%] ml-[8vw] ">
                     <p className={`${kaiseiDecol.className} text-left text-[darkturquoise] text-[8vw] mt-[7vw]`}>フード販売</p>
-                    <p className={`text-[darkturquoise] font-normal text-justify text-[3.5vw] leading-[150%] tracking-tight my-[2vw]`}>高校3年、PTAなどによる絶品フードとドリンク</p>
+                    <p className={`text-[darkturquoise] font-normal text-justify text-[3.5vw] leading-[150%] tracking-tight my-[2vw]`}>高校3年、食堂などによる絶品フードとドリンク</p>
                 </div>         
                 <div className="grow bg-yellow-100 aspect-[5/4] ml-[5vw] mr-[8vw] mt-[8vw]  relative"> 
                     <Image src={"/フード販売.png"} alt="展示の様子" fill className="rounded-xl opacity-90 object-cover " placeholder={`data:image/svg+xml;base64,${toBase64(skeleton(128, 128))}`}></Image>

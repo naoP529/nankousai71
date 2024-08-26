@@ -98,7 +98,7 @@ export default function AllPlace (
     }
 
     const event_color = [
-        {target:["高校ダンス部", "書道部"], color:"bg-gradient-to-br from-blue-400 via-sky-300 to-sky-200"},
+        {target:["高校ダンス部", "書道部", "吹奏楽部"], color:"bg-gradient-to-br from-blue-400 via-sky-300 to-sky-200"},
         {target:["高校軽音楽部", "弦楽部", "中学演劇部","高校演劇部"], color:"bg-gradient-to-br from-purple-300 via-fuchsia-400 to-pink-400 "},
         {target:["茶道部", "プラネタリウム"], color:"bg-gradient-to-br from-green-200 via-teal-400 to-cyan-400 "},
         {target:["学校説明"],color:"bg-gradient-to-br from-sky-500 to-sky-100"},

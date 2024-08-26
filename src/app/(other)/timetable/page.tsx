@@ -1,4 +1,4 @@
-import NotReady from "@/components/global/parts/notReady";
+import { headers } from 'next/headers';
 import { KaiseiDecol } from "@/app/fonts";
 import { serverClient } from "@/utils/supabase/server"
 import AllPlace from "@/components/timetable/allPlace";
@@ -7,6 +7,9 @@ import { Suspense } from "react";
 const kaiseiDecol = KaiseiDecol
 
 export default async function page() {
+    const headersList = headers();
+    const header_url = headersList.get('x-url') || "";
+
     const supabase = await serverClient()
 
     const {data:event} = await supabase.from('new_content').select(`title, name, place, time`)
