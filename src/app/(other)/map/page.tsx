@@ -7,7 +7,6 @@ import { KaiseiDecol } from "@/app/fonts";
 import { useEffect, useState } from "react";
 import { getEvents } from "./getEventData";
 import { SlArrowRightCircle } from "react-icons/sl";
-import type { Metadata } from "next";
 
 const kaiseiDecol = KaiseiDecol
 
@@ -23,7 +22,7 @@ type events = Array<
     }
 >
 
-export default function page() {
+export default function Page() {
     const [data, setData] = useState<events>()
 
     useEffect(() => {
