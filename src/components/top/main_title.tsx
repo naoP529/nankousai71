@@ -66,13 +66,13 @@ export function MainTitlePC() {
                 <div className="xl:text-4xl text-2xl xl:mt-28 mt-16">
                     {links.map((value, i) => {
                         if(i == 0) {
-                            return( <Link href="#date">
-                                <p key={i} className="mb-1 xl:mb-4" >#{value.name}</p>
+                            return( <Link key={i} href="#date">
+                                <p  className="mb-1 xl:mb-4" >#{value.name}</p>
                             </Link>)
                         } else {
                             return(
-                                <Link href={value.id}>
-                                   <p key={i} className="mb-1 xl:mb-4" >#{value.name}</p> 
+                                <Link key={i} href={value.id}>
+                                   <p  className="mb-1 xl:mb-4" >#{value.name}</p> 
                                 </Link>
                             )
                         }
