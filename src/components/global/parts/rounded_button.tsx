@@ -36,8 +36,8 @@ export function RoundButtonOrange(
                     <p
                     className={
                         font_size == 50?
-                        `absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 text-[4.5vw]  text-white inline-block w-full text-transparent font-normal  z-20`:
-                        `absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 text-[3.5vw] text-white inline-block w-full text-transparent font-normal tracking-wide  z-20`} >
+                        `absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 text-[4.5vw] 2xl:text-xl lg:text-lg text-white inline-block w-full text-transparent font-normal  z-20`:
+                        `absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 text-[3.5vw] 2xl:text-xl lg:text-xs text-white inline-block w-full text-transparent font-normal tracking-wide  z-20`} >
                         {text}
                     </p>
                     {/* <button
@@ -78,8 +78,8 @@ export function RoundButtonPurple(
                     <p
                     className={
                         font_size == 50?
-                        `absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 text-[4.5vw]  text-white inline-block w-full text-transparent font-normal  tracking-wide z-20`:
-                        `absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 text-[3.5vw]  text-white inline-block w-full text-transparent font-normal tracking-wide  z-20`} >
+                        `absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 text-[4.5vw]  2xl:text-xl lg:text-lg text-white inline-block w-full text-transparent font-normal  tracking-wide z-20`:
+                        `absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 text-[3.5vw] 2xl:text-xl lg:text-xs text-white inline-block w-full text-transparent font-normal tracking-wide  z-20`} >
                         {text}
                     </p>
                     {/* <button
@@ -121,8 +121,8 @@ export  function RoundButtonTurquoise(
                     <p
                     className={
                         font_size == 50?
-                        `absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 text-[4.5vw]  text-white inline-block w-full text-transparent font-normal tracking-wide z-20`:
-                        `absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 text-[3.5vw] text-white inline-block w-full text-transparent font-normal tracking-wide z-20`} >
+                        `absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 text-[4.5vw] 2xl:text-xl lg:text-lg text-white inline-block w-full text-transparent font-normal tracking-wide z-20`:
+                        `absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 text-[3.5vw] 2xl:text-xl lg:text-xs text-white inline-block w-full text-transparent font-normal tracking-wide z-20`} >
                         {text}
                     </p>
                     {/* <button

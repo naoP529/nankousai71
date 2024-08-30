@@ -40,12 +40,12 @@ export default function Keion() {
     },[])
 
     return(
-        <div className="w-full px-[5vw]">
+        <div className="w-full px-[5vw] lg:px-6 lg:pb-8">
             {data? 
-                <div className="w-full">
+                <div className="w-full mx-auto lg:w-[70%]">
                     {data.map((value, index) => (
-                        <div key={index} className="rounded-md text-gray-600 my-[8vw] bg-gradient-to-br  from-purple-50 via-fuchsia-200 to-pink-200 drop-shadow-md">
-                            <p className="font-medium px-[3vw] pt-[2vw] text-[4vw] flex items-center">
+                        <div key={index} className="rounded-md text-gray-600 my-[8vw] lg:my-12 bg-gradient-to-br  from-purple-50 via-fuchsia-200 to-pink-200 drop-shadow-md">
+                            <p className="font-medium px-[3vw] pt-[2vw] lg:pt-4 lg:px-10 text-[4vw] lg:text-2xl flex items-center">
                                 <span className="pr-[2vw]">{value.timeText[0]}</span>
                                 <IoTimeOutline className="relative top-[0.1vw] mr-[1vw]"></IoTimeOutline>
                                 <span>{value.timeText[1]}</span>
@@ -53,12 +53,12 @@ export default function Keion() {
                                 <span>{value.timeText[2]}</span>
                                 
                             </p>
-                            <div className="flex items-center justify-center text-[6vw] pt-[1.5vw] pb-[2vw]">
+                            <div className="flex items-center justify-center text-[6vw] lg:text-4xl pt-[1.5vw] pb-[2vw] lg:pt-4 lg:pb-5">
                                 <MdMusicNote className="mr-[1vw] relative top-[0.1vw]"></MdMusicNote>
                                 {value.name}
                             </div>
                             {value.comment == null ? <div>
-                                <p className="text-center pb-[2.5vw] text-[3.5vw]">ぜひ聴きに来てください！</p>
+                                <p className="text-center pb-[2.5vw] lg:pb-6 text-[3.5vw] lg:text-2xl">ぜひ聴きに来てください！</p>
                             </div> : <div>
                                 <p></p>    
                             </div>}

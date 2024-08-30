@@ -4,10 +4,49 @@ import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import Image from "next/image"
 import Link from "next/link";
 import { KaiseiDecol } from "@/app/fonts";
+import { useEffect, useState } from "react";
+import { getEvents } from "./getEventData";
+import { SlArrowRightCircle } from "react-icons/sl";
+import type { Metadata } from "next";
 
 const kaiseiDecol = KaiseiDecol
 
+export const metadata: Metadata = {
+    title: "マップ | 第71回南高祭",
+    description: "南高・南高附属中最大の行事へようこそ。南高創立70周年・附属中創立10周年を迎えた今年、歴代の南高生から引き継がれた、「みんなが仲間に みんなが楽しく みんなで創ろう」の精神を次世代へと繋ぎます。",
+};
+
+type events = Array<
+    {
+        name:string
+        title:string,
+        comment:string,
+        place:string,
+        time:string,
+        type:string,
+        available:boolean
+    }
+>
+
 export default function page() {
+    const [data, setData] = useState<events>()
+
+    useEffect(() => {
+        if(name == undefined) {
+            return
+        }
+
+        const getData = async () => {
+            const result = await getEvents() 
+            if(result == null) {
+                return
+            }
+            setData(result)
+        }
+
+        getData()
+    },[])
+
     const mapImages = [
         {floor:"1階", href:"/フロアマップ1.png"},
         {floor:"2階", href:"/フロアマップ2.png"},
@@ -81,12 +120,45 @@ export default function page() {
         ]},
     ]
 
+    const getTitle = (name:string) => {
+        const found = data?.find((value) => (
+            value.name == name
+        ))
+
+        return found?.title
+    }
 
     return (
-        <div className="py-[30vw]">
-            <h2 className={`${kaiseiDecol.className} text-center text-[12vw] text-[darkturquoise]`}>フロアマップ</h2>
+        <div className="py-[30vw] 2xl:py-40 lg:py-32">
+            <h2 className={`${kaiseiDecol.className} text-center text-[12vw] text-[darkturquoise] lg:text-6xl 2xl:text-8xl`}>フロアマップ</h2>
 
-            <div className="my-[15vw] w-full">
+            <div className="hidden lg:block 2xl:mt-20 lg:mt-14">
+                {imgs.map((value, index) => (
+                    <div key={index} className={`grid grid-cols-[repeat(2,1fr)] min-h-[500px]  w-[90%] mx-auto 2xl:mb-32 mb-16 relative
+                    ${value.test.length < 10 ? "grid-rows-[80svh]" : "xl:grid-rows-[140svh] grid-rows-[150svh]"}`}>
+                        <div className="absolute ">
+                            <p className="text-6xl text-gray-500">{index + 1}F</p>
+                        </div>
+                        <div className="">
+                            <Image src={value.img} alt="フロアマップ" width={1000} height={2000} className="h-full object-contain"></Image>
+                        </div>
+                        <div className={`flex content-start flex-wrap `}>
+                            <div className={`${data! ? "hidden": "block"} `}>
+                                <p className="text-xl my-10 mx-10">Loading...</p>        
+                            </div>
+                            {value.test.map((n,i) => (
+                                <Link href={{pathname:"/event/introduction", query:{name:n.name}}} key={i} className={`rounded-lg flex-grow-0 items-center bg-white drop-shadow-sm border-2 border-slate-100 text-blue-900 min-w-[45%] h-auto 2xl:py-4 py-2 2xl:px-4 px-2 2xl:mx-5 lg:mx-2 2xl:my-2 my-2 ${data! ? "opacity-100" : "opacity-0"} `}>
+                                    <p className="2xl:text-sm text-xs 2xl:mb-2 mb-1" >#{n.num}&ensp;{n.name}</p> 
+                                    <p className="2xl:text-xl text-xs flex justify-between items-center">{getTitle(n.name)} <SlArrowRightCircle className="ml-4 relative"></SlArrowRightCircle></p>
+                                    
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            <div className="my-[15vw] w-full lg:hidden">
                 {mapImages.map((value, index) => (
                     <div className="my-[15vw]" key={value.href}>
                         <div className="flex  mx-[4vw] mb-[7vw] relative">

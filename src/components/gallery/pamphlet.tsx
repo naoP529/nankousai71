@@ -1,12 +1,15 @@
 "use client"
 import Image from 'next/image';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Navigation, Pagination, EffectFade } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css/pagination';
 import "swiper/css/navigation";
 import "swiper/css";
-import { IoIosArrowDropleftCircle } from "react-icons/io";
-import { IoIosArrowDroprightCircle } from "react-icons/io";
+import 'swiper/css/effect-fade';
+// import { IoIosArrowDropleftCircle } from "react-icons/io";
+// import { IoIosArrowDroprightCircle } from "react-icons/io";
+import { SlArrowLeft } from "react-icons/sl";
+import { SlArrowRight } from "react-icons/sl";
 import { skeleton } from "@/components/global/skeleton";
 import { toBase64 } from "@/components/global/skeleton";
 
@@ -18,58 +21,115 @@ const kaiseiDecol = KaiseiDecol
 export default function Pamphlet () {
     const img = [
         "/24年度rondo 暫定版-1.png",
-        "/24年度rondo 暫定版-2.png",
-        "/24年度rondo 暫定版-3.png",
-        "/24年度rondo 暫定版-4.png",
-        "/24年度rondo 暫定版-5.png",
-        "/24年度rondo 暫定版-6.png",
-        "/24年度rondo 暫定版-7.png",
-        "/24年度rondo 暫定版-8.png",
-        "/24年度rondo 暫定版-9.png",
-        "/24年度rondo 暫定版-10.png",
-        "/24年度rondo 暫定版-11.png",
-        "/24年度rondo 暫定版-12.png",
-        "/24年度rondo 暫定版015B.png",
-        "/24年度rondo 暫定版-16.png",
+        "/24rondo2.png",
+        "/24rondo3.png",
+        "/24rondo4.png",
+        "/24rondo5.png",
+        "/24rondo6.png",
+        "/24rondo7.png",
+        "/24rondo8.png",
+        "/24rondo9.png",
+        "/24rondo10.png",
+        "/24rondo11.png",
+        "/24rondo12.png",
+        "/24rondo13.png",
+    ]
+
+    const half_img = [
+        "/s24rondo1.png",
+        "/s24rondo2.png",
+        "/s24rondo3.png",
+        "/s24rondo4.png",
+        "/s24rondo5.png",
+        "/s24rondo6.png",
+        "/s24rondo7.png",
+        "/s24rondo8.png",
+        "/s24rondo9.png",
+        "/s24rondo10.png",
+        "/s24rondo11.png",
+        "/s24rondo12.png",
+        "/s24rondo13.png",
+        "/s24rondo14.png",
+        "/s24rondo15.png",
+        "/s24rondo16.png",
+        "/s24rondo17.png",
+        "/s24rondo18.png",
+        "/s24rondo19.png",
+        "/s24rondo20.png",
+        "/s24rondo21.png",
+        "/s24rondo22.png",
+        "/s24rondo23.png",
+        "/s24rondo24.png",
+        "/s24rondo25.png",
     ]
 
 
     return(
         <div className="w-full">
-            <h2 className={`pb-[5vw] ${kaiseiDecol.className} text-center text-[12vw] text-[darkturquoise]`}>パンフレット</h2>
-            <div className='relative'>
+            <h2 className={`pb-[5vw] ${kaiseiDecol.className} text-center text-[12vw] 2xl:text-8xl lg:text-6xl lg:pb-16 text-[darkturquoise]`}>パンフレット</h2>
+            <div className='relative hidden lg:block'>
                 <Swiper
-                    modules={[Navigation, Pagination]}
-                    centeredSlides={true}
-                    slidesPerView={1}
+                    modules={[Navigation, Pagination, EffectFade]}
+                    // centeredSlides={true}
+                    // slidesPerView={1}
                     speed={300}
                     navigation={{
                         prevEl: "#button_prev",
                         nextEl: "#button_next"
                     }}
-                    pagination={{el:"#pagination",clickable:true}}
+                    pagination={{ type:"fraction"}}
+                    effect={'fade'}
+                    className='drop-shadow-md'
                 >
                     {img.map((value) => (
-                        <SwiperSlide key={value}>
-                            <div className="w-[75vw] mx-auto drop-shadow-lg">
+                        <SwiperSlide key={value} className=''>
+                            <div className="w-[75vw] 2xl:w-[55%] lg:w-[65%] mx-auto">
                                 <Image src={value} alt='パンフレット' width={2000} height={1000} className='w-full aspect-auto' placeholder={`data:image/svg+xml;base64,${toBase64(skeleton(128, 128))}`} ></Image>
                             </div>
                         </SwiperSlide>
                     ))}
                 </Swiper>
-                <div className='relative mt-[3vw]'>
-                    <div className='swiper-pagination !relative [&_.swiper-pagination-bullet]:bg-slate-500 [&_.swiper-pagination-bullet]:mx-[1vw] [&_.swiper-pagination-bullet]:h-[2.5vw] [&_.swiper-pagination-bullet]:w-[2.5vw] [&_.swiper-pagination-bullet-active]:!bg-[darkturquoise]' id='pagination'></div>
-                </div>
-                <div className='w-full px-[1.5vw] absolute top-[calc(50%_-_5.5vw)] -translate-y-1/3 flex justify-between z-10 text-[8vw] opacity-80 text-[darkturquoise]'>
+                {/* <div className='relative -top-full'>
+                    <div className='swiper-pagination !relative  text-[3vw] lg:text-xl' id='pagination'></div>
+                </div> */}
+                <div className='w-full px-[1.5vw] 2xl:w-[70%] lg:w-[80%] lg:-translate-x-1/2 lg:translate-y-5 lg:left-1/2 absolute top-[calc(50%_-_5.5vw)] -translate-y-1/3 flex justify-between z-10 text-[8vw] 2xl:text-6xl lg:text-4xl opacity-80 text-[darkturquoise]'>
                     <div id="button_prev" className="relative cursor-pointer">
-                        <IoIosArrowDropleftCircle></IoIosArrowDropleftCircle>
+                        <SlArrowLeft></SlArrowLeft>
                     </div>
                     <div id="button_next" className="relative cursor-pointer">
-                        <IoIosArrowDroprightCircle></IoIosArrowDroprightCircle>
+                        <SlArrowRight></SlArrowRight>
                     </div>
                 </div>
-
-                
+            </div>
+            <div className='lg:hidden'>
+                <Swiper
+                    modules={[Navigation, Pagination, EffectFade]}
+                    speed={200}
+                    navigation={{
+                        prevEl: "#button_prev",
+                        nextEl: "#button_next"
+                    }}
+                    pagination={{ type:"fraction"}}
+                    effect={'fade'}
+                    className='drop-shadow-md
+                    [&_.swiper-pagination]:text-[7px]'
+                >
+                    {half_img.map((value,i) => (
+                        <SwiperSlide key={i} className=''>
+                            <div className="w-[75vw] mx-auto">
+                                <Image src={value} alt='パンフレット' width={2000} height={1000} className='w-full aspect-auto' placeholder={`data:image/svg+xml;base64,${toBase64(skeleton(128, 128))}`} ></Image>
+                            </div>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+                <div className='w-full px-[4vw] absolute top-[calc(50%_-_5.5vw)]  flex justify-between z-10 text-[6vw] opacity-80 text-[darkturquoise]'>
+                    <div id="button_prev" className="relative cursor-pointer">
+                        <SlArrowLeft></SlArrowLeft>
+                    </div>
+                    <div id="button_next" className="relative cursor-pointer">
+                        <SlArrowRight></SlArrowRight>
+                    </div>
+                </div>
             </div>
         </div>
     )

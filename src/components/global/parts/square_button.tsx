@@ -17,9 +17,9 @@ export default function SquareButton(
     return(
         <div className="w-full aspect-[3/1] relative rounded-xl border-2 border-white">
             {/* <div className="w-full h-full absolute bg-white opacity-20 rounded-lg"></div> */}
-            <Image src={"/レイヤー 2.png"} alt="ドット背景" fill className="opacity-80 rounded-xl"></Image>
+            <Image src={"/レイヤー 2.png"} alt="ドット背景" fill className="opacity-80 rounded-xl lg:opacity-60"></Image>
             <div className="w-full h-full flex">
-                <p className="text-[4.5vw] font-normal inline-block m-auto">{text}</p>
+                <p className="text-[4.5vw] font-normal inline-block m-auto lg:text-2xl lg:font-medium">{text}</p>
             </div>
             
         </div>
@@ -32,9 +32,9 @@ export function SquareButtonPinkShadow(
     return(
         <div className="w-full aspect-[3.2/1] rounded-lg relative drop-shadow-lg">
             <div className="w-full h-full rounded-lg bg-white">
-                <div className="w-full h-full bg-gradient-to-br from-fuchsia-500 via-purple-400 to-sky-400 absolute opacity-70 rounded-md"></div>
+                <div className="w-full h-full bg-gradient-to-br from-fuchsia-500 via-purple-400 to-sky-400 absolute opacity-70 rounded-md lg:rounded-lg"></div>
                 <div className="h-full w-full absolute z-10 flex">
-                    <p className={`text-white m-auto text-[4.5vw]`}>{text}</p>
+                    <p className={`text-white m-auto text-[4.5vw] lg:text-2xl`}>{text}</p>
                 </div>
             </div>
         </div>
@@ -49,7 +49,7 @@ export function SquareButtonPinkShadow2(
             <div className="w-full h-full rounded-md bg-white">
                 <div className="w-full h-full bg-gradient-to-br from-fuchsia-500 via-purple-400 to-sky-400 absolute opacity-70 rounded-md"></div>
                 <div className="h-full w-full absolute z-10 flex">
-                    <p className={`text-white m-auto text-[3.5vw] ${kaiseiDecol.className}`}>{text}</p>
+                    <p className={`text-white m-auto text-[3.5vw] lg:text-xl ${kaiseiDecol.className}`}>{text}</p>
                 </div>
             </div>
         </div>

@@ -13,18 +13,18 @@ export default function Attention() {
     ]
 
     return(
-        <div className="py-[20vw] ">
+        <div className="py-[20vw] 2xl:pt-36 lg:pt-20 ">
             <div>
-                <h2 className={`${kaiseiDecol.className} text-center text-[12vw] text-red-500 font-bold`}>注意事項</h2>
+                <h2 className={`${kaiseiDecol.className} text-center text-[12vw] text-red-500 font-bold 2xl:text-8xl lg:text-6xl`}>注意事項</h2>
             </div>
-            <div className="mx-[5vw] my-[10vw]">
+            <div className="mx-[5vw] my-[10vw] lg:my-8 lg:mx-10">
                 {attentions.map((value,index) => (
                     <div className="mb-[10vw]" key={index}>
                         <div className="flex">
-                            <div className=" w-[2vw] bg-red-600"></div>
-                            <p className={`${kaiseiDecol.className} text-[7vw] ml-[2vw] py-[1vw] text-red-600 font-bold`}>{value.title}</p>
+                            <div className=" w-[2vw] lg:w-3 bg-red-600"></div>
+                            <p className={`${kaiseiDecol.className} text-[7vw] ml-[2vw] py-[1vw] lg:ml-6 lg:py-4 2xl:text-6xl lg:text-5xl text-red-600 font-bold`}>{value.title}</p>
                         </div>
-                        <p className="my-[3vw] text-red-600  text-[3.8vw] ml-[0.5vw]">{value.content}</p>
+                        <p className="my-[3vw] text-red-600  text-[3.8vw] ml-[0.5vw] lg:text-3xl lg:my-6">{value.content}</p>
                         {index == 1  &&
                             <Image src={"/飲食可・ゴミ箱.png"} alt="ゴミ箱・飲食エリア" width={1000} height={800} className="mt-[1vw] w-full aspect-auto"></Image>
                         }

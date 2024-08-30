@@ -171,110 +171,112 @@ export default function ShowDetails (
     }
  
     return(
-        <div className="mt-[min(15vw,112px)] bg-white">
-            <div className="w-full h-[35vw] relative">
+        <div className="mt-[min(15vw,80px)] bg-white">
+            <div className="w-full h-[35vw] lg:h-60 relative">
                 <Image src={img_tag} alt="ヘッダー画像" fill priority className="object-cover z-0 opacity-95 brightness-90"></Image>
                 <div className="w-auto h-full absolute z-[6] flex ">
-                    <p className={`${kaiseiDecol.className} pl-[3vw] my-auto text-[10vw] text-white font-bold`}>{name}</p>
+                    <p className={`${kaiseiDecol.className} pl-[3vw] my-auto text-[10vw] lg:text-7xl text-white font-bold`}>{name}</p>
                 </div>
             </div>
-            <div className="mt-[6vw] px-[3vw]">
-                <p className={`text-[3.5vw] font-medium tracking-tight  text-white px-[3vw] py-[0.2vw] rounded-full  inline-block  text-left  my-[0.vw] translate-y-[0%]   ${setTextColor(event.tags, "bg")}`}>
-                    タイトル            
-                </p>
-                <p className={`text-[8vw] font-bold  tracking-tight  text-left ${kaiseiDecol.className} ${setTextColor(event.tags, "text")}`}>{event.title}</p>
-            </div>
-            <div className="mx-[3.5vw] mt-[4vw] text-[4.5vw] leading-[160%] text-slate-500 ">
-                <p className="flex items-center mb-[1vw]">
-                    <MdOutlinePlace className="translate-y-[5%] mr-[0.5%]"/>
-                    {event.place}    
-                </p>
-                <div className="flex items-center">
-                    <IoTimeOutline className=" translate-y-[7%] mr-[0.5%]" />
-                    {event.time.length == 1 ? event.time[0] : "開催日時"}
-                    {event.time.length != 1 &&
-                    <div onClick={onMenuClicked} className={`flex cursor-pointer items-center ml-auto text-[4vw] `}>
-                        もっと見る
-                        <motion.div variants={variants} animate={date == true? "open" : "close"} className="">
-                            <FaAngleDown></FaAngleDown>
-                        </motion.div> 
+            <div className="max-w-[1000px] lg:mx-auto pb-[5vw]">
+                <div className="mt-[6vw] px-[3vw] lg:mt-10 lg:px-6">
+                    <p className={`text-[3.5vw] font-medium tracking-tight  text-white px-[3vw] py-[0.2vw] rounded-full  inline-block  text-left  my-[0.vw] translate-y-[0%]   ${setTextColor(event.tags, "bg")} lg:text-lg lg:px-8 lg:py-1 lg:my-4 `}>
+                        タイトル            
+                    </p>
+                    <p className={`text-[8vw] font-bold  tracking-tight  text-left ${kaiseiDecol.className} ${setTextColor(event.tags, "text")} lg:text-7xl`}>{event.title}</p>
+                </div>
+                <div className="mx-[3.5vw] mt-[4vw] text-[4.5vw] lg:text-3xl lg:mx-6 lg:mt-8 leading-[160%] text-slate-500 ">
+                    <p className="flex items-center mb-[1vw] lg:mb-3">
+                        <MdOutlinePlace className="translate-y-[5%] mr-[0.5%]"/>
+                        {event.place}    
+                    </p>
+                    <div className="flex items-center">
+                        <IoTimeOutline className=" translate-y-[7%] mr-[0.5%]" />
+                        {event.time.length == 1 ? event.time[0] : "開催日時"}
+                        {event.time.length != 1 &&
+                        <div onClick={onMenuClicked} className={`flex cursor-pointer items-center ml-auto text-[4vw] lg:text-3xl `}>
+                            もっと見る
+                            <motion.div variants={variants} animate={date == true? "open" : "close"} className="">
+                                <FaAngleDown></FaAngleDown>
+                            </motion.div> 
+                        </div>
+                        }
+                        
                     </div>
-                    }
+                    {event.time.length > 1 && <motion.div variants={variants} animate={date==true ? "menu" : "hidden"} className="mt-[2vw] lg:mt-4  rounded-lg w-full overflow-hidden ">
+                        {event.time.map((value, index) => (
+                            <div key={index} className="flex items-center   mb-[3vw] ml-[10vw] lg:mb-8">
+                                <p className="w-[20vw] text-[4vw] lg:text-3xl">第{index + 1}回</p>
+                                <p className="w-[50vw] text-center  text-[5vw] lg:text-4xl">{value}</p>
+                            </div>
+                        ))}
+                    </motion.div>}
                     
                 </div>
-                {event.time.length > 1 && <motion.div variants={variants} animate={date==true ? "menu" : "hidden"} className="mt-[2vw]  rounded-lg w-full overflow-hidden ">
-                    {event.time.map((value, index) => (
-                        <div key={index} className="flex items-center   mb-[3vw] ml-[10vw]">
-                            <p className="w-[20vw] text-[4vw]">第{index + 1}回</p>
-                            <p className="w-[50vw] text-center  text-[5vw]">{value}</p>
+                <div className="w-full my-[7vw] px-12 lg:my-10">
+                        <p className={`text-[3.5vw] lg:text-2xl font-medium tracking-tight text-slate-500 text-center ${kaiseiDecol.className}`}>{event.comment}</p>
+                </div>
+                {name == "プラネタリウム" &&
+                    <div className="w-full px-[4vw] mb-[15vw] lg:px-6">
+                        <Pranetarium_tiket></Pranetarium_tiket>
+                    </div>
+                }
+                {name == "茶道部" &&
+                    <div className="w-full px-[4vw]  lg:px-6 pb-[3vw]">
+                        <SadouClub></SadouClub>
+                    </div>
+                }
+                {name == "高校軽音楽部" &&
+                    <Keion></Keion>
+                }
+                {event.tags.includes("高校3年") && 
+                    <div className="w-full px-[4vw] lg:px-6 mb-[10vw] lg:mb-14 lg:w-[80%] lg:mx-auto">
+                        <HowToPay></HowToPay>
+                    </div>
+                }
+                {event.tags.includes("フード") &&
+                    <div className="w-full px-[4vw] lg:px-6 mb-[15vw] lg:w-[80%] lg:mx-auto lg:mb-6">
+                        <GetFood name={name}></GetFood>
+                    </div>
+                }
+                {event.available == true ?
+                <div>
+                    
+                    <div className="w-auto">
+                    {newDetails.map((value) => (
+                        <div key={value.title} className="mb-[12vw]  mx-[4vw] lg:mx-8 lg:mb-14 lg:my-2">
+                            <div className="flex shadow-slate-100 shadow-md">
+                                <div className=" w-[2vw] lg:w-4 bg-gradient-to-b from-[#01e1e5] to-[#039fa2]"></div>
+                                <p className={`${kaiseiDecol.className} text-[7vw] lg:text-4xl lg:ml-6 lg:py-4 ml-[2vw] py-[1vw] bg-gradient-to-b from-[#01e1e5] to-[#009294]  text-transparent bg-clip-text font-bold`}>{value.title}</p>
+                            </div>
+                            <div className="ml-[2vw] mr-[3vw] my-[3vw] text-[4vw] lg:ml-4 lg:mr-6 lg:text-2xl lg:my-5 lg:leading-[150%] text-[#00b2b5] font-light tracking-[-0.01rem]  opacity-80 leading-[160%] text-justify">
+                                <p> &ensp;{value.content}</p>
+                            </div>
                         </div>
                     ))}
-                </motion.div>}
-                
-            </div>
-            <div className="w-full my-[7vw] px-[6vw]">
-                    <p className={`text-[3.5vw] font-medium tracking-tight text-slate-500 text-center ${kaiseiDecol.className}`}>{event.comment}</p>
-            </div>
-            {name == "プラネタリウム" &&
-                <div className="w-full px-[4vw] mb-[15vw]">
-                    <Pranetarium_tiket></Pranetarium_tiket>
-                </div>
-            }
-            {name == "茶道部" &&
-                <div className="w-full px-[4vw] pb-[3vw]">
-                    <SadouClub></SadouClub>
-                </div>
-            }
-            {name == "高校軽音楽部" &&
-                <Keion></Keion>
-            }
-            {event.tags.includes("高校3年") && 
-                <div className="w-full px-[4vw] mb-[10vw]">
-                    <HowToPay></HowToPay>
-                </div>
-            }
-            {event.tags.includes("フード") &&
-                <div className="w-full px-[4vw] mb-[15vw]">
-                    <GetFood name={name}></GetFood>
-                </div>
-            }
-            {event.available == true ?
-            <div>
-                
-                <div className="w-auto">
-                {newDetails.map((value) => (
-                    <div key={value.title} className="mb-[12vw]  mx-[4vw] ">
-                        <div className="flex shadow-slate-100 shadow-md">
-                            <div className=" w-[2vw] bg-gradient-to-b from-[#01e1e5] to-[#039fa2]"></div>
-                            <p className={`${kaiseiDecol.className} text-[7vw] ml-[2vw] py-[1vw] bg-gradient-to-b from-[#01e1e5] to-[#009294]  text-transparent bg-clip-text font-bold`}>{value.title}</p>
-                        </div>
-                        <div className="ml-[2vw] mr-[3vw] my-[3vw] text-[4vw] text-[#00b2b5] font-light tracking-[-0.01rem]  opacity-80 leading-[160%] text-justify">
-                            <p> &ensp;{value.content}</p>
-                        </div>
                     </div>
-                ))}
                 </div>
-            </div>
-            : <div className="py-[15vw] my-[5vw] rounded-lg bg-slate-50 mx-[4vw]">
-                <NotReady></NotReady>
-            </div>
-            }
-            
-
-            
-            <div className="my-[5vw] pb-[10vw]">
-                <p className={`my-[3vw] ${kaiseiDecol.className} text-[5vw] text-[darkturquoise] text-center`}>・・・関連タグ・・・</p>
-                <div className=" flex flex-wrap mx-[3vw] justify-start">
-                    {event.tags.map((value) => (
-                        <Link key={value} href={{pathname:"/event", query:{type:value} }}>
-                            <div className={`my-[2vw] w-[26vw] aspect-[3/1] bg-gradient-to-br ${Tags.find((item) => (item.name == value))?.color} rounded-md flex mx-[2vw] opacity-90`}>
-                                <p className="m-auto  text-[3vw]  text-gray-50 font-medium">{value}</p>
-                            </div>
-                        </Link>    
-                    ))} 
+                : <div className="py-[15vw] my-[5vw] rounded-lg bg-slate-50 mx-[4vw] lg:mx-6 lg:py-16 lg:my-0">
+                    <NotReady></NotReady>
                 </div>
+                }
+                
 
-            </div>
+                
+                <div className="my-[5vw] lg:my-14 rounded-lg bg-gray-50 lg:mx-6">
+                    <p className={`my-[3vw] ${kaiseiDecol.className} text-[5vw] text-[darkturquoise] text-center lg:text-4xl lg:py-8 lg:my-0`}>・・・関連タグ・・・</p>
+                    <div className=" flex flex-wrap mx-[3vw] justify-start lg:mx-6 lg:justify-center">
+                        {event.tags.map((value) => (
+                            <Link key={value} href={{pathname:"/event", query:{type:value} }}>
+                                <div className={`my-[2vw] w-[26vw] aspect-[3/1] bg-gradient-to-br ${Tags.find((item) => (item.name == value))?.color} rounded-md flex mx-[2vw] opacity-90 lg:mx-4 lg:max-w-40 lg:mb-6 lg:mt-0`}>
+                                    <p className="m-auto  text-[3vw] lg:text-lg text-gray-50 font-medium">{value}</p>
+                                </div>
+                            </Link>    
+                        ))} 
+                    </div>
+
+                </div>
+            </div> 
         </div>
     )
 }

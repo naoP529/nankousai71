@@ -5,8 +5,8 @@ const kaiseiDecol = KaiseiDecol
 
 export default function Loading() {
     return(
-        <div className="w-full h-[50vw] flex">
-            <p className={`${kaiseiDecol.className} m-auto text-[6vw] bg-gradient-to-br from-fuchsia-500 via-purple-400 to-sky-400 bg-clip-text text-transparent `}>・・・読み込み中・・・</p>
+        <div className="w-full h-[50vw] lg:h-40 flex">
+            <p className={`${kaiseiDecol.className} m-auto text-[6vw] lg:text-5xl bg-gradient-to-br from-fuchsia-500 via-purple-400 to-sky-400 bg-clip-text text-transparent `}>・・・読み込み中・・・</p>
         </div>
     )
 }

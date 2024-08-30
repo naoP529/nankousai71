@@ -2,13 +2,15 @@ import Image from "next/image"
 import { KaiseiDecol } from "@/app/fonts";
 import { RiArrowDownWideFill } from "react-icons/ri";
 import Link from "next/link";
+import { Link as Scroll } from 'react-scroll';
+import { link } from "fs";
 
 const kaiseiDecol = KaiseiDecol
 
 
 export default function MainTitle() {
     return(
-        <div className="h-[100svh] w-full overflow-x-hidden relative">
+        <div className="h-[100svh] w-full overflow-hidden relative">
             <Image src={"/南高祭ポスター背景.png"} alt="背景" fill  priority className="object-cover -z-10 object-top"></Image>
             <Image src={"/センター鳥.png"} alt="ちゅんちゅん" width={500} height={500} priority className="aspect-auto w-[26%] top-[81.5vw] left-[43.5%] absolute z-10"></Image>
             <Image src={"/鳥1.png"} alt="ちゅんちゅん1号" width={500} height={500} priority className="aspect-auto w-[35%] top-[14vw] left-[65%] absolute z-10"></Image>
@@ -21,7 +23,7 @@ export default function MainTitle() {
             <div>
                 <h1 className={
                     `absolute left-[6vw] top-[6vw] text-white ${kaiseiDecol.className}
-                    flex flex-col text-[25vw] leading-[100%] opacity-90 font-bold`
+                    flex flex-col text-[25vw] md:text-[18vw] leading-[100%] opacity-90 font-bold`
                 }>
                    <span>祭</span>
                    <span>現</span> 
@@ -30,7 +32,7 @@ export default function MainTitle() {
                    <span>能</span>
                 </h1>
             </div>
-            <div className="absolute w-[43vw] top-[112vw] left-[50%]">
+            <div className="absolute w-[43vw] top-[112vw] md:hidden left-[50%]">
                 <Link href={"/info"}>
                     <Image priority src={"/流氷.png"} alt="流氷" width={500} height={500} className=""></Image>
                     <button className={`${kaiseiDecol.className} absolute top-[38%] left-[12%] text-[5.5vw] text-[#15b5b8]`}>参加申し込み</button>
@@ -38,9 +40,43 @@ export default function MainTitle() {
             </div>
             <p className="absolute bottom-[3vw] right-[3vw] text-white opacity-80 
             text-[3.5vw] ">@イラスト</p>
-            <p className={`absolute top-[155vw] left-[7vw] text-[7.5vw] text-white opacity-90 z-40
+            <p className={`absolute top-[155vw] md:top-[80svh] left-[7vw] text-[7.5vw] md:text-[6vw] text-white opacity-90 z-40
                 ${kaiseiDecol.className}`}>南高祭71st</p>
             <RiArrowDownWideFill className="absolute text-white bottom-[1%] left-1/2 -translate-x-1/2 size-[12vw] opacity-85"></RiArrowDownWideFill>
+        </div>
+    )
+}
+
+export function MainTitlePC() {
+    const links = [
+        {name:"開催日時", id:""},
+        {name:"イベント", id:""},
+        {name:"マップ", id:""},
+        {name:"タイムテーブル", id:""},
+    ]
+
+    return(
+        <div className="h-[100svh] w-full overflow-hidden relative">
+            <Image src={"/ぽスターpc.png"} alt="背景" fill  priority className="object-cover -z-10 object-top"></Image>
+            <div className={
+                `ml-[5vw] my-[5vw] text-white ${kaiseiDecol.className}
+                  opacity-90`
+            }>
+                <h1 className="text-8xl xl:text-9xl font-bold ">祭現不可能</h1>
+                <p className=" text-5xl xl:text-6xl font-bold my-8 xl:my-12">南高祭71st</p>
+                <div className="xl:text-4xl text-2xl xl:mt-28 mt-16">
+                    {links.map((value, i) => (
+                        <p key={i} className="mb-1 xl:mb-4" >#{value.name}</p>
+                    ))}
+                </div>
+            </div>
+            <div className="absolute w-[30vw] top-[50svh] left-[50%]">
+                <Link href={"/info"}>
+                    <Image priority src={"/流氷.png"} alt="流氷" width={500} height={500} className="w-[60%]"></Image>
+                    <button className={`${kaiseiDecol.className} absolute top-[38%] left-[7%] text-2xl xl:text-[2vw] text-[#15b5b8]`}>参加申し込み</button>
+                </Link>
+            </div>
+            <RiArrowDownWideFill className="absolute text-white bottom-[1%] left-1/2 -translate-x-1/2 size-10 xl:size-16 opacity-85"></RiArrowDownWideFill>
         </div>
     )
 }

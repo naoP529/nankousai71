@@ -24,23 +24,8 @@ export default function RootLayout({
 
   return (
     <html lang="jp">
-      <body className={`${kiwi_Maru.className} bg-gradient-to-b from-cyan-300  `}>
-          <div className="relative">
-            <div className="w-full h-full bg-white absolute -z-10"></div>
-            <div className="md:hidden z-0">
-              {children}
-              
-            </div>
-            <div className="fixed top-0 left-0 z-[9999]">
-              <LoadingLayout></LoadingLayout>
-            </div> 
-          </div>
-        
-        {requestUrl &&
-        <div className="">
-          <iframe className="mx-auto hidden md:block w-[50vh] h-[100vh] scrollbar-y drop-shadow-xl" src={requestUrl}></iframe>
-        </div>
-        }
+      <body className={`${kiwi_Maru.className}`}>
+            {children}
         <Analytics />
         
       </body>
