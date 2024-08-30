@@ -271,9 +271,9 @@ export default function ShowEvent(
         <div className="">
             <div className="">
                 <ScrollContainer>
-                    <div className="flex mt-[5vw] ">
+                    <div className="flex mt-[5vw] lg:mt-8 lg:mx-6">
                         {allTags.map((value:any) => (
-                            <motion.div key={value.id} className={`flex-shrink-0 drop-shadow-lg relative  cursor-pointer  rounded-lg mx-[2vw] bg-gradient-to-br p-[0.5%] ${value.color} h-[10vw]   inline-block `} variants={variant_tag} animate={selected.includes(value.name) == true ? "selected" : "notoSelected"} transition={{ease:"easeInOut", duration:0.1}}>    
+                            <motion.div key={value.id} className={`flex-shrink-0 drop-shadow-lg relative  cursor-pointer  rounded-lg mx-[2vw] lg:mx-3 bg-gradient-to-br p-[0.5%] ${value.color} h-[10vw] lg:h-12 lg:p-[2px] inline-block `} variants={variant_tag} animate={selected.includes(value.name) == true ? "selected" : "notoSelected"} transition={{ease:"easeInOut", duration:0.1}}>    
                                 <input 
                                     id={value.id}
                                     value={value.name} 
@@ -284,11 +284,11 @@ export default function ShowEvent(
                                 />
                                 <label 
                                     htmlFor={value.id}
-                                    className={`text-[4vw] 
+                                    className={`text-[4vw] lg:text-lg
                                     font-medium cursor-pointer flex h-full relative`}
                                 >
                                     <motion.div variants={variant_tag_bg} animate={selected.includes(value.name) == true ? "selected" : "notoSelected"} transition={{ease:"easeOut", duration:0.1}} className={`z-0 bg-white absolute rounded-md h-full w-full `}></motion.div>
-                                    <p className={`px-[4vw] my-auto  z-[5]
+                                    <p className={`px-[4vw] lg:px-6 my-auto  z-[5]
                                      ${selected.includes(value.name) == true && "text-white font-light"} bg-gradient-to-br text-transparent bg-clip-text ${value.color} `}>
                                         {value.name}
                                     </p>
@@ -299,7 +299,7 @@ export default function ShowEvent(
                     
                 </ScrollContainer>
                 <div className="w-full flex">
-                    <p className="inline-block mx-auto drop-shadow px-[5vw] py-[1vw] rounded-lg bg-slate-100 text-[2.5vw] text-gray-500 mt-[4vw]">横にスクロールしてさらに表示</p>
+                    <p className="inline-block mx-auto drop-shadow px-[5vw] py-[1vw] rounded-lg bg-slate-100 text-[2.5vw] text-gray-500 mt-[4vw] lg:text-base lg:mt-8 lg:py-1 lg:px-16">横にスクロールしてさらに表示</p>
                 </div>
             </div>
             {/* <div>
@@ -307,7 +307,7 @@ export default function ShowEvent(
                     <p>{value}</p>
                 ))}
             </div> */}
-            <div className="bg-white pb-[10vw]">
+            <div className="bg-white pb-[10vw] lg:flex flex-wrap justify-around">
                 {notfound == true && 
                     <motion.div initial={{y:20, opacity:0}} animate={{y:0, opacity:1}} transition={{ease:"easeOut", duration:0.4}} className="w-full h-[35vw] flex">
                         <p className={`${kaiseiDecol.className} m-auto text-[7vw] bg-gradient-to-br from-fuchsia-500 via-purple-400 to-sky-400 bg-clip-text text-transparent `}>・・・該当なし・・・</p>
@@ -315,31 +315,37 @@ export default function ShowEvent(
                 }
 
                 {selected_card.map((value:any, index:number) => (
-                    <motion.div ref={targetDiv}  key={find_cardIndex(value)} className="mx-[4vw] h-[36vw] mt-[8vw] bg-slate-100  flex justify-between p-[0.2vw] opacity-90 drop-shadow rounded-lg"
+                    <motion.div ref={targetDiv}  key={find_cardIndex(value)} className="mx-[4vw] h-[36vw] mt-[8vw] lg:mt-10 bg-slate-100  flex justify-between p-[0.2vw] opacity-90 drop-shadow rounded-lg lg:w-[47%] lg:max-w-[580px] lg:h-auto lg:mx-0 lg:aspect-[2.4/1] lg:mb-4 lg:p-[1px]"
                     initial={{y:20, opacity:0}} animate={{y:0, opacity:1}} transition={{ease:"easeOut", duration:0.4, delay:find_cardIndex(value) * 0.1}}>
                         <div className="w-full h-full rounded-md bg-white flex">
-                            <div className="flex-grow rounded-l-md pl-[2vw] pr-[1vw] my-auto flex flex-col">
-                                <Link href={{pathname:"/event/introduction", query:{name:value.name}}} className="relative" replace>
+                            <div className="flex-grow rounded-l-md pl-[2vw] pr-[1vw] my-auto flex flex-col lg:justify-around lg:my-3 lg:pl-4 lg:pr-2">
+                                <Link href={{pathname:"/event/introduction", query:{name:value.name}}} className="relative lg:hidden" replace>
                                     <motion.div onHoverStart={e => setHover(value.name)} onHoverEnd={e => setHover("")}>
-                                        <p className={`${setTextColor(value.tags)} pl-[0.5vw] text-[2.5vw] font-normal`}>{value.name}</p>
-                                        <p className={`${setTextColor(value.tags)} font-medium  mb-[2.5%] ${value.title.length < 11 ? "text-[4.8vw] mt-[1%]" : "text-[4vw] mt-[1.2%]"} leading-[130%]`}>{value.title}</p>
+                                        <p className={`${setTextColor(value.tags)} pl-[0.5vw] text-[2.5vw] lg:text-xs lg:pl-0 font-normal`}>{value.name}</p>
+                                        <p className={`${setTextColor(value.tags)} font-medium  mb-[2.5%] lg:mt-1 lg:mb-0 lg:text-xl ${value.title.length < 11 ? "text-[4.8vw] mt-[1%]" : "text-[4vw] mt-[1.2%]"} leading-[130%]`}>{value.title}</p>
                                         <motion.div animate={value.name == hover && "child"} variants={variants} className="border-0 border-gray-400 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2  -translate-y-1/2 w-4 h-4"></motion.div>
                                     </motion.div> 
                                 </Link>
-                                <div className="text-[2.5vw] leading-[160%]">
+                                <Link href={{pathname:"/event/introduction", query:{name:value.name}}} className="hidden lg:block">
+                                    <p className={`${setTextColor(value.tags)} pl-[0.5vw] text-[2.5vw] lg:text-xs xl:text-lg lg:pl-0 font-normal`}>{value.name}</p>
+                                </Link>
+                                <Link href={{pathname:"/event/introduction", query:{name:value.name}}} className="hidden lg:block">
+                                    <p className={`${setTextColor(value.tags)} font-medium  lg:mb-0 lg:text-2xl xl:text-3xl`}>{value.title}</p>
+                                </Link>
+                                <div className="text-[2.5vw] leading-[160%] lg:text-sm flex text-nowrap ">
                                     <p className="flex items-center">
                                         <MdOutlinePlace className="translate-y-[2%] mr-[0.5%]"/>
                                         {value.place}    
                                     </p>
-                                    <p className="flex items-center">
+                                    <p className="flex items-center mx-4">
                                         <IoTimeOutline className=" translate-y-[7%] mr-[0.5%]" />
-                                        {value.time[0]} {value.time.length > 1 && ` その他${value.time.length}件`}
+                                        {value.time[0]} {value.time.length > 1 && ` ...`}
                                     </p>
                                 </div>
-                                <div className={`w-full flex  ${value.title.length < 11 ? "my-[5%]": "my-[3%]"}`}>
+                                <div className={`w-full flex  lg:my-0 ${value.title.length < 11 ? "my-[5%]": "my-[3%]"}`}>
                                     {value.types.map((value:any) => (
                                         <div key={value} className={`w-1/3 aspect-[3.3/1] bg-gradient-to-br ${Tags.find((item) => (item.name == value))?.color} rounded-md flex mr-[5%] opacity-90`}>
-                                            <p className="m-auto text-[2vw] text-gray-50 font-medium">{value}</p>
+                                            <p className="m-auto text-[2vw] lg:text-xs text-gray-50 font-medium">{value}</p>
                                         </div>
                                     ))}
                                 </div>
@@ -353,6 +359,8 @@ export default function ShowEvent(
                         
                     </motion.div>
                 ))}
+                <div className="hidden lg:flex mx-[4vw] h-[36vw] mt-[8vw] lg:mt-10  justify-between p-[0.2vw] opacity-90 drop-shadow rounded-lg lg:w-[47%] lg:max-w-[580px] lg:h-auto lg:mx-0 lg:aspect-[2.4/1] lg:mb-4 lg:p-[1px]"></div>
+                <div className="hidden 2xl:flex mx-[4vw] h-[36vw] mt-[8vw] lg:mt-10  justify-between p-[0.2vw] opacity-90 drop-shadow rounded-lg lg:w-[47%] lg:max-w-[580px] lg:h-auto lg:mx-0 lg:aspect-[2.4/1] lg:mb-4 lg:p-[1px]"></div>
             </div>
         </div>
     )

@@ -45,14 +45,14 @@ export default function GetFood(
     return (
         <div className="w-full">
             {data? <div className="w-full">
-                <div className="flex text-[10vw] items-center text-orange-400 justify-center mb-[4vw]">
-                    <MdOutlineRestaurant className="relative top-[0.5vw]"></MdOutlineRestaurant>
+                <div className="flex text-[10vw] lg:text-5xl items-center text-orange-400 justify-center mb-[4vw] lg:mb-8">
+                    <MdOutlineRestaurant className="relative top-[0.5vw] lg:top-0"></MdOutlineRestaurant>
                     <p className={`${kaiseiDecol.className} ml-[0.5vw]`}>メニュー</p>
                 </div>
                 {data.map((value, index) => (
-                    <div key={index} className="w-full border-2 shadow-md border-gray-200 h-[18vw] mb-[5vw] p-2">
-                        <div className="border-2 h-full  border-orange-300 flex items-center text-[5vw] text-gray-500">
-                            <p className="ml-[2vw] flex-grow">{value.menu}</p>
+                    <div key={index} className="w-full  lg:mx-auto border-2 shadow-md border-gray-200 h-[18vw] mb-[5vw] p-2 lg:max-h-24 lg:mb-8">
+                        <div className="border-2 h-full  border-orange-300 flex items-center text-[5vw] lg:text-3xl text-gray-500">
+                            <p className="ml-[2vw] flex-grow lg:ml-6">{value.menu}</p>
                             <p className="mr-[2vw]"> {value.value}円</p>
                         </div>
                     </div>

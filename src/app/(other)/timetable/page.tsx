@@ -3,8 +3,14 @@ import { KaiseiDecol } from "@/app/fonts";
 import { serverClient } from "@/utils/supabase/server"
 import AllPlace from "@/components/timetable/allPlace";
 import { Suspense } from "react";
+import type { Metadata } from "next";
 
 const kaiseiDecol = KaiseiDecol
+
+export const metadata: Metadata = {
+    title: "タイムテーブル | 第71回南高祭",
+    description: "南高・南高附属中最大の行事へようこそ。南高創立70周年・附属中創立10周年を迎えた今年、歴代の南高生から引き継がれた、「みんなが仲間に みんなが楽しく みんなで創ろう」の精神を次世代へと繋ぎます。",
+};
 
 export default async function page() {
     const headersList = headers();
@@ -221,12 +227,12 @@ export default async function page() {
     // ))
 
     return(
-        <div className="py-[30vw] h-full bg-white">
-            <h2 className={`${kaiseiDecol.className} text-center text-[12vw] text-[darkturquoise]`}>タイムテーブル</h2>
+        <div className="py-[30vw] 2xl:py-40 lg:py-32 h-full bg-white">
+            <h2 className={`${kaiseiDecol.className} text-center text-[12vw] 2xl:text-8xl lg:text-6xl text-[darkturquoise]`}>タイムテーブル</h2>
             {/* <div className="my-[10vw]">
                 <NotReady></NotReady>
             </div> */}
-            <div className="mt-[5vw] pl-[2vw]">
+            <div className="mt-[5vw] pl-[2vw] lg:mt-0 lg:pl-0">
                 <Suspense>
                     <AllPlace content={newEvent}></AllPlace>
                 </Suspense>

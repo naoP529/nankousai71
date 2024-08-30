@@ -4,9 +4,10 @@
 import { RoundButtonTurquoise } from "../global/parts/rounded_button"
 import ScrollMap from "./top_parts/map_parts/scroll_map"
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from "swiper/modules";
+import { Navigation,EffectCoverflow } from "swiper/modules";
 import "swiper/css/navigation";
 import "swiper/css";
+import "swiper/css/effect-coverflow"
 import { useState } from "react";
 import Link from "next/link";
 
@@ -95,32 +96,80 @@ export default function Map() {
     }
 
     return(
-        <div className="my-[20vw]">
-            <h2 className={`${kaiseiDecol.className} text-center text-[11vw] text-[darkturquoise] font-bold`}>フロアマップ</h2>       
+        <div className="my-[20vw] 2xl:my-28 lg:my-20">
+            <h2 className={`${kaiseiDecol.className} text-center text-[11vw] 2xl:text-7xl lg:text-6xl text-[darkturquoise] font-bold`}>フロアマップ</h2>       
             <Link href={"/map"} >
-                <div className="w-[35vw] mx-auto my-[3vw]">
+                <div className="w-[35vw] mx-auto my-[3vw] lg:max-w-[200px] lg:my-8">
                     <RoundButtonTurquoise text="別ページで見る" size={40}></RoundButtonTurquoise>
                 </div>   
             </Link>
-            <div className="relative  ">
-                <div className="text-[15vw] left-[3vw] top-[-8%] absolute  z-10">
+            <div className="relative">
+                <div className="text-[15vw] left-[3vw] top-[-8%] absolute 2xl:text-9xl xl:text-8xl lg:text-7xl lg:left-[25vw]  z-10">
                     <p className={`${kaiseiDecol.className} bg-gradient-to-br text-transparent bg-clip-text from-sky-500 via-[#05bd92] to-[#f3e50a]  tracking-wide`}>{active}F</p>  
                 </div>    
  
+                <div className="lg:hidden">
+                    <Swiper
+                        allowTouchMove={false}
+                        onInit={getActiveSlide}
+                        onRealIndexChange={getActiveSlide}
+                        modules={[Navigation]}
+                        centeredSlides={true}
+                        slidesPerView={1}
+                        speed={300}
+                        loop={true}
+                        navigation
+                        className={` 
+                            my-[5vw] mt-[10vw] lg:hidden
+                            [&_.swiper-button-prev]:w-[3vw]
+                            [&_.swiper-button-next]:w-[3vw]
+                            ${styles.join(" ")}
+                            [&_.swiper-button-prev::after]:bg-gradient-to-br
+                            [&_.swiper-button-prev::after]:text-transparent
+                            [&_.swiper-button-prev::after]:bg-clip-text
+                            [&_.swiper-button-prev::after]:from-sky-500
+                            [&_.swiper-button-prev::after]:via-[#05bd92]
+                            [&_.swiper-button-prev::after]:to-[#0af3c4]
+                            [&_.swiper-button-next::after]:bg-gradient-to-br
+                            [&_.swiper-button-next::after]:text-transparent
+                            [&_.swiper-button-next::after]:bg-clip-text
+                            [&_.swiper-button-next::after]:from-sky-500
+                            [&_.swiper-button-next::after]:via-[#05bd92]
+                            [&_.swiper-button-next::after]:to-[#c8f30a]
+                        z-0 `}
+                    >
+                        {imgs.map((value,i) => (
+                            <SwiperSlide key={value.img}>
+                                <div className={`w-[82vw]  mx-auto`}>
+                                    <ScrollMap img={value.img}></ScrollMap>
+                                </div>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                </div>
+                
                 <Swiper
                     allowTouchMove={false}
                     onInit={getActiveSlide}
                     onRealIndexChange={getActiveSlide}
-                    modules={[Navigation]}
+                    modules={[Navigation, EffectCoverflow]}
                     centeredSlides={true}
-                    slidesPerView={1}
+                    slidesPerView={2}
+                    effect="coverflow"
+                    coverflowEffect={{
+                        rotate: 0,
+                        stretch: 0,
+                        depth: 300,
+                        modifier: 0.8,
+                        slideShadows: false
+                    }}
                     speed={300}
                     loop={true}
                     navigation
                     className={` 
-                        my-[5vw] mt-[10vw]
-                        [&_.swiper-button-prev]:w-[3vw]
-                        [&_.swiper-button-next]:w-[3vw]
+                        hidden  lg:mt-16 xl:mb-12 lg:mb-6 lg:block 
+                        [&_.swiper-button-prev]:mx-[26vw]
+                        [&_.swiper-button-next]:mx-[26vw]
                         ${styles.join(" ")}
                         [&_.swiper-button-prev::after]:bg-gradient-to-br
                         [&_.swiper-button-prev::after]:text-transparent
@@ -136,20 +185,20 @@ export default function Map() {
                         [&_.swiper-button-next::after]:to-[#c8f30a]
                      z-0 `}
                 >
-                    {imgs.map((value) => (
+                    {imgs.map((value,i) => (
                         <SwiperSlide key={value.img}>
-                            <div className="w-[82vw] mx-auto">
+                            <div className={`w-[82vw] 2xl:max-w-[700px] xl:max-w-[500px] lg:max-w-[400px] mx-auto rounded-full ${i+1 == active? "opacity-100" : "brightness-95 opacity-60 pointer-events-none"} `}>
                                 <ScrollMap img={value.img}></ScrollMap>
                             </div>
                         </SwiperSlide>
                     ))}
                 </Swiper>
-                <div className=" h-[25vw]">
+                <div className=" h-[25vw] xl:h-24 lg:h-28">
                     {/* <p className="text-center text-[3vw] text-gray-400">展示一覧</p> */}
-                    <div className="flex flex-wrap mx-[4vw] justify-center">
+                    <div className="flex flex-wrap mx-[4vw] lg:mx-[15vw] justify-center">
                         {imgs[active - 1].test.map((value, index) => (
-                            <div key={index} className="pr-[2vw]">
-                                <Link href={{pathname:"/event/introduction", query:{name:value.name}}} className="text-[2.8vw] text-gray-500">#{value.num} {value.name}</Link>
+                            <div key={index} className="pr-[2vw] 2xl:pr-8 lg:pr-5 xl:pb-2 lg:pb-1">
+                                <Link href={{pathname:"/event/introduction", query:{name:value.name}}} className="xl:text-2xl lg:text-lg text-[2.8vw] text-gray-500">#{value.num} {value.name}</Link>
                             </div>
                         ))}
                     </div>

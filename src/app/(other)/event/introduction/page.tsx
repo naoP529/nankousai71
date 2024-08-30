@@ -55,6 +55,7 @@ export default function Page() {
         <div className="h-screen bg-white">
             {name?
             <div className="w-full">
+                <title>{name} | 第71回南高祭</title>
                 {data? 
                 <div>
                     <ShowDetails event={data.event} detail={data.detail} name={name}></ShowDetails>

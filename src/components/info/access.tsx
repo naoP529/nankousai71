@@ -42,73 +42,79 @@ export default function Access() {
     }
 
     return(
-        <div className="mt-[10vw] pt-[20vw] pb-[10vw] bg-[darkturquoise] text-white">
-            <h2 className={`${kaiseiDecol.className} text-center text-[12vw]`}>アクセス</h2>
-            <p className="text-[3.5vw] text-center mt-[1vw] mb-[4vw] ">必ず公共交通機関を使ってご来校ください</p>   
-            <div className="">
+        <div className="mt-[10vw] pt-[20vw] pb-[10vw]  2xl:pt-32 lg:pt-24 lg:mt-5 lg:pb-10  bg-[darkturquoise] text-white">
+            <h2 className={`${kaiseiDecol.className} text-center text-[12vw] 2xl:text-8xl lg:text-6xl`}>アクセス</h2>
+            <p className="text-[3.5vw] text-center mt-[1vw] mb-[4vw] 2xl:text-2xl lg:text-xl lg:mt-6 2xl:mb-16 lg:mb-10">必ず公共交通機関を使ってご来校ください</p>   
+            <div className="mx-4">
                 <AccessTags></AccessTags>
-                <p className="text-[3vw] text-center mt-[2vw]">タグから探す（横にスクロール可能）</p>
+                <p className="text-[3vw] text-center mt-[2vw] lg:text-xl lg:mt-5">タグから探す（横にスクロール可能）</p>
             </div>
             <Modal style={modalStyle} isOpen={isOpen}  onRequestClose={() => setOpen(false)}>
                 <Image src={"/上大岡＿時刻表.jpg"} alt="上大岡_時刻表" width={1000} height={2000} className="w-full aspect-auto"></Image>
             </Modal>
             {roots.map((value) => ( 
-                <div key={value.id} id={value.id} className="mx-[5vw] my-[12vw]">
+                <div key={value.id} id={value.id} className="mx-[5vw] my-[12vw] lg:mt-10 lg:mb-28 lg:mx-10">
                     <div className="flex">
-                        <div className=" w-[2vw] bg-white"></div>
-                        <p className={`${kaiseiDecol.className} text-[7vw] ml-[2vw] py-[1vw] text-white font-bold`}>{value.title}</p>
+                        <div className=" w-[2vw] lg:w-4 bg-white"></div>
+                        <p className={`${kaiseiDecol.className} text-[7vw] ml-[2vw] py-[1vw] lg:ml-4 lg:py-6 2xl:text-6xl lg:text-5xl  text-white font-bold`}>{value.title}</p>
                     </div>
-                    <p className={`text-[3.5vw] font-medium tracking-tight  text-[darkturquoise] px-[5vw] py-[0.2vw] rounded-full  inline-block  text-left mt-[6vw] mb-[0.5vw] translate-y-[0%] bg-white `}>
-                        徒歩            
-                    </p>
-                    <div className="flex items-center justify-between">
-                        <p className="text-white text-[4vw] ml-[0.5vw]">{value.title}より徒歩{value.walk}分</p>
-                        <div className="w-[25vw] mr-[2vw] -translate-y-[30%]">
-                            <SquareButtonPinkShadow2 text="ガイド開始"></SquareButtonPinkShadow2>
+                    <div className="lg:flex items-center 2xl:my-8 lg:my-5">
+                        <p className={`text-[3.5vw] font-medium tracking-tight  text-[darkturquoise] px-[5vw] py-[0.2vw] rounded-full  inline-block  text-left mt-[6vw] mb-[0.5vw] translate-y-[0%] bg-white 2xl:text-2xl lg:text-lg 2xl:px-10 2xl:py-2 lg:m-0 lg:mr-4 lg:px-6 lg:py-1`}>
+                            徒歩            
+                        </p>
+                        <div className="flex items-center justify-between flex-grow lg:justify-start">
+                            <p className="text-white text-[4vw] ml-[0.5vw] 2xl:text-4xl lg:text-2xl lg:ml-0">{value.title}より徒歩{value.walk}分</p>
+                            <div className="w-[25vw] mr-[2vw] -translate-y-[30%] lg:translate-y-0 lg:w-40 lg:ml-20">
+                                <SquareButtonPinkShadow2 text="ガイド開始"></SquareButtonPinkShadow2>
+                            </div>
                         </div>
-                    </div>
+                    </div> 
                     {value.bus == true && 
                     <div>
-                        <p className={`text-[3.5vw] font-medium tracking-tight px-[5vw]  text-[darkturquoise] py-[0.2vw] rounded-full  inline-block  text-left  mt-[7vw] mb-[4vw] translate-y-[0%]  bg-white `}>
+                        <p className={`text-[3.5vw] font-medium tracking-tight px-[5vw]  text-[darkturquoise] py-[0.2vw] rounded-full  inline-block  text-left  mt-[7vw] mb-[4vw] translate-y-[0%]  bg-white 2xl:text-2xl lg:text-lg 2xl:px-10 2xl:py-2 lg:m-0 lg:mr-4 lg:mb-3 lg:px-6 lg:py-1`}>
                             バス         
                         </p>
-                        <div className="w-full relative">
-                            <Image src={value.img!} alt="バス停マップ" width={1000} height={500} className="w-full aspect-auto rounded-lg" placeholder={`data:image/svg+xml;base64,${toBase64(skeleton(128, 160))}`}></Image>
-                            <p className="absolute -top-[6vw] left-1/2 -translate-x-1/2 text-[3.5vw]">のりば案内</p>
-                        </div>
-                        
-                        <div className="mt-[5vw]">
-                            {value.busStop!.map((value) => (
-                                <div key={value.name} className="my-[6vw]">
-                                    <div className="flex justify-between">
-                                        <p className="text-[6vw] font-medium">{value.name}</p>
-                                        {value.type == "link" ? 
-                                            <Link href={value.href} target="_blank">
-                                                <div className="w-[23vw] mr-[1vw] translate-y-[10%]">
-                                                    <SquareButtonPinkShadow2 text="時刻表"></SquareButtonPinkShadow2>
-                                                </div>
-                                            </Link>
-                                        : <div className="w-[23vw] mr-[1vw] translate-y-[10%]" onClick={() => setOpen(true)}>
-                                            <SquareButtonPinkShadow2 text="時刻表"></SquareButtonPinkShadow2>
-                                        </div>
-                                        }
-                                        
-                                    </div>
-                                    <div className="flex justify-around ">
-                                        {value.bus.map((value) => (
-                                            <div key={value} className="rounded-lg bg-white mt-[3vw]">
-                                                <p className={`text-[3.5vw] font-medium tracking-tight  text-[darkturquoise] py-[1vw] px-[4vw]   inline-block`}>
-                                                    {value}
-                                                </p>
+                        <div className="lg:flex">
+                            <div className="w-full lg:w-[50%] relative">
+                                <Image src={value.img!} alt="バス停マップ" width={1000} height={500} className="lg:rounded-xl w-full aspect-auto lg:aspect-[3/2] rounded-lg" placeholder={`data:image/svg+xml;base64,${toBase64(skeleton(128, 160))}`}></Image>
+                                <p className="absolute -top-[6vw] left-1/2 -translate-x-1/2 text-[3.5vw] lg:text-xl lg:-top-8">のりば案内</p>
+                            </div>
+                            
+                            <div className="mt-[5vw] lg:mt-0 2xl:ml-8 lg:ml-4 flex-grow">
+                                {value.busStop!.map((value) => (
+                                    <div key={value.name} className="my-[6vw] 2xl:my-4 2xl:mb-8 lg:my-4">
+                                        <div className="flex justify-between items-center">
+                                            <p className="text-[6vw] font-medium 2xl:text-5xl lg:text-2xl">{value.name}</p>
+                                            {value.type == "link" ? 
+                                                <Link href={value.href} target="_blank">
+                                                    <div className="w-[23vw] 2xl:w-44 lg:w-32 mr-[1vw] translate-y-[10%] lg:translate-y-0">
+                                                        <SquareButtonPinkShadow2 text="時刻表"></SquareButtonPinkShadow2>
+                                                    </div>
+                                                </Link>
+                                            : <div className="w-[23vw]  2xl:w-44 lg:w-32  mr-[1vw] translate-y-[10%] lg:translate-y-0" onClick={() => setOpen(true)}>
+                                                <SquareButtonPinkShadow2 text="時刻表"></SquareButtonPinkShadow2>
                                             </div>
-                                        ))}
+                                            }
+                                            
+                                        </div>
+                                        <div className="flex justify-around mt-[3vw] 2xl:mt-10 lg:my-3 lg:justify-start lg:ml-2 lg:items-center">
+                                            <p className="2xl:text-3xl lg:text-xl hidden xl:block">行き先：</p>
+                                            {value.bus.map((value) => (
+                                                <div key={value} className="rounded-lg bg-white 2xl:mr-6 lg:mr-2">
+                                                    <p className={`text-[3.5vw] 2xl:text-2xl lg:text-lg font-medium tracking-tight  text-[darkturquoise] py-[1vw] px-[4vw] 2xl:py-3 2xll:px-8  inline-block lg:py-1 lg:px-5`}>
+                                                        {value}
+                                                    </p>
+                                                </div>
+                                            ))}
+                                        </div>
+                                        <div className="flex text-[4.5vw] 2xl:text-[1.7rem] lg:text-base justify-center items-center mt-[3vw] 2xl:mt-10 lg:mt-5">
+                                            <FaExclamationCircle className="text-white"></FaExclamationCircle>
+                                            <p className="lg:hidden">南高校前で下車</p>
+                                            <p className="hidden lg:block">南高校前で下車・料金等はHPをチェック</p>
+                                        </div>
                                     </div>
-                                    <div className="flex text-[4.5vw] justify-center items-center mt-[3vw]">
-                                        <FaExclamationCircle className="text-white"></FaExclamationCircle>
-                                        <p className="">南高校前で下車</p>
-                                    </div>
-                                </div>
-                            ))}
+                                ))}
+                            </div>
                         </div>
                     </div>
                     }

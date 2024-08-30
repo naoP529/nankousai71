@@ -99,10 +99,10 @@ export default function AllPlace (
     }
 
     const event_color = [
-        {target:["高校ダンス部", "書道部", "吹奏楽部"], color:"bg-gradient-to-br from-blue-400 via-sky-300 to-sky-200"},
+        {target:["高校ダンス部", "書道部", "吹奏楽部"], color:"bg-gradient-to-br from-blue-400 via-sky-300 to-sky-300"},
         {target:["高校軽音楽部", "弦楽部", "中学演劇部","高校演劇部"], color:"bg-gradient-to-br from-purple-300 via-fuchsia-400 to-pink-400 "},
-        {target:["茶道部", "プラネタリウム"], color:"bg-gradient-to-br from-green-200 via-teal-400 to-cyan-400 "},
-        {target:["学校説明"],color:"bg-gradient-to-br from-sky-500 to-sky-100"},
+        {target:["茶道部", "プラネタリウム"], color:"bg-gradient-to-br from-green-300 via-teal-400 to-cyan-400 "},
+        {target:["学校説明"],color:"bg-gradient-to-br from-sky-500 to-sky-200"},
     ]
 
     const images = [
@@ -150,6 +150,18 @@ export default function AllPlace (
         newEvent.place = place
         setModalData(newEvent)
         setModal(true)
+    }
+
+    const edit_timeText = (e:string) => {
+        const deleteYear = e.replace("2024-", "")
+        const deleteDay = deleteYear.replace("9-7-", "")
+        const deleteSunday = deleteDay.replace("9-8-", "")
+
+        var split = deleteSunday.split("-")
+        if(split[1].length == 1) {
+            split[1] = "0" + split[1]
+        }
+        return split[0] + "：" + split[1]
     }
 
     const modalStyle = {
@@ -201,14 +213,14 @@ export default function AllPlace (
                     </Link>   
                 </div>
             </Modal>
-            <motion.div className="mt-[5vw] mb-[7vw] flex justify-center items-center" >
-                <motion.p variants={variantsForButton} animate={day=="9/7" ? "sep7T" : "sepT"} transition={{duration:0.3, ease:"easeOut"}} className="font-medium text-[8vw] text-[#0fc5dd]">9/7</motion.p>
-                <motion.div className="w-[12%] mx-3 aspect-[11/7] rounded-full translate-y-[6%] relative cursor-pointer" variants={variantsForButton} onClick={radioClicked} animate={day == "9/7" ? "sep7" : "sep8"} transition={{duration:0.5, ease:"easeOut"}}> 
+            <motion.div className="mt-[5vw] mb-[7vw] 2xl:mb-10 2xl:my-12 lg:my-6 flex justify-center items-center" >
+                <motion.p variants={variantsForButton} animate={day=="9/7" ? "sep7T" : "sepT"} transition={{duration:0.3, ease:"easeOut"}} className="font-medium text-[8vw] lg:text-3xl 2xl:text-4xl text-[#0fc5dd]">9/7</motion.p>
+                <motion.div className="w-[12%] 2xl:w-16 lg:w-14 mx-3 lg:mx-5 aspect-[11/7] rounded-full translate-y-[6%] relative cursor-pointer" variants={variantsForButton} onClick={radioClicked} animate={day == "9/7" ? "sep7" : "sep8"} transition={{duration:0.5, ease:"easeOut"}}> 
                     <motion.div variants={variantsForButton}  animate={day=="9/7" ? "sep7B" :"sep8B"} transition={{duration:0.15, ease:"easeOut"}}  className="h-[86%] aspect-square rounded-full bg-white top-[7%] absolute" ></motion.div>
                 </motion.div> 
-                <motion.p variants={variantsForButton} animate={day=="9/8" ? "sep8T" : "sepT"} transition={{duration:0.5, ease:"easeOut"}} className="font-medium text-[8vw] ">9/8</motion.p> 
+                <motion.p variants={variantsForButton} animate={day=="9/8" ? "sep8T" : "sepT"} transition={{duration:0.5, ease:"easeOut"}} className="font-medium text-[8vw] lg:text-3xl 2xl:text-4xl">9/8</motion.p> 
             </motion.div>
-            <div className="flex w-full relative ">
+            <div className="flex w-full relative lg:hidden">
                 <div className="mt-[14vw] w-full absolute left-0 -top-[0.85rem] flex flex-col pointer-events-none ">
                     {times.map((value, index) => (
                         <div key={index} className={`w-full h-[20vw] flex`}>
@@ -281,7 +293,87 @@ export default function AllPlace (
                     </ScrollContainer>
                 </div>
             </div>
-            <div className="flex justify-center">
+            <div className="w-full z-10 hidden lg:flex relative h-[85svh] px-8">
+                <div className="2xl:mt-20 mt-14 pl-5 w-full absolute left-0 -top-[0.85rem] grid grid-rows-[repeat(7,1fr)] h-full pointer-events-none ">
+                    {times.map((value, index) => (
+                        <div key={index} className={`w-full h-full flex flex-wrap`}>
+                            <p className="2xl:text-xl text-base inline-block text-gray-400 font-medium shadow-stone-50 z-20">{value}</p>
+                            <div className="border-t-2 ml-2 flex-grow relative top-3 opacity-80"></div>
+                            <div className={`border-t-2 ml-14 w-full relative opacity-40  ${index == times.length -1 && "hidden"}`}></div>
+                        </div>
+                    ))}
+                </div>
+                <div className={`pl-14 grid grid-cols-[repeat(7,1fr)] 2xl:grid-rows-[80px,repeat(7,1fr)] grid-rows-[56px,repeat(7,1fr)] relative grid-flow-row w-full h-full`}>
+                        {places.map((value, index) => (
+                            <div key={index} className="mt-1 2xl:mb-5 2xl:mx-5 mx-2 mb-3 rounded-md bg-slate-100 flex justify-center items-center" style={{backgroundColor:colorsForHeader[index]}}>
+                                <p className="text-gray-600 2xl:text-lg text-sm">{value}</p>
+                            </div>
+                        ))}
+                        {
+                            (function () {
+                                const list:any = []
+                                for(let i = 0; i < 49; i++) {
+                                    if(i < 42) {
+                                        list.push(
+                                            <div key={i} ></div>
+                                        )
+                                    } else {
+                                        list.push(
+                                            <div key={i} ></div>
+                                        )
+                                    }   
+                                } 
+                                return list
+                            }())
+                        }
+                        {places.map((value, index) => (
+                            <div key={index} className={`${generatePosition(index)}`}>
+                                <div className= "w-full h-full relative flex justify-center">
+                                    {(function() {
+                                        const events = content.find((e) => (e.place == value))?.event
+                                        console.log( events)
+                                        var event_array:Array<event_type> | never[] = []
+
+                                        if(day == "9/7") {
+                                            if(events?.onSep7 == null) {
+                                                return 
+                                            }
+                                            event_array = events?.onSep7
+                                            console.log(event_array)
+                                        } else {
+                                            if(events?.onSep8 == null) {
+                                                return 
+                                            }
+                                            event_array = events?.onSep8
+                                        }
+                                        
+                                        const event_div = event_array.map((e, n) => 
+                                            <div key={n} className={`absolute 2xl:w-[80%] w-[85%] z-20 rounded cursor-pointer drop-shadow-md flex flex-wrap justify-center  ${event_color.find((m) => m.target.includes(e.name))?.color} ${Number(e.contentLength.replace("%", "")) < 18 ? "items-center" : "pt-5"}`}
+                                            style={{top:e.startPosition,height:e.contentLength,}} onClick={() => eventClicked(e, value)}>
+                                                <p className="text-slate-100 font-light 2xl:text-[1.2rem] text-sm">{e.name}</p>
+                                                <div className={`${Number(e.contentLength.replace("%", "")) < 20 ? "hidden" : "xl:block hidden"} opacity-85 w-full 2xl:px-10 px-5 2xl:text-lg text-sm font-light text-slate-100 `}>
+                                                    <p className="flex justify-between mb-1">
+                                                        <span>開始</span>
+                                                        <span>{edit_timeText(e.start)}</span>
+                                                    </p>
+                                                    <p className="flex justify-between">
+                                                        <span>終了</span>
+                                                        <span>{edit_timeText(e.end)}</span>
+                                                    </p>  
+                                                </div>
+                                            </div>
+                                        )
+
+                                        return event_div
+                                    }())}
+                                </div>
+                                
+
+                            </div>
+                        ))}
+                    </div>      
+                </div>
+            <div className="flex justify-center lg:hidden">
                 <p className=" text-gray-500 bg-slate-100 text-[3vw] inline-block px-10  rounded-lg mt-[1vw]">横にスライドしてさらに表示</p>
             </div>
         </div>
