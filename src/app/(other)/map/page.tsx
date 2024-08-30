@@ -11,11 +11,6 @@ import type { Metadata } from "next";
 
 const kaiseiDecol = KaiseiDecol
 
-export const metadata: Metadata = {
-    title: "マップ | 第71回南高祭",
-    description: "南高・南高附属中最大の行事へようこそ。南高創立70周年・附属中創立10周年を迎えた今年、歴代の南高生から引き継がれた、「みんなが仲間に みんなが楽しく みんなで創ろう」の精神を次世代へと繋ぎます。",
-};
-
 type events = Array<
     {
         name:string
@@ -130,7 +125,8 @@ export default function page() {
 
     return (
         <div className="py-[30vw] 2xl:py-40 lg:py-32">
-            <h2 className={`${kaiseiDecol.className} text-center text-[12vw] text-[darkturquoise] lg:text-6xl 2xl:text-8xl`}>フロアマップ</h2>
+            <title>フロアマップ | 第71回南高祭</title>      
+            <h1 className={`${kaiseiDecol.className} text-center text-[12vw] text-[darkturquoise] lg:text-6xl 2xl:text-8xl`}>フロアマップ</h1>
 
             <div className="hidden lg:block 2xl:mt-20 lg:mt-14">
                 {imgs.map((value, index) => (
