@@ -2,8 +2,6 @@ import Image from "next/image"
 import { KaiseiDecol } from "@/app/fonts";
 import { RiArrowDownWideFill } from "react-icons/ri";
 import Link from "next/link";
-import { Link as Scroll } from 'react-scroll';
-import { link } from "fs";
 
 const kaiseiDecol = KaiseiDecol
 
@@ -50,14 +48,15 @@ export default function MainTitle() {
 export function MainTitlePC() {
     const links = [
         {name:"開催日時", id:""},
-        {name:"イベント", id:""},
-        {name:"マップ", id:""},
-        {name:"タイムテーブル", id:""},
+        {name:"イベント", id:"/event"},
+        {name:"マップ", id:"/map"},
+        {name:"タイムテーブル", id:"/timetable"},
     ]
 
     return(
         <div className="h-[100svh] w-full overflow-hidden relative">
-            <Image src={"/ぽスターpc.png"} alt="背景" fill  priority className="object-cover -z-10 object-top"></Image>
+            <Image src={"/ぽスターpc.png"} alt="背景" fill  priority className="object-cover 2xl:hidden -z-10 object-top"></Image>
+            <Image src={"/ポスターpc 2.png"} alt="背景" fill  priority className="object-cover hidden 2xl:block -z-10 object-top"></Image>
             <div className={
                 `ml-[5vw] my-[5vw] text-white ${kaiseiDecol.className}
                   opacity-90`
@@ -65,15 +64,25 @@ export function MainTitlePC() {
                 <h1 className="text-8xl xl:text-9xl font-bold ">祭現不可能</h1>
                 <p className=" text-5xl xl:text-6xl font-bold my-8 xl:my-12">南高祭71st</p>
                 <div className="xl:text-4xl text-2xl xl:mt-28 mt-16">
-                    {links.map((value, i) => (
-                        <p key={i} className="mb-1 xl:mb-4" >#{value.name}</p>
-                    ))}
+                    {links.map((value, i) => {
+                        if(i == 0) {
+                            return( <Link href="#date">
+                                <p key={i} className="mb-1 xl:mb-4" >#{value.name}</p>
+                            </Link>)
+                        } else {
+                            return(
+                                <Link href={value.id}>
+                                   <p key={i} className="mb-1 xl:mb-4" >#{value.name}</p> 
+                                </Link>
+                            )
+                        }
+                    })}
                 </div>
             </div>
             <div className="absolute w-[30vw] top-[50svh] left-[50%]">
                 <Link href={"/info"}>
                     <Image priority src={"/流氷.png"} alt="流氷" width={500} height={500} className="w-[60%]"></Image>
-                    <button className={`${kaiseiDecol.className} absolute top-[38%] left-[7%] text-2xl xl:text-[2vw] text-[#15b5b8]`}>参加申し込み</button>
+                    <button className={`${kaiseiDecol.className} absolute top-[40%] left-[10%] text-2xl xl:text-[2vw] text-[#15b5b8]`}>参加申し込み</button>
                 </Link>
             </div>
             <RiArrowDownWideFill className="absolute text-white bottom-[1%] left-1/2 -translate-x-1/2 size-10 xl:size-16 opacity-85"></RiArrowDownWideFill>
