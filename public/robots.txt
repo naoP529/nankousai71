@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.nankousai71.jp/
+
+# Sitemaps
+Sitemap: https://www.nankousai71.jp/sitemap.xml
