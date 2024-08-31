@@ -148,51 +148,54 @@ export default function Map() {
                     </Swiper>
                 </div>
                 
-                <Swiper
-                    allowTouchMove={false}
-                    onInit={getActiveSlide}
-                    onRealIndexChange={getActiveSlide}
-                    modules={[Navigation, EffectCoverflow]}
-                    centeredSlides={true}
-                    slidesPerView={2}
-                    effect="coverflow"
-                    coverflowEffect={{
-                        rotate: 0,
-                        stretch: 0,
-                        depth: 300,
-                        modifier: 0.8,
-                        slideShadows: false
-                    }}
-                    speed={300}
-                    loop={true}
-                    navigation
-                    className={` 
-                        hidden  lg:mt-16 xl:mb-12 lg:mb-6 lg:block 
-                        [&_.swiper-button-prev]:mx-[26vw]
-                        [&_.swiper-button-next]:mx-[26vw]
-                        ${styles.join(" ")}
-                        [&_.swiper-button-prev::after]:bg-gradient-to-br
-                        [&_.swiper-button-prev::after]:text-transparent
-                        [&_.swiper-button-prev::after]:bg-clip-text
-                        [&_.swiper-button-prev::after]:from-sky-500
-                        [&_.swiper-button-prev::after]:via-[#05bd92]
-                        [&_.swiper-button-prev::after]:to-[#0af3c4]
-                        [&_.swiper-button-next::after]:bg-gradient-to-br
-                        [&_.swiper-button-next::after]:text-transparent
-                        [&_.swiper-button-next::after]:bg-clip-text
-                        [&_.swiper-button-next::after]:from-sky-500
-                        [&_.swiper-button-next::after]:via-[#05bd92]
-                        [&_.swiper-button-next::after]:to-[#c8f30a]
-                     z-0 `}
-                >
-                    {imgs.map((value,i) => (
-                        <SwiperSlide key={value.img}>
-                            <div className={`w-[82vw] 2xl:max-w-[700px] xl:max-w-[500px] lg:max-w-[400px] mx-auto rounded-full ${i+1 == active? "opacity-100" : "brightness-95 opacity-60 pointer-events-none"} `}>
-                                <ScrollMap img={value.img}></ScrollMap>
-                            </div>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
+                <div className="hidden lg:block">
+                    <Swiper
+                        allowTouchMove={false}
+                        onInit={getActiveSlide}
+                        onRealIndexChange={getActiveSlide}
+                        modules={[Navigation, EffectCoverflow]}
+                        centeredSlides={true}
+                        slidesPerView={2}
+                        effect="coverflow"
+                        coverflowEffect={{
+                            rotate: 0,
+                            stretch: 0,
+                            depth: 300,
+                            modifier: 0.8,
+                            slideShadows: false
+                        }}
+                        speed={300}
+                        loop={true}
+                        navigation
+                        className={` 
+                            hidden  lg:mt-16 xl:mb-12 lg:mb-6 lg:block 
+                            [&_.swiper-button-prev]:mx-[26vw]
+                            [&_.swiper-button-next]:mx-[26vw]
+                            ${styles.join(" ")}
+                            [&_.swiper-button-prev::after]:bg-gradient-to-br
+                            [&_.swiper-button-prev::after]:text-transparent
+                            [&_.swiper-button-prev::after]:bg-clip-text
+                            [&_.swiper-button-prev::after]:from-sky-500
+                            [&_.swiper-button-prev::after]:via-[#05bd92]
+                            [&_.swiper-button-prev::after]:to-[#0af3c4]
+                            [&_.swiper-button-next::after]:bg-gradient-to-br
+                            [&_.swiper-button-next::after]:text-transparent
+                            [&_.swiper-button-next::after]:bg-clip-text
+                            [&_.swiper-button-next::after]:from-sky-500
+                            [&_.swiper-button-next::after]:via-[#05bd92]
+                            [&_.swiper-button-next::after]:to-[#c8f30a]
+                        z-0 `}
+                    >
+                        {imgs.map((value,i) => (
+                            <SwiperSlide key={value.img}>
+                                <div className={`w-[82vw] 2xl:max-w-[700px] xl:max-w-[500px] lg:max-w-[400px] mx-auto rounded-full ${i+1 == active? "opacity-100" : "brightness-95 opacity-60 pointer-events-none"} `}>
+                                    <ScrollMap img={value.img}></ScrollMap>
+                                </div>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                </div>
+                
                 <div className=" h-[25vw] xl:h-24 lg:h-28">
                     {/* <p className="text-center text-[3vw] text-gray-400">展示一覧</p> */}
                     <div className="flex flex-wrap mx-[4vw] lg:mx-[15vw] justify-center">
