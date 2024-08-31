@@ -12,13 +12,13 @@ const kaiseiDecol = KaiseiDecol
 
 export default function Date() {
     return(
-        <div className="w-full my-24 lg:my-20">
-            <h2 className={`${kaiseiDecol.className} text-center text-[10vw] text-[darkturquoise] 2xl:text-5xl lg:text-4xl my-4`}>開催日決定！</h2>
+        <div className="w-full mb-24 mt-20 lg:my-20">
+            <h2 className={`${kaiseiDecol.className} text-center text-[10vw] text-[darkturquoise] 2xl:text-5xl lg:text-4xl lg:my-4 my-0`}>開催日決定！</h2>
             {/* <p className={`${kaiseiDecol.className} text-center text-[darkturquoise] text-2xl`}>2024年度 第71回南高祭</p> */}
             <div className="lg:mt-8 lg:mb-12">
                 <Date2></Date2>
             </div>
-            <p className={`${kaiseiDecol.className} text-center text-5xl flex justify-center text-[darkturquoise]`}>
+            <p className={`${kaiseiDecol.className} hidden lg:flex text-center text-5xl justify-center text-[darkturquoise]`}>
                 <span className="mx-12">開始 9:30</span>
                 <span>終了 15:30</span>
             </p>
