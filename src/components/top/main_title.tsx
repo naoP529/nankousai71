@@ -54,7 +54,7 @@ export function MainTitlePC() {
     ]
 
     return(
-        <div className="h-[100svh] w-full overflow-hidden relative">
+        <div className="h-[100svh] max-h-[70vw] w-full overflow-hidden relative">
             <Image src={"/ぽスターpc.png"} alt="背景" fill  priority className="object-cover 2xl:hidden -z-10 object-right-top "></Image>
             <Image src={"/ポスターpc 2.png"} alt="背景" fill  priority className="object-cover hidden 2xl:block -z-10 object-right-top "></Image>
             <div className={
@@ -79,7 +79,7 @@ export function MainTitlePC() {
                     })}
                 </div>
             </div>
-            <div className="absolute xl:w-[30vw] w-[25vw] top-[50svh] left-[50%]">
+            <div className="absolute xl:w-[30vw] w-[25vw] xl:top-[50svh] top-[60%]  left-[50%]">
                 <Link href={"/info"}>
                     <Image priority src={"/流氷.png"} alt="流氷" width={500} height={500} className="w-[60%]"></Image>
                     <button className={`${kaiseiDecol.className} absolute top-[40%] left-[7%] xl:left-[10%] text-xl xl:text-[2vw] text-[#15b5b8]`}>参加申し込み</button>
