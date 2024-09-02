@@ -69,7 +69,7 @@ export default function Page() {
             {num:"15",name:"高校1年3組"},
             {num:"16",name:"高校1年4組"},
             {num:"17",name:"高校1年5組"},
-            {num:"18",name:"M-BOX"},
+            {num:"18",name:"M-box"},
             {num:"19",name:"美術部"},
             {num:"20",name:"図書委員会"},
             {num:"21",name:"書道部"},
@@ -142,9 +142,9 @@ export default function Page() {
                                 <p className="text-xl my-10 mx-10">Loading...</p>        
                             </div>
                             {value.test.map((n,i) => (
-                                <Link href={{pathname:"/event/introduction", query:{name:n.name}}} key={i} className={`rounded-lg flex-grow-0 items-center bg-white drop-shadow-sm border-2 border-slate-100 text-blue-900 min-w-[45%] h-auto 2xl:py-4 py-2 2xl:px-4 px-2 2xl:mx-5 lg:mx-2 2xl:my-2 my-2 ${data! ? "opacity-100" : "opacity-0"} `}>
+                                <Link href={{pathname:"/event/introduction", query:{name:n.name}}} key={i} className={`rounded-lg flex-grow-0 items-center bg-white drop-shadow-sm border-2 border-slate-100 relative text-blue-900 block w-[45%] h-auto 2xl:py-5 py-4 2xl:px-4 px-2 2xl:mx-5 lg:mx-2 2xl:my-3 my-2  ${data! ? "opacity-100" : "opacity-0"} `}>
                                     <p className="2xl:text-sm text-xs 2xl:mb-2 mb-1" >#{n.num}&ensp;{n.name}</p> 
-                                    <p className="2xl:text-xl text-xs flex justify-between items-center">{getTitle(n.name)} <SlArrowRightCircle className="ml-4 relative"></SlArrowRightCircle></p>
+                                    <p className="2xl:text-xl xl:text-base text-xs flex justify-between items-center text-nowrap w-full overflow-hidden">{getTitle(n.name)} <SlArrowRightCircle className="2xl:mr-4 mr-2 absolute right-0 bg-white rounded-full shadow-lg shadow-slate-200"></SlArrowRightCircle></p>
                                     
                                 </Link>
                             ))}

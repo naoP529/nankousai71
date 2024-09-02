@@ -37,7 +37,7 @@ export default function Map() {
             {num:"15",name:"高校1年3組"},
             {num:"16",name:"高校1年4組"},
             {num:"17",name:"高校1年5組"},
-            {num:"18",name:"M-BOX"},
+            {num:"18",name:"M-box"},
             {num:"19",name:"美術部"},
             {num:"20",name:"図書委員会"},
             {num:"21",name:"書道部"},

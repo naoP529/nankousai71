@@ -106,7 +106,17 @@ export default function AllPlace (
     ]
 
     const images = [
-        {name:"", src:""}
+        {name:"高校軽音楽部", img:"/Firefly ドラム ギター キーボード ライブ 36783.jpg"},
+        {name:"高校ダンス部", img:"/Firefly kPOP ダンス シルエット ステージの上 複数人 21761 (1).jpg"},
+        {name:"プラネタリウム", img:"/Firefly Planetarium 星空 67264.jpg"},
+        {name:"高校演劇部", img:"/Firefly across the border 83580.jpg"},
+        {name:"科学部", img:"/Firefly 科学部 試験管 フラスコ 机 白 人無し 19210 (1).jpg"},
+        {name:"弦楽部", img:"/Firefly 弦楽部 バイオリン 教室 59986.jpg"},
+        {name:"高校料理部", img:"/Firefly 厨房 お菓子作り 白 23408.jpg"},
+        {name:"文芸同好会", img:"/Firefly 本 おとぎ話 47001.jpg"},
+        {name:"美術部", img:"/美術部_背景.png"},
+        {name:"茶道部", img:"/Firefly 茶道 和室 日本庭園 49822.jpg"},
+        {name:"食堂", img:"/食堂.png"},
     ]
 
     const imageTag = (name:string) => {
@@ -117,7 +127,7 @@ export default function AllPlace (
         if(found == null) {
             return "/AdobeStock_335757173.jpeg"
         } else {
-            return found.src
+            return found.img
         }
     }
 
@@ -182,6 +192,24 @@ export default function AllPlace (
         }
     }
 
+    const modalStyle_pc = {
+        overlay:{
+            top:0,
+            left:0,
+            backgroundColor:"rgb(0 0 0 / 0.5)",
+            zIndex:10000
+        },
+        content:{
+            top:"10vh",
+            margin:"1rem auto",
+            width:"600px",
+            bottom:"auto",
+            height:"auto",
+            backgroundColor:"white",
+            borderRadius:"0.5rem"
+        }
+    }
+
     return(
         // <Rnd 
         //     default={{x:0, y:0, width:"100%", height:"200vw"}}
@@ -191,7 +219,7 @@ export default function AllPlace (
         // >
         // </Rnd>
         <div className="w-full h-auto ">
-            <Modal isOpen={isOpen} style={modalStyle} onRequestClose={() => setModal(false)}>
+            <Modal isOpen={isOpen} style={modalStyle} onRequestClose={() => setModal(false)} className="lg:hidden">
                 <div className={`flex items-center justify-between text-[4vw]  mb-[1vw]`}>
                     <p className={`${event_color.find((m) => m.target.includes(modalData.name))?.color} bg-clip-text text-transparent font-medium`}>{modalData.name}</p>
                     <AiOutlineClose className="text-gray-400 mr-[1vw] text-[5vw] cursor-pointer" onClick={() => setModal(false)}></AiOutlineClose>
@@ -208,6 +236,28 @@ export default function AllPlace (
                     <p className="relative bottom-[0.1vw]">{modalData.place}</p>
                 </div>
                 <div className="w-[40%] mx-auto mt-[2vw]">
+                    <Link href={{pathname:"/event/introduction", query:{name:modalData.name}}}>
+                        <SquareButtonPinkShadow2 text="もっと見る"></SquareButtonPinkShadow2> 
+                    </Link>   
+                </div>
+            </Modal>
+            <Modal isOpen={isOpen} style={modalStyle_pc} onRequestClose={() => setModal(false)} className="hidden lg:block">
+                <div className={`flex items-center justify-between text-2xl  py-3`}>
+                    <p className={`${event_color.find((m) => m.target.includes(modalData.name))?.color} ml-4 bg-clip-text text-transparent font-medium`}>{modalData.name}</p>
+                    <AiOutlineClose className="text-gray-400 mr-4 text-2xl cursor-pointer" onClick={() => setModal(false)}></AiOutlineClose>
+                </div>
+                {/* <p className={`text-[4vw] ${event_color.find((m) => m.target.includes(modalData.name))?.color} bg-clip-text text-transparent font-medium mb-[1vw]`}>{modalData.name}</p> */}
+                <Image src={imageTag(modalData.name)} alt="イメージ画像"  width={2000} height={100} className="w-full aspect-[2.3/1]  object-cover rounded-md"></Image>
+                <p className={`text-4xl ${event_color.find((m) => m.target.includes(modalData.name))?.color} ml-4 bg-clip-text text-transparent font-medium my-4`}>{modalData.title}</p>
+                <div className="flex items-center text-2xl ml-4">
+                    <IoTimeOutline></IoTimeOutline>
+                    <p className="mx-[0.5%] relative bottom-[0.2vw]">{modalData.time}</p>
+                </div>
+                <div className="flex items-center text-2xl mt-2 ml-4">
+                    <MdOutlinePlace></MdOutlinePlace>
+                    <p className="relative bottom-[0.1vw]">{modalData.place}</p>
+                </div>
+                <div className="w-[27%] mx-auto py-4">
                     <Link href={{pathname:"/event/introduction", query:{name:modalData.name}}}>
                         <SquareButtonPinkShadow2 text="もっと見る"></SquareButtonPinkShadow2> 
                     </Link>   

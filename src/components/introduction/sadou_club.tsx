@@ -79,9 +79,9 @@ export default function SadouClub() {
         <div>
             {status == "yet" && 
                 <div className="pb-[3vw]"> 
-                    <p className="tracking-wide text-[4vw] ml-[2vw] flex items-center">
+                    <p className="tracking-wide lg:text-3xl text-[4vw] ml-[2vw] flex items-center">
                     <MdEventAvailable className="mr-[0.5vw]"></MdEventAvailable>次回の公演</p>
-                    <p className=" text-center text-[6vw] mt-[1vw] mb-[2vw]">第1回 9:45~10:15</p>
+                    <p className="2xl:text-6xl lg:text-5xl text-center text-[6vw] mt-[1vw] mb-[2vw]">第1回 9:45~10:15</p>
                 </div>
             }
             {status == "now" &&
@@ -98,10 +98,10 @@ export default function SadouClub() {
                 </div>
             }
             <div>
-                <p className="text-center text-[4.5vw] mb-[2vw]">公演一覧</p>
+                <p className="text-center text-[4.5vw] lg:text-4xl mb-[2vw] lg:mb-6">・・・公演一覧・・・</p>
                 <div className="flex flex-wrap justify-around">
                 {data.map((value, index) => (
-                    <div key={index} className="flex justify-between text-[4vw] w-[45%] tex">
+                    <div key={index} className="flex justify-between lg:text-3xl text-[4vw] w-[45%] lg:w-[40%] lg:my-2">
                         <p>第{(index + 1)}回 </p>
                         <p>{value.start.getHours()}:{value.start.getMinutes()}~{value.end.getHours()}:{value.end.getMinutes()}</p>
                     </div>

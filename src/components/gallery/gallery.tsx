@@ -21,7 +21,7 @@ export default function Gallery () {
     return(
         <div className="w-full bg-white">   
             <h2 className={`mb-[5vw] ${kaiseiDecol.className} text-center text-[12vw] 2xl:text-8xl lg:text-6xl lg:mb-16 text-[darkturquoise] `}>ギャラリー</h2>
-            <div className="w-full px-5 lg:grid-cols-[repeat(auto-fit,minmax(350px,1fr))] gap-4 grid-cols-[repeat(auto-fit,minmax(140px,1fr))] lg:gap-10 grid pb-[10vw] lg:pb-20 lg:px-16">
+            <div className="w-full px-5 lg:grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-4 grid-cols-[repeat(auto-fit,minmax(140px,1fr))] lg:gap-16 grid pb-[10vw] lg:pb-20 lg:px-20">
                 {img_tags.map((value) => (
                     <Link key={value.title} href={{pathname:"/gallery/preview", query:{title:value.title} }} replace>
                         <div className="bg-white drop-shadow-lg rounded-md cursor-pointer mb-3">
@@ -30,6 +30,9 @@ export default function Gallery () {
                             <p className="text-[0.6rem] pr-[1.5vw] pb-[1vw] text-right lg:pr-4 lg:text-xl lg:pt-1 lg:pb-3 text-gray-500">もっと見る→</p>
                         </div>
                     </Link>
+                ))}
+                {["", "", "", ""].map((value, index) => (
+                    <div key={index}></div>
                 ))}
             </div>
         </div>

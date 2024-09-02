@@ -93,7 +93,17 @@ export default function ShowDetails (
     ]
 
     const imgs = [
-        {name:"", img:""}
+        {name:"高校軽音楽部", img:"/Firefly ドラム ギター キーボード ライブ 36783.jpg"},
+        {name:"高校ダンス部", img:"/Firefly kPOP ダンス シルエット ステージの上 複数人 21761 (1).jpg"},
+        {name:"プラネタリウム", img:"/Firefly Planetarium 星空 67264.jpg"},
+        {name:"高校演劇部", img:"/Firefly across the border 83580.jpg"},
+        {name:"科学部", img:"/Firefly 科学部 試験管 フラスコ 机 白 人無し 19210 (1).jpg"},
+        {name:"弦楽部", img:"/Firefly 弦楽部 バイオリン 教室 59986.jpg"},
+        {name:"高校料理部", img:"/Firefly 厨房 お菓子作り 白 23408.jpg"},
+        {name:"文芸同好会", img:"/Firefly 本 おとぎ話 47001.jpg"},
+        {name:"美術部", img:"/美術部_背景.png"},
+        {name:"茶道部", img:"/Firefly 茶道 和室 日本庭園 49822.jpg"},
+        {name:"食堂", img:"/食堂.png"},
     ]
 
     let img_tag = ""
@@ -146,7 +156,7 @@ export default function ShowDetails (
         }
 
         if(e.includes("体験")) {
-            result = " rom-green-300 via-teal-400 to-cyan-500"
+            result = " from-green-300 via-teal-400 to-cyan-500"
         }
 
         if(e.includes("アトラクション")) {
@@ -171,15 +181,15 @@ export default function ShowDetails (
     }
  
     return(
-        <div className="mt-[min(15vw,80px)] bg-white">
+        <div className="mt-[min(15vw,80px)] bg-white ">
             <div className="w-full h-[35vw] lg:h-60 relative">
-                <Image src={img_tag} alt="ヘッダー画像" fill priority className="object-cover z-0 opacity-95 brightness-90"></Image>
+                <Image src={img_tag} alt="ヘッダー画像" fill priority className="object-cover object-center z-0 opacity-95 brightness-90"></Image>
                 <div className="w-auto h-full absolute z-[6] flex ">
                     <p className={`${kaiseiDecol.className} pl-[3vw] my-auto text-[10vw] lg:text-7xl text-white font-bold`}>{name}</p>
                 </div>
             </div>
-            <div className="max-w-[1000px] lg:mx-auto pb-[5vw]">
-                <div className="mt-[6vw] px-[3vw] lg:mt-10 lg:px-6">
+            <div className="max-w-[1100px] lg:mx-auto pb-[5vw] bg-white px-6 shadow-md">
+                <div className="pt-[6vw] px-[3vw]  lg:pt-2 lg:px-6">
                     <p className={`text-[3.5vw] font-medium tracking-tight  text-white px-[3vw] py-[0.2vw] rounded-full  inline-block  text-left  my-[0.vw] translate-y-[0%]   ${setTextColor(event.tags, "bg")} lg:text-lg lg:px-8 lg:py-1 lg:my-4 `}>
                         タイトル            
                     </p>
@@ -217,12 +227,12 @@ export default function ShowDetails (
                         <p className={`text-[3.5vw] lg:text-2xl font-medium tracking-tight text-slate-500 text-center ${kaiseiDecol.className}`}>{event.comment}</p>
                 </div>
                 {name == "プラネタリウム" &&
-                    <div className="w-full px-[4vw] mb-[15vw] lg:px-6">
+                    <div className="w-full px-[4vw] mb-[15vw] lg:px-6 lg:mb-6 lg:w-[80%] lg:mx-auto">
                         <Pranetarium_tiket></Pranetarium_tiket>
                     </div>
                 }
                 {name == "茶道部" &&
-                    <div className="w-full px-[4vw]  lg:px-6 pb-[3vw]">
+                    <div className="w-full px-[4vw]  lg:px-5 pb-[3vw] lg:pb-14">
                         <SadouClub></SadouClub>
                     </div>
                 }
@@ -263,12 +273,12 @@ export default function ShowDetails (
                 
 
                 
-                <div className="my-[5vw] lg:my-14 rounded-lg bg-gray-50 lg:mx-6">
+                <div className="my-[5vw] lg:my-14 rounded-lg  lg:mx-6">
                     <p className={`my-[3vw] ${kaiseiDecol.className} text-[5vw] text-[darkturquoise] text-center lg:text-4xl lg:py-8 lg:my-0`}>・・・関連タグ・・・</p>
-                    <div className=" flex flex-wrap mx-[3vw] justify-start lg:mx-6 lg:justify-center">
+                    <div className=" flex flex-wrap mx-[3vw] justify-start lg:mx-8 ">
                         {event.tags.map((value) => (
                             <Link key={value} href={{pathname:"/event", query:{type:value} }}>
-                                <div className={`my-[2vw] w-[26vw] aspect-[3/1] bg-gradient-to-br ${Tags.find((item) => (item.name == value))?.color} rounded-md flex mx-[2vw] opacity-90 lg:mx-4 lg:max-w-40 lg:mb-6 lg:mt-0`}>
+                                <div className={`my-[2vw] w-[26vw] aspect-[3/1] bg-gradient-to-br ${Tags.find((item) => (item.name == value))?.color} rounded-md flex mx-[2vw] opacity-90 lg:ml-0 lg:mr-8 lg:max-w-44 lg:mb-6 lg:mt-0`}>
                                     <p className="m-auto  text-[3vw] lg:text-lg text-gray-50 font-medium">{value}</p>
                                 </div>
                             </Link>    

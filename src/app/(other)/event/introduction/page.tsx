@@ -61,7 +61,7 @@ export default function Page() {
                     <ShowDetails event={data.event} detail={data.detail} name={name}></ShowDetails>
                 </div>  
                 :
-                <div className="pt-[35vw]">
+                <div className="pt-[35vw] lg:pt-24">
                     <Loading></Loading>
                     {/* <p className={`text-[5vw] ${kaiseiDecol.className} text-center bg-gradient-to-br from-fuchsia-500 via-purple-400 to-sky-400 bg-clip-text text-transparent`}>・・・読み込み中・・・</p> */}
                 </div>

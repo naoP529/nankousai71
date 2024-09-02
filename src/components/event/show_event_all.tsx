@@ -263,8 +263,14 @@ export default function ShowEvent(
         return index
     }
 
-    const variants = {
-        child:{scale:[1, 4, 1], opacity:[0.25,0,0], borderWidth:[6, 2, 6], transition:{duration:0.7}}
+    const text_size = (length:number) => {
+        if(length < 10) {
+            return "text-[5vw]"
+        } else if (length < 18) {
+            return "text-[4.5vw]"
+        } else {
+            return "text-[4vw]"
+        }
     }
 
     return(
@@ -318,19 +324,19 @@ export default function ShowEvent(
                     <motion.div ref={targetDiv}  key={find_cardIndex(value)} className="mx-[4vw] h-[36vw] mt-[8vw] lg:mt-10 bg-slate-100  flex justify-between p-[0.2vw] opacity-90 drop-shadow rounded-lg lg:w-[47%] lg:max-w-[580px] lg:h-auto lg:mx-0 lg:aspect-[2.4/1] lg:mb-4 lg:p-[1px]"
                     initial={{y:20, opacity:0}} animate={{y:0, opacity:1}} transition={{ease:"easeOut", duration:0.4, delay:find_cardIndex(value) * 0.1}}>
                         <div className="w-full h-full rounded-md bg-white flex">
-                            <div className="flex-grow rounded-l-md pl-[2vw] pr-[1vw] my-auto flex flex-col lg:justify-around lg:my-3 lg:pl-4 lg:pr-2">
-                                <Link href={{pathname:"/event/introduction", query:{name:value.name}}} className="relative lg:hidden" replace>
+                            <div className="flex-grow rounded-l-md pl-[2vw] pr-[1vw] my-[2vw] flex flex-col justify-around lg:my-3 lg:pl-4 lg:pr-2">
+                                {/* <Link href={{pathname:"/event/introduction", query:{name:value.name}}} className="relative lg:hidden" replace>
                                     <motion.div onHoverStart={e => setHover(value.name)} onHoverEnd={e => setHover("")}>
                                         <p className={`${setTextColor(value.tags)} pl-[0.5vw] text-[2.5vw] lg:text-xs lg:pl-0 font-normal`}>{value.name}</p>
                                         <p className={`${setTextColor(value.tags)} font-medium  mb-[2.5%] lg:mt-1 lg:mb-0 lg:text-xl ${value.title.length < 11 ? "text-[4.8vw] mt-[1%]" : "text-[4vw] mt-[1.2%]"} leading-[130%]`}>{value.title}</p>
-                                        <motion.div animate={value.name == hover && "child"} variants={variants} className="border-0 border-gray-400 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2  -translate-y-1/2 w-4 h-4"></motion.div>
                                     </motion.div> 
-                                </Link>
-                                <Link href={{pathname:"/event/introduction", query:{name:value.name}}} className="hidden lg:block">
+                                </Link> */}
+                                <Link href={{pathname:"/event/introduction", query:{name:value.name}}} className="">
                                     <p className={`${setTextColor(value.tags)} pl-[0.5vw] text-[2.5vw] lg:text-xs xl:text-lg lg:pl-0 font-normal`}>{value.name}</p>
                                 </Link>
-                                <Link href={{pathname:"/event/introduction", query:{name:value.name}}} className="hidden lg:block">
-                                    <p className={`${setTextColor(value.tags)} font-medium  lg:mb-0 lg:text-2xl xl:text-3xl`}>{value.title}</p>
+                                <Link href={{pathname:"/event/introduction", query:{name:value.name}}} className="">
+                                    <p className={`${setTextColor(value.tags)} font-medium ${text_size(value.title.length)} bottom-[0.5vw] lg:mb-0 lg:text-2xl xl:text-3xl lg:h-[120%] relative lg:bottom-1
+                                    `}>{value.title}</p>
                                 </Link>
                                 <div className="text-[2.5vw] leading-[160%] lg:text-sm flex text-nowrap ">
                                     <p className="flex items-center">
@@ -342,7 +348,7 @@ export default function ShowEvent(
                                         {value.time[0]} {value.time.length > 1 && ` ...`}
                                     </p>
                                 </div>
-                                <div className={`w-full flex  lg:my-0 ${value.title.length < 11 ? "my-[5%]": "my-[3%]"}`}>
+                                <div className={`w-full flex  lg:my-0 ${value.title.length < 11 ? "my-0": "my-0"}`}>
                                     {value.types.map((value:any) => (
                                         <div key={value} className={`w-1/3 aspect-[3.3/1] bg-gradient-to-br ${Tags.find((item) => (item.name == value))?.color} rounded-md flex mr-[5%] opacity-90`}>
                                             <p className="m-auto text-[2vw] lg:text-xs text-gray-50 font-medium">{value}</p>
@@ -359,8 +365,8 @@ export default function ShowEvent(
                         
                     </motion.div>
                 ))}
-                <div className="hidden lg:flex mx-[4vw] h-[36vw] mt-[8vw] lg:mt-10  justify-between p-[0.2vw] opacity-90 drop-shadow rounded-lg lg:w-[47%] lg:max-w-[580px] lg:h-auto lg:mx-0 lg:aspect-[2.4/1] lg:mb-4 lg:p-[1px]"></div>
-                <div className="hidden 2xl:flex mx-[4vw] h-[36vw] mt-[8vw] lg:mt-10  justify-between p-[0.2vw] opacity-90 drop-shadow rounded-lg lg:w-[47%] lg:max-w-[580px] lg:h-auto lg:mx-0 lg:aspect-[2.4/1] lg:mb-4 lg:p-[1px]"></div>
+                <div className="hidden lg:flex mx-[4vw] h-1 mt-[8vw] lg:mt-10  justify-between p-[0.2vw] opacity-90 drop-shadow rounded-lg lg:w-[47%] lg:max-w-[580px] lg:h-auto lg:mx-0  lg:mb-4 lg:p-[1px]"></div>
+                <div className="hidden 2xl:flex mx-[4vw] h-1 mt-[8vw] lg:mt-10  justify-between p-[0.2vw] opacity-90 drop-shadow rounded-lg lg:w-[47%] lg:max-w-[580px] lg:h-auto lg:mx-0 lg:mb-4 lg:p-[1px]"></div>
             </div>
         </div>
     )

@@ -18,8 +18,8 @@ export default function Access() {
     const [isOpen, setOpen] = useState(false)
 
     const roots = [
-        {id:"kamioooka", title:"上大岡駅", walk:"26", bus:true, img:"/placeholder.png", busStop:[{name:"①京急バス", destination:"南高校前", bus:["南高校前行"], type:"modal", href:""}, {name:"⑨神奈中バス", destination:"南高校前", bus:["芹が谷行", "東戸塚駅行", "上大岡循環"], type:"link", href:"https://www.kanachu.co.jp/dia/diagram/search?snid=00102366&sk=&st=0&k=%E5%8D%97%E9%AB%98%E6%A0%A1%E5%89%8D(%E6%A8%AA%E6%B5%9C%E5%B8%82%E6%B8%AF%E5%8D%97%E5%8C%BA)&rt=0&t=0&sdid=00113527"}]},
-        {id:"kounan", title:"港南中央駅", walk:"22", bus:true, img:"/placeholder.png", busStop:[{name:"②総合庁舎前", destination:"南高校前", bus:["芹が谷行","上大岡行"], type:"link", href:"https://www.kanachu.co.jp/dia/diagram/search?snid=00102499&sk=&st=0&k=%E5%8D%97%E9%AB%98%E6%A0%A1%E5%89%8D(%E6%A8%AA%E6%B5%9C%E5%B8%82%E6%B8%AF%E5%8D%97%E5%8C%BA)&rt=0&t=0&sdid=00113527"}, {name:"②港南橋", destination:"南高校前", bus:["芹が谷行","上大岡行"], type:"link", href:"https://www.kanachu.co.jp/dia/diagram/search?fromStopNo=11153"}]},
+        {id:"kamioooka", title:"上大岡駅", walk:"26", bus:true, img:"/kamiooka_map.png", busStop:[{name:"①京急バス", destination:"南高校前", bus:["南高校前行"], type:"modal", href:""}, {name:"⑨神奈中バス", destination:"南高校前", bus:["芹が谷行", "東戸塚駅行", "上大岡循環"], type:"link", href:"https://www.kanachu.co.jp/dia/diagram/search?snid=00102366&sk=&st=0&k=%E5%8D%97%E9%AB%98%E6%A0%A1%E5%89%8D(%E6%A8%AA%E6%B5%9C%E5%B8%82%E6%B8%AF%E5%8D%97%E5%8C%BA)&rt=0&t=0&sdid=00113527"}]},
+        {id:"kounan", title:"港南中央駅", walk:"22", bus:true, img:"/kounanntyuuou_map.png", busStop:[{name:"①総合庁舎前", destination:"南高校前", bus:["芹が谷行","上大岡行"], type:"link", href:"https://www.kanachu.co.jp/dia/diagram/search?snid=00102499&sk=&st=0&k=%E5%8D%97%E9%AB%98%E6%A0%A1%E5%89%8D(%E6%A8%AA%E6%B5%9C%E5%B8%82%E6%B8%AF%E5%8D%97%E5%8C%BA)&rt=0&t=0&sdid=00113527"}, {name:"②港南橋", destination:"南高校前", bus:["芹が谷行","上大岡行"], type:"link", href:"https://www.kanachu.co.jp/dia/diagram/search?fromStopNo=11153"}]},
         {id:"kaminagaya",title:"上永谷駅", walk:"15", bus:false, type:"none"}
     ]
 
@@ -41,16 +41,56 @@ export default function Access() {
         }
     }
 
+    const modalStyle_pc = {
+        overlay:{
+            top:0,
+            left:0,
+            backgroundColor:"rgb(0 0 0 / 0.5)",
+            zIndex:10000
+        },
+        content:{
+            left:"auto",
+            margin:"1rem auto",
+            width:"500px",
+            height:"auto",
+            padding:0,
+        }
+    }
+
+    const modalStyle_pc_mini = {
+        overlay:{
+            top:0,
+            left:0,
+            backgroundColor:"rgb(0 0 0 / 0.5)",
+            zIndex:10000
+        },
+        content:{
+            left:"auto",
+            margin:"1rem auto",
+            width:"400px",
+            height:"auto",
+            padding:0,
+        }
+    }
+
     return(
         <div className="mt-[10vw] pt-[20vw] pb-[10vw]  2xl:pt-32 lg:pt-24 lg:mt-5 lg:pb-10  bg-[darkturquoise] text-white">
             <h2 className={`${kaiseiDecol.className} text-center text-[12vw] 2xl:text-8xl lg:text-6xl`}>アクセス</h2>
-            <p className="text-[3.5vw] text-center mt-[1vw] mb-[4vw] 2xl:text-2xl lg:text-xl lg:mt-6 2xl:mb-16 lg:mb-10">必ず公共交通機関を使ってご来校ください</p>   
+            <p className="text-[3.5vw] text-center mt-[1vw] mb-[4vw] 2xl:text-2xl lg:text-xl lg:mt-6 2xl:mb-16 lg:mb-10">※自家用車でのご来校はお控えください。</p>   
             <div className="mx-4">
                 <AccessTags></AccessTags>
                 <p className="text-[3vw] text-center mt-[2vw] lg:text-xl lg:mt-5">タグから探す（横にスクロール可能）</p>
             </div>
-            <Modal style={modalStyle} isOpen={isOpen}  onRequestClose={() => setOpen(false)}>
+            <Modal style={modalStyle} isOpen={isOpen} className="lg:hidden"  onRequestClose={() => setOpen(false)}>
                 <Image src={"/上大岡＿時刻表.jpg"} alt="上大岡_時刻表" width={1000} height={2000} className="w-full aspect-auto"></Image>
+            </Modal>
+            <Modal style={modalStyle_pc} isOpen={isOpen} className="hidden xl:block"  onRequestClose={() => setOpen(false)}>
+                <Image src={"/上大岡＿時刻表.jpg"} alt="上大岡_時刻表" width={1000} height={2000} className="w-full aspect-auto"></Image>
+                <p className="text-center text-white text-2xl mt-4 ">{"{余白をクリックして閉じる"}</p>
+            </Modal>
+            <Modal style={modalStyle_pc_mini} isOpen={isOpen} className="hidden lg:block xl:hidden"  onRequestClose={() => setOpen(false)}>
+                <Image src={"/上大岡＿時刻表.jpg"} alt="上大岡_時刻表" width={1000} height={2000} className="w-full aspect-auto"></Image>
+                <p className="text-center text-white text-2xl mt-4 ">{"{余白をクリックして閉じる"}</p>
             </Modal>
             {roots.map((value) => ( 
                 <div key={value.id} id={value.id} className="mx-[5vw] my-[12vw] lg:mt-10 lg:mb-28 lg:mx-10">
@@ -64,9 +104,9 @@ export default function Access() {
                         </p>
                         <div className="flex items-center justify-between flex-grow lg:justify-start">
                             <p className="text-white text-[4vw] ml-[0.5vw] 2xl:text-4xl lg:text-2xl lg:ml-0">{value.title}より徒歩{value.walk}分</p>
-                            <div className="w-[25vw] mr-[2vw] -translate-y-[30%] lg:translate-y-0 lg:w-40 lg:ml-20">
+                            <Link href={"https://www.google.com/maps/dir/?api=1&destination=横浜市立南高等学校"} target="_blank" className="w-[25vw] mr-[2vw] -translate-y-[30%] lg:translate-y-0 lg:w-40 lg:ml-20">
                                 <SquareButtonPinkShadow2 text="ガイド開始"></SquareButtonPinkShadow2>
-                            </div>
+                            </Link>
                         </div>
                     </div> 
                     {value.bus == true && 
@@ -76,7 +116,7 @@ export default function Access() {
                         </p>
                         <div className="lg:flex">
                             <div className="w-full lg:w-[50%] relative">
-                                <Image src={value.img!} alt="バス停マップ" width={1000} height={500} className="lg:rounded-xl w-full aspect-auto lg:aspect-[3/2] rounded-lg" placeholder={`data:image/svg+xml;base64,${toBase64(skeleton(128, 160))}`}></Image>
+                                <Image src={value.img!} alt="バス停マップ" width={1000} height={500} className="lg:rounded-xl object-scale-down bg-slate-50 w-full aspect-auto lg:aspect-[3/2] rounded-lg" placeholder={`data:image/svg+xml;base64,${toBase64(skeleton(128, 160))}`}></Image>
                                 <p className="absolute -top-[6vw] left-1/2 -translate-x-1/2 text-[3.5vw] lg:text-xl lg:-top-8">のりば案内</p>
                             </div>
                             
