@@ -12,8 +12,9 @@ import { SlArrowLeft } from "react-icons/sl";
 import { SlArrowRight } from "react-icons/sl";
 import { skeleton } from "@/components/global/skeleton";
 import { toBase64 } from "@/components/global/skeleton";
-
-
+import { SquareButtonPinkShadow } from "../global/parts/square_button"
+import { SquareButtonPinkWhite } from '../global/parts/square_button';  
+import Link from 'next/link';
 import { KaiseiDecol } from "@/app/fonts";
 
 const kaiseiDecol = KaiseiDecol
@@ -66,7 +67,16 @@ export default function Pamphlet () {
 
     return(
         <div className="w-full">
-            <h2 className={`pb-[5vw] ${kaiseiDecol.className} text-center text-[12vw] 2xl:text-8xl lg:text-6xl lg:pb-16 text-[darkturquoise]`}>パンフレット</h2>
+            <h2 className={` ${kaiseiDecol.className} text-center text-[12vw] 2xl:text-8xl lg:text-6xl  text-[darkturquoise]`}>パンフレット</h2>
+            <div className='mx-auto flex justify-center mt-[3vw] lg:mt-10 pb-[4vw] lg:pb-12 gap-[3vw] lg:gap-12'>
+                <div className="w-[35vw] lg:w-56 opacity-95">
+                        <Link href={"https://drive.google.com/file/d/1E6AG3ZkHrqLvZYfj5WW6BG7XEN7Ip2TA/view"} target='_blank'>
+                            <SquareButtonPinkWhite text="PDFダウンロード"></SquareButtonPinkWhite>
+                        </Link>
+                        {/* <RoundButtonTarqu text="申し込みページへ" size={50}></RoundButtonTarqu> */}
+                        {/* <SquareButtonPinkWhite text="申し込みページへ"></SquareButtonPinkWhite> */}        
+                </div>
+            </div>
             <div className='relative hidden lg:block'>
                 <Swiper
                     modules={[Navigation, Pagination, EffectFade]}
@@ -111,7 +121,7 @@ export default function Pamphlet () {
                     }}
                     pagination={{ type:"fraction"}}
                     effect={'fade'}
-                    className='drop-shadow-md
+                    className='drop-shadow-xl
                     [&_.swiper-pagination]:text-[7px]'
                 >
                     {half_img.map((value,i) => (
@@ -123,7 +133,7 @@ export default function Pamphlet () {
                     ))}
                 </Swiper>
                 <div className='w-full px-[4vw] absolute top-[calc(50%_-_5.5vw)]  flex justify-between z-10 text-[6vw] opacity-80 text-[darkturquoise]'>
-                    <div id="button_prev" className="relative cursor-pointer">
+                    <div id="button_prev" className={`relative cursor-pointer`}>
                         <SlArrowLeft></SlArrowLeft>
                     </div>
                     <div id="button_next" className="relative cursor-pointer">

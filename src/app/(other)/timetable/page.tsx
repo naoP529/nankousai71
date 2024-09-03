@@ -8,7 +8,7 @@ import type { Metadata } from "next";
 const kaiseiDecol = KaiseiDecol
 
 export const metadata: Metadata = {
-    title: "タイムテーブル | 第71回南高祭",
+    title: "タイムテーブル | 第71回南高祭・展示の部2024",
     description: "南高・南高附属中最大の行事へようこそ。南高創立70周年・附属中創立10周年を迎えた今年、歴代の南高生から引き継がれた、「みんなが仲間に みんなが楽しく みんなで創ろう」の精神を次世代へと繋ぎます。",
 };
 
@@ -232,7 +232,7 @@ export default async function page() {
             {/* <div className="my-[10vw]">
                 <NotReady></NotReady>
             </div> */}
-            <div className="mt-[5vw] pl-[2vw] lg:mt-0 lg:pl-0">
+            <div className="mt-[5vw]  lg:mt-0 lg:pl-0">
                 <Suspense>
                     <AllPlace content={newEvent}></AllPlace>
                 </Suspense>

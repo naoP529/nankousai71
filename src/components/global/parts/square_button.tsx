@@ -76,11 +76,11 @@ export function SquareButtonPinkWhite(
 ) {
     return(
         <div className="w-full aspect-[3.2/1] relative ">
-            <div className="w-full h-full bg-gradient-to-br from-fuchsia-500 via-purple-400 to-sky-400 absolute p-[2%] z-0 rounded-lg">
+            <div className="w-full h-full bg-gradient-to-br from-fuchsia-500 via-purple-400 to-sky-400 absolute p-[2%] z-0 rounded-md lg:rounded-lg">
                 <div className="w-full h-full bg-white rounded-md"></div>
             </div>
             <div className="h-full w-full absolute z-10 flex">
-                <p className="bg-gradient-to-br from-fuchsia-500 via-purple-400 to-sky-400 bg-clip-text text-transparent m-auto text-[4.5vw]font-medium">{text}</p>
+                <p className="bg-gradient-to-br from-fuchsia-500 via-purple-400 to-sky-400 bg-clip-text text-transparent m-auto text-[3.5vw] lg:text-xl font-medium">{text}</p>
             </div>
         </div>
     )

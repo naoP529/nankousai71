@@ -235,18 +235,39 @@ export default function ShowEvent(
         const selectedData = selectCard(newData)
         // console.log(selectedData)
         setSelectCard(selectedData)
-        console.log("取得展示数："+selectedData.length)
+        // console.log("取得展示数："+selectedData.length)
         if(selectedData.length == 0) {
             setNotfound(true)
         } else {
             setNotfound(false)
         }
 
-        // animateCard(targetDiv.current, {y:0, opacity:1}, {ease:"easeOut", duration:0.3})
+        animateCard(targetDiv.current, {y:[10, 0], opacity:[0, 1]}, {ease:"easeOut", duration:0.8, times:[0.001, 0.6]})
     } 
 
+    const miniTagClicked = (e:string) => {
+        const newArray = [e]
+        const find_tag = Tags.find((value) => value.name == e)
+        const otherTags = Tags.filter(value => value.name != e)
+        const newTagArray:any = [ find_tag, ...otherTags]
+
+        setTags(newTagArray)
+        setSelected(newArray)
+        const selectedCard = selectCard(newArray)
+        setSelectCard(selectedCard)
+        animateCard(targetDiv.current, {y:[10, 0], opacity:[0, 1]}, {ease:"easeOut", duration:0.8, times:[0.001, 0.6]})
+    }
+
+    const clearTag = () => {
+        const newArray:any = []
+        setSelected(newArray)
+        const selectedCard = selectCard(newArray)
+        setSelectCard(selectedCard)
+        animateCard(targetDiv.current, {y:[10, 0], opacity:[0, 1]}, {ease:"easeOut", duration:0.8, times:[0.001, 0.6]})
+    }
+
     const variant_tag = {
-        selected:{bottom:"1vw" },
+        selected:{bottom:"0.7vw" },
         notSelected:{bottom:0}
     }
 
@@ -305,7 +326,7 @@ export default function ShowEvent(
                     
                 </ScrollContainer>
                 <div className="w-full flex">
-                    <p className="inline-block mx-auto drop-shadow px-[5vw] py-[1vw] rounded-lg bg-slate-100 text-[2.5vw] text-gray-500 mt-[4vw] lg:text-base lg:mt-8 lg:py-1 lg:px-16">横にスクロールしてさらに表示</p>
+                    <p className="cursor-pointer inline-block mx-auto drop-shadow px-[4vw] py-[1vw] rounded-lg bg-slate-100 text-[2.5vw] text-gray-500 mt-[4vw] lg:text-base lg:mt-8 lg:py-1 lg:px-10" onClick={() => {clearTag()}}>選択済みのタグをクリア</p>
                 </div>
             </div>
             {/* <div>
@@ -313,7 +334,7 @@ export default function ShowEvent(
                     <p>{value}</p>
                 ))}
             </div> */}
-            <div className="bg-white pb-[10vw] lg:flex flex-wrap justify-around">
+            <motion.div className="bg-white pb-[10vw] lg:flex flex-wrap justify-around" ref={targetDiv}>
                 {notfound == true && 
                     <motion.div initial={{y:20, opacity:0}} animate={{y:0, opacity:1}} transition={{ease:"easeOut", duration:0.4}} className="w-full h-[35vw] flex">
                         <p className={`${kaiseiDecol.className} m-auto text-[7vw] bg-gradient-to-br from-fuchsia-500 via-purple-400 to-sky-400 bg-clip-text text-transparent `}>・・・該当なし・・・</p>
@@ -321,8 +342,8 @@ export default function ShowEvent(
                 }
 
                 {selected_card.map((value:any, index:number) => (
-                    <motion.div ref={targetDiv}  key={find_cardIndex(value)} className="mx-[4vw] h-[36vw] mt-[8vw] lg:mt-10 bg-slate-100  flex justify-between p-[0.2vw] opacity-90 drop-shadow rounded-lg lg:w-[47%] lg:max-w-[580px] lg:h-auto lg:mx-0 lg:aspect-[2.4/1] lg:mb-4 lg:p-[1px]"
-                    initial={{y:20, opacity:0}} animate={{y:0, opacity:1}} transition={{ease:"easeOut", duration:0.4, delay:find_cardIndex(value) * 0.1}}>
+                    <motion.div  key={find_cardIndex(value)} className="mx-[4vw] h-[36vw] mt-[8vw] lg:mt-10 bg-slate-100  flex justify-between p-[0.2vw] opacity-90 drop-shadow rounded-lg lg:w-[47%] lg:max-w-[580px] lg:h-auto lg:mx-0 lg:aspect-[2.4/1] lg:mb-4 lg:p-[1px]"
+                    initial={{y:20, opacity:0}} animate={selected_card.includes(value)? {y:0, opacity:1} : {y:20, opacity:0}} transition={{ease:"easeOut", duration:0.4, delay:find_cardIndex(value) * 0.05}}>
                         <div className="w-full h-full rounded-md bg-white flex">
                             <div className="flex-grow rounded-l-md pl-[2vw] pr-[1vw] my-[2vw] flex flex-col justify-around lg:my-3 lg:pl-4 lg:pr-2">
                                 {/* <Link href={{pathname:"/event/introduction", query:{name:value.name}}} className="relative lg:hidden" replace>
@@ -349,8 +370,8 @@ export default function ShowEvent(
                                     </p>
                                 </div>
                                 <div className={`w-full flex  lg:my-0 ${value.title.length < 11 ? "my-0": "my-0"}`}>
-                                    {value.types.map((value:any) => (
-                                        <div key={value} className={`w-1/3 aspect-[3.3/1] bg-gradient-to-br ${Tags.find((item) => (item.name == value))?.color} rounded-md flex mr-[5%] opacity-90`}>
+                                    {value.types.map((value:string) => (
+                                        <div key={value} className={`w-1/3 aspect-[3.3/1] bg-gradient-to-br ${Tags.find((item) => (item.name == value))?.color} rounded-md flex mr-[5%] opacity-90 cursor-pointer`} onClick={() => {miniTagClicked(value)}}>
                                             <p className="m-auto text-[2vw] lg:text-xs text-gray-50 font-medium">{value}</p>
                                         </div>
                                     ))}
@@ -367,7 +388,7 @@ export default function ShowEvent(
                 ))}
                 <div className="hidden lg:flex mx-[4vw] h-1 mt-[8vw] lg:mt-10  justify-between p-[0.2vw] opacity-90 drop-shadow rounded-lg lg:w-[47%] lg:max-w-[580px] lg:h-auto lg:mx-0  lg:mb-4 lg:p-[1px]"></div>
                 <div className="hidden 2xl:flex mx-[4vw] h-1 mt-[8vw] lg:mt-10  justify-between p-[0.2vw] opacity-90 drop-shadow rounded-lg lg:w-[47%] lg:max-w-[580px] lg:h-auto lg:mx-0 lg:mb-4 lg:p-[1px]"></div>
-            </div>
+            </motion.div>
         </div>
     )
 }

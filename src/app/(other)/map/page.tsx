@@ -124,7 +124,7 @@ export default function Page() {
 
     return (
         <div className="py-[30vw] 2xl:py-40 lg:py-32">
-            <title>フロアマップ | 第71回南高祭</title>      
+            <title>フロアマップ | 第71回南高祭・展示の部2024</title>      
             <h1 className={`${kaiseiDecol.className} text-center text-[12vw] text-[darkturquoise] lg:text-6xl 2xl:text-8xl`}>フロアマップ</h1>
 
             <div className="hidden lg:block 2xl:mt-20 lg:mt-14">

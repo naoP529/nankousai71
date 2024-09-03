@@ -168,7 +168,11 @@ export default function ShowDetails (
         }
 
         if(type == "bg") {
-            result += " bg-gradient-to-br"
+            if(result == "") {
+                result = "bg-gradient-to-br from-sky-600 to-sky-100 "
+            } else {
+                result += " bg-gradient-to-br"
+            }
         } else if(type == "text") {
             if(result == "") {
                 result = "bg-gradient-to-br bg-clip-text text-transparent from-sky-600 to-sky-100 "
@@ -181,17 +185,17 @@ export default function ShowDetails (
     }
  
     return(
-        <div className="mt-[min(15vw,80px)] bg-white ">
+        <div className="mt-[min(15vw,80px)] bg-white min-h-screen">
             <div className="w-full h-[35vw] lg:h-60 relative">
                 <Image src={img_tag} alt="ヘッダー画像" fill priority className="object-cover object-center z-0 opacity-95 brightness-90"></Image>
                 <div className="w-auto h-full absolute z-[6] flex ">
                     <p className={`${kaiseiDecol.className} pl-[3vw] my-auto text-[10vw] lg:text-7xl text-white font-bold`}>{name}</p>
                 </div>
             </div>
-            <div className="max-w-[1100px] lg:mx-auto pb-[5vw] bg-white px-6 shadow-md">
+            <div className="max-w-[1100px] lg:mx-auto pb-[5vw] bg-white lg:px-4 lg:shadow-md ">
                 <div className="pt-[6vw] px-[3vw]  lg:pt-2 lg:px-6">
-                    <p className={`text-[3.5vw] font-medium tracking-tight  text-white px-[3vw] py-[0.2vw] rounded-full  inline-block  text-left  my-[0.vw] translate-y-[0%]   ${setTextColor(event.tags, "bg")} lg:text-lg lg:px-8 lg:py-1 lg:my-4 `}>
-                        タイトル            
+                    <p className={`text-[3.5vw] font-medium tracking-tight  text-white px-[3vw] py-[0.2vw] rounded-full  inline-block  text-left  my-[0.vw] translate-y-[0%]   ${setTextColor(event.tags, "bg")} lg:text-lg lg:px-8 lg:py-1 lg:mt-6 lg:mb-3`}>
+                        タイトル           
                     </p>
                     <p className={`text-[8vw] font-bold  tracking-tight  text-left ${kaiseiDecol.className} ${setTextColor(event.tags, "text")} lg:text-7xl`}>{event.title}</p>
                 </div>

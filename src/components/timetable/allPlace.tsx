@@ -188,7 +188,7 @@ export default function AllPlace (
             bottom:"auto",
             height:"auto",
             backgroundColor:"white",
-            borderRadius:"1rem"
+            borderRadius:"0.5rem"
         }
     }
 
@@ -197,7 +197,7 @@ export default function AllPlace (
             top:0,
             left:0,
             backgroundColor:"rgb(0 0 0 / 0.5)",
-            zIndex:10000
+            zIndex:5000
         },
         content:{
             top:"10vh",
@@ -271,16 +271,16 @@ export default function AllPlace (
                 <motion.p variants={variantsForButton} animate={day=="9/8" ? "sep8T" : "sepT"} transition={{duration:0.5, ease:"easeOut"}} className="font-medium text-[8vw] lg:text-3xl 2xl:text-4xl">9/8</motion.p> 
             </motion.div>
             <div className="flex w-full relative lg:hidden">
-                <div className="mt-[14vw] w-full absolute left-0 -top-[0.85rem] flex flex-col pointer-events-none ">
+                <div className="pt-[14vw] w-full absolute left-0 drop-shadow-xl bg-white -top-[0.85rem] flex flex-col pointer-events-none ">
                     {times.map((value, index) => (
                         <div key={index} className={`w-full h-[20vw] flex`}>
-                            <p className="text-sm inline-block drop-shadow-lg font-medium shadow-stone-50 z-20">{value}</p>
-                            <div className="border-t-2 ml-2 flex-grow relative top-3 opacity-60"></div>
+                            <p className={`text-sm inline-block text-gray-400  font-medium pl-[1.5vw]  z-20 w-[12%]`}>{value}</p>
+                            <div className="border-t-2 ml-1 flex-grow relative top-3 opacity-60"></div>
                         </div>
                     ))}
                 </div>
                 <div className="w-full z-10">
-                    <ScrollContainer className="px-[12%]  h-[160vw]">  
+                    <ScrollContainer className="ml-[13%]  h-[160vw]">  
                         <div className={`grid grid-cols-[repeat(7,32vw)] grid-rows-[14vw,repeat(7,20vw)] relative grid-flow-row`}>
                             {places.map((value, index) => (
                                 <div key={index} className="mt-1 mb-3 mx-2 rounded-md bg-slate-100 flex justify-center items-center" style={{backgroundColor:colorsForHeader[index]}}>
@@ -423,9 +423,9 @@ export default function AllPlace (
                         ))}
                     </div>      
                 </div>
-            <div className="flex justify-center lg:hidden">
+            {/* <div className="flex justify-center lg:hidden">
                 <p className=" text-gray-500 bg-slate-100 text-[3vw] inline-block px-10  rounded-lg mt-[1vw]">横にスライドしてさらに表示</p>
-            </div>
+            </div> */}
         </div>
             
                
