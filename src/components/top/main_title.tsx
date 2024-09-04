@@ -54,7 +54,7 @@ export function MainTitlePC() {
     ]
 
     return(
-        <div className="h-[100svh] max-h-[70vw] w-full overflow-hidden relative">
+        <div className="h-[100svh] max-h-[70vw] min-h-[45vw] w-full overflow-hidden relative">
             <Image src={"/ぽスターpc.png"} alt="背景" fill  priority className="object-cover 2xl:hidden -z-10 object-right-top "></Image>
             <Image src={"/ポスターpc 2.png"} alt="背景" fill  priority className="object-cover hidden 2xl:block -z-10 object-right-top "></Image>
             <div className={

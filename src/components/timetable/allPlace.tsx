@@ -202,7 +202,7 @@ export default function AllPlace (
         content:{
             top:"10vh",
             margin:"1rem auto",
-            width:"600px",
+            width:"min(600px,80vw)",
             bottom:"auto",
             height:"auto",
             backgroundColor:"white",
@@ -219,34 +219,33 @@ export default function AllPlace (
         // >
         // </Rnd>
         <div className="w-full h-auto ">
-            <Modal isOpen={isOpen} style={modalStyle} onRequestClose={() => setModal(false)} className="lg:hidden">
-                <div className={`flex items-center justify-between text-[4vw]  mb-[1vw]`}>
-                    <p className={`${event_color.find((m) => m.target.includes(modalData.name))?.color} bg-clip-text text-transparent font-medium`}>{modalData.name}</p>
-                    <AiOutlineClose className="text-gray-400 mr-[1vw] text-[5vw] cursor-pointer" onClick={() => setModal(false)}></AiOutlineClose>
+            <Modal isOpen={isOpen} style={modalStyle_pc} onRequestClose={() => setModal(false)} className="">
+                <div className={`flex items-center justify-between lg:text-2xl  text-[4vw] lg:pb-3 lg:mb-0  mb-[1vw]`}>
+                    <p className={`${event_color.find((m) => m.target.includes(modalData.name))?.color} bg-clip-text  text-transparent font-medium`}>{modalData.name}</p>
+                    <AiOutlineClose className="text-gray-400 mr-[1vw] lg:text-2xl text-[5vw] cursor-pointer lg:mr-2" onClick={() => setModal(false)}></AiOutlineClose>
                 </div>
                 {/* <p className={`text-[4vw] ${event_color.find((m) => m.target.includes(modalData.name))?.color} bg-clip-text text-transparent font-medium mb-[1vw]`}>{modalData.name}</p> */}
                 <Image src={imageTag(modalData.name)} alt="イメージ画像"  width={2000} height={100} className="w-full aspect-video  object-cover rounded-md"></Image>
-                <p className={`text-[5vw] ${event_color.find((m) => m.target.includes(modalData.name))?.color} bg-clip-text text-transparent font-medium my-[1vw]`}>{modalData.title}</p>
-                <div className="flex items-center text-[3vw]">
+                <p className={`text-[5vw] lg:text-4xl ${event_color.find((m) => m.target.includes(modalData.name))?.color} bg-clip-text text-transparent font-medium my-[1vw]`}>{modalData.title}</p>
+                <div className="flex items-center text-[3vw] lg:text-2xl">
                     <IoTimeOutline></IoTimeOutline>
                     <p className="mx-[0.5%] relative bottom-[0.2vw]">{modalData.time}</p>
                 </div>
-                <div className="flex items-center text-[3vw] mt-[0.5vw]">
+                <div className="flex items-center text-[3vw] lg:text-2xl mt-[0.5vw]">
                     <MdOutlinePlace></MdOutlinePlace>
                     <p className="relative bottom-[0.1vw]">{modalData.place}</p>
                 </div>
-                <div className="w-[40%] mx-auto mt-[2vw]">
+                <div className="w-[40%] lg:max-w-[200px] mx-auto mt-[2vw]">
                     <Link href={{pathname:"/event/introduction", query:{name:modalData.name}}}>
                         <SquareButtonPinkShadow2 text="もっと見る"></SquareButtonPinkShadow2> 
                     </Link>   
                 </div>
             </Modal>
-            <Modal isOpen={isOpen} style={modalStyle_pc} onRequestClose={() => setModal(false)} className="hidden lg:block">
+            {/* <Modal isOpen={isOpen} style={modalStyle_pc} onRequestClose={() => setModal(false)} className="hidden lg:block">
                 <div className={`flex items-center justify-between text-2xl  py-3`}>
                     <p className={`${event_color.find((m) => m.target.includes(modalData.name))?.color} ml-4 bg-clip-text text-transparent font-medium`}>{modalData.name}</p>
                     <AiOutlineClose className="text-gray-400 mr-4 text-2xl cursor-pointer" onClick={() => setModal(false)}></AiOutlineClose>
                 </div>
-                {/* <p className={`text-[4vw] ${event_color.find((m) => m.target.includes(modalData.name))?.color} bg-clip-text text-transparent font-medium mb-[1vw]`}>{modalData.name}</p> */}
                 <Image src={imageTag(modalData.name)} alt="イメージ画像"  width={2000} height={100} className="w-full aspect-[2.3/1]  object-cover rounded-md"></Image>
                 <p className={`text-4xl ${event_color.find((m) => m.target.includes(modalData.name))?.color} ml-4 bg-clip-text text-transparent font-medium my-4`}>{modalData.title}</p>
                 <div className="flex items-center text-2xl ml-4">
@@ -262,7 +261,7 @@ export default function AllPlace (
                         <SquareButtonPinkShadow2 text="もっと見る"></SquareButtonPinkShadow2> 
                     </Link>   
                 </div>
-            </Modal>
+            </Modal> */}
             <motion.div className="mt-[5vw] mb-[7vw] 2xl:mb-10 2xl:my-12 lg:my-6 flex justify-center items-center" >
                 <motion.p variants={variantsForButton} animate={day=="9/7" ? "sep7T" : "sepT"} transition={{duration:0.3, ease:"easeOut"}} className="font-medium text-[8vw] lg:text-3xl 2xl:text-4xl text-[#0fc5dd]">9/7</motion.p>
                 <motion.div className="w-[12%] 2xl:w-16 lg:w-14 mx-3 lg:mx-5 aspect-[11/7] rounded-full translate-y-[6%] relative cursor-pointer" variants={variantsForButton} onClick={radioClicked} animate={day == "9/7" ? "sep7" : "sep8"} transition={{duration:0.5, ease:"easeOut"}}> 

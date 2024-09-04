@@ -70,7 +70,7 @@ export default function Pamphlet () {
             <h2 className={` ${kaiseiDecol.className} text-center text-[12vw] 2xl:text-8xl lg:text-6xl  text-[darkturquoise]`}>パンフレット</h2>
             <div className='mx-auto flex justify-center mt-[3vw] lg:mt-10 pb-[4vw] lg:pb-12 gap-[3vw] lg:gap-12'>
                 <div className="w-[35vw] lg:w-56 opacity-95">
-                        <Link href={"https://drive.google.com/file/d/1E6AG3ZkHrqLvZYfj5WW6BG7XEN7Ip2TA/view"} target='_blank'>
+                        <Link href={"https://drive.google.com/file/d/17-4y1mI6OQqgmy5wvCQhzqKWGepIDmk6/view?usp=drive_link"} target='_blank'>
                             <SquareButtonPinkWhite text="PDFダウンロード"></SquareButtonPinkWhite>
                         </Link>
                         {/* <RoundButtonTarqu text="申し込みページへ" size={50}></RoundButtonTarqu> */}
@@ -111,7 +111,7 @@ export default function Pamphlet () {
                     </div>
                 </div>
             </div>
-            <div className='lg:hidden'>
+            <div className='lg:hidden relative'>
                 <Swiper
                     modules={[Navigation, Pagination, EffectFade]}
                     speed={200}

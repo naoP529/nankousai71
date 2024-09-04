@@ -31,13 +31,13 @@ export default function Access() {
             zIndex:10000
         },
         content:{
-            top:"15vh",
-            left:"5vw",
-            right:"5vw",
-            bottom:"auto",
-            height:"auto",
             padding:0,
-            borderRadius:"1rem"
+            margin:"1rem auto",
+            bottom:"auto",
+            width:"min(500px,90vw)",
+            hight:"auto",
+            borderRadius:"1rem",
+            left:"5vw",
         }
     }
 
@@ -50,7 +50,7 @@ export default function Access() {
         },
         content:{
             left:"auto",
-            margin:"1rem auto",
+            margin:"2rem auto",
             width:"500px",
             height:"auto",
             padding:0,
@@ -65,10 +65,10 @@ export default function Access() {
             zIndex:10000
         },
         content:{
-            left:"auto",
-            margin:"1rem auto",
-            width:"400px",
+            margin:"auto",
+            width:"min(400px,90vw)",
             height:"auto",
+            bottom:"auto",
             padding:0,
         }
     }
@@ -81,17 +81,18 @@ export default function Access() {
                 <AccessTags></AccessTags>
                 <p className="text-[3vw] text-center mt-[2vw] lg:text-xl lg:mt-5">タグから探す（横にスクロール可能）</p>
             </div>
-            <Modal style={modalStyle} isOpen={isOpen} className="lg:hidden"  onRequestClose={() => setOpen(false)}>
-                <Image src={"/上大岡＿時刻表.jpg"} alt="上大岡_時刻表" width={1000} height={2000} className="w-full aspect-auto"></Image>
+            <Modal style={modalStyle} isOpen={isOpen} className="block"  onRequestClose={() => setOpen(false)}>
+                <Image src={"/上大岡＿時刻表.jpg"} alt="上大岡_時刻表" width={1000} height={1500} className="w-full aspect-auto"></Image>
+                <p className="text-center text-white text-sm mt-4 ">{"{余白をクリックして閉じる)"}</p>
             </Modal>
-            <Modal style={modalStyle_pc} isOpen={isOpen} className="hidden xl:block"  onRequestClose={() => setOpen(false)}>
+            {/* <Modal style={modalStyle_pc} isOpen={isOpen} className="hidden xl:block"  onRequestClose={() => setOpen(false)}>
                 <Image src={"/上大岡＿時刻表.jpg"} alt="上大岡_時刻表" width={1000} height={2000} className="w-full aspect-auto"></Image>
                 <p className="text-center text-white text-2xl mt-4 ">{"{余白をクリックして閉じる"}</p>
             </Modal>
             <Modal style={modalStyle_pc_mini} isOpen={isOpen} className="hidden lg:block xl:hidden"  onRequestClose={() => setOpen(false)}>
                 <Image src={"/上大岡＿時刻表.jpg"} alt="上大岡_時刻表" width={1000} height={2000} className="w-full aspect-auto"></Image>
                 <p className="text-center text-white text-2xl mt-4 ">{"{余白をクリックして閉じる"}</p>
-            </Modal>
+            </Modal> */}
             {roots.map((value) => ( 
                 <div key={value.id} id={value.id} className="mx-[5vw] my-[12vw] lg:mt-10 lg:mb-28 lg:mx-10">
                     <div className="flex">
