@@ -11,6 +11,8 @@ import { KaiseiDecol } from "@/app/fonts";
 import { PiDotsThreeFill } from "react-icons/pi";
 import { BsThreeDots } from "react-icons/bs";
 import { IoMdClose } from "react-icons/io";
+import { CiMenuFries } from "react-icons/ci";
+import { tree } from "next/dist/build/templates/app-page";
 
 const kaiseiDecol = KaiseiDecol
 
@@ -23,7 +25,8 @@ export default function Header() {
     const [targetPink, pinkAnimate] = useAnimate()
     const [targetLogo, logoAnimate] = useAnimate()
     const [pullDown, setPullDown] = useState(false)
-    
+    const [hamburgerAnime, setHamburgerAnmie] = useAnimate()
+    const [hamburger, setHamburger] = useState(true)
     const hoverAnimation = {
         
     }
@@ -39,14 +42,18 @@ export default function Header() {
     const showMenu = ()=> {
         if(menu == false) {
             setMenu(true)
+            setHamburger(false)
             menuAnimate(targetMenu.current, { height: "100vh",}, {ease:"easeOut", duration:0.25}, )
             disappearAnimate(targetButton.current, {opacity:0}, {ease:"easeOut", duration:0.1})
-            rotateAnimate(targetIcon.current, {width:"10vw" ,transform:"translate(1vw,2%) rotate(135deg)"}, {ease:"easeOut", duration:0.25})
+            rotateAnimate(targetIcon.current, {scale:1.5 ,transform:"rotate(135deg)", opacity:100}, {ease:"easeOut", duration:0.25})
+            setHamburgerAnmie(hamburgerAnime.current, {opacity:0}, {ease:"easeOut", duration:0.25})
         } else {
             setMenu(false)
             menuAnimate(targetMenu.current, { height:0,}, {ease:"easeInOut", duration:0.3})
             disappearAnimate(targetButton.current, {opacity:1}, {ease:"easeOut",duration:0.2, delay:0.3})
-            rotateAnimate(targetIcon.current, {width:"8vw",   transform:"translate(0,0) rotate(0deg)"}, {ease:"easeOut", duration:0.25})
+            rotateAnimate(targetIcon.current, {scale:1,   transform:"rotate(0deg)", opacity:0}, {ease:"easeOut", duration:0.25})
+            setHamburgerAnmie(hamburgerAnime.current, {opacity:80}, {ease:"easeOut", duration:0.25})
+            setHamburger(true)
         }
     }
 
@@ -54,7 +61,8 @@ export default function Header() {
         setMenu(false)
         menuAnimate(targetMenu.current, { height:0,}, {ease:"easeInOut", duration:0.3, delay:0.2})
         disappearAnimate(targetButton.current, {opacity:1}, {ease:"easeOut",duration:0.2, delay:0.3})
-            rotateAnimate(targetIcon.current, {width:"8vw",   transform:"translate(0,0) rotate(0deg)"}, {ease:"easeOut", duration:0.25})
+        rotateAnimate(targetIcon.current, {scale:1,   transform:"rotate(0deg)", opacity:0}, {ease:"easeOut", duration:0.25})
+        setHamburgerAnmie(hamburgerAnime.current, {opacity:80}, {ease:"easeOut", duration:0.25})
     }
 
     const parent = {
@@ -97,7 +105,7 @@ export default function Header() {
      }
 
     return(
-        <header className="w-full h-[15vw] relative max-h-20 md:max-h-[10svh] lg:max-h-20">
+        <header className="w-full h-[15vw] relative max-h-20 md:max-h-[13vw] lg:max-h-20">
             <div className="absolute w-full h-full  bg-gradient-to-br  from-[#05a8bd] via-[#05bd92] to-[#f3e50a] opacity-80 -z-10"></div>
             <div className={ `${pullDown ? "flex" : "hidden"} absolute top-[90px] right-44 rounded-lg   bg-gradient-to-br  from-[#05bda4] to-[#f3e50a] flex-col items-start pb-4  drop-shadow-lg opacity-90 xl:hidden`}>
                 <IoMdClose className="ml-auto mr-2 text-white mt-2 text-xl" onClick={pullDownMenu}></IoMdClose>
@@ -155,9 +163,13 @@ export default function Header() {
                     {/* <div className={`${menu == false && "hidden"} w-[28vw]`}>
                         <SquareButtonWhite text="参加申し込み"></SquareButtonWhite>   
                     </div> */}
-                <motion.div whileHover={{opacity:1}} transition={{duration:0.1}} ref={targetIcon} className="lg:hidden w-[8vw] aspect-square cursor-pointer text-white ml-[2vw] mr-[3vw] opacity-70 z-20">
-                        <BsPlusLg  className= "size-full"
-                    onClick={showMenu}></BsPlusLg>
+                    <motion.div   className="lg:hidden w-[8vw] aspect-square cursor-pointer text-white ml-[2vw] mr-[3vw] opacity-70 z-20 relative">
+                        <motion.div className={`size-full absolute opacity-80`} onClick={showMenu} whileHover={{opacity:1}} transition={{duration:0.1}} ref={hamburgerAnime}>
+                            <CiMenuFries className={`size-full`} ></CiMenuFries>    
+                        </motion.div>
+                        <motion.div  ref={targetIcon}  className= {`opacity-0 size-full absolute `} onClick={showMenu}>
+                            <BsPlusLg className="size-full"></BsPlusLg>
+                        </motion.div>    
                     </motion.div>
                     
 

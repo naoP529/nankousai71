@@ -37,7 +37,7 @@ export default function MainTitle() {
                 </Link>
             </div>
             <p className="absolute bottom-[3vw] right-[3vw] text-white opacity-80 
-            text-[3.5vw] ">@イラスト</p>
+            text-[2.8vw] ">イラスト ©黒田真梨奈</p>
             <p className={`absolute top-[155vw] md:top-[80svh] left-[7vw] text-[7.5vw] md:text-[6vw] text-white opacity-90 z-40
                 ${kaiseiDecol.className}`}>南高祭71st</p>
             <RiArrowDownWideFill className="absolute text-white bottom-[1%] left-1/2 -translate-x-1/2 size-[12vw] opacity-85"></RiArrowDownWideFill>
@@ -85,6 +85,8 @@ export function MainTitlePC() {
                     <button className={`${kaiseiDecol.className} absolute top-[40%] left-[7%] xl:left-[10%] text-xl xl:text-[2vw] text-[#15b5b8]`}>参加申し込み</button>
                 </Link>
             </div>
+            <p className="absolute bottom-4 right-6 text-white opacity-80 
+            xl:text-lg text-base">2024年度南高祭＠横浜市立南高等学校・附属中学校</p>
             <RiArrowDownWideFill className="absolute text-white bottom-[1%] left-1/2 -translate-x-1/2 size-10 xl:size-16 opacity-85"></RiArrowDownWideFill>
         </div>
     )

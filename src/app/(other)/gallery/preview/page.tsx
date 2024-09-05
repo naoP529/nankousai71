@@ -5,6 +5,7 @@ import Image from "next/image";
 import { skeleton } from "@/components/global/skeleton";
 import { toBase64 } from "@/components/global/skeleton";
 import NotFound from "@/components/global/parts/notFound";
+import BackTo from "@/components/global/back_button";
 
 import { KaiseiDecol } from "@/app/fonts";
 
@@ -33,9 +34,7 @@ export default function Page() {
                         <Image src={found.img} alt={found.title} width={2000} height={3000} placeholder={`data:image/svg+xml;base64,${toBase64(skeleton(128, 128))}`} className="w-[90%] aspect-auto mx-auto drop-shadow-lg lg:w-auto lg:h-[80svh]" priority></Image>
                         <p className="text-[5vw] text-center mt-[5vw] mb-[2vw] text-slate-600 lg:text-5xl lg:mt-14 lg:">{found.title}</p>
                         <p className="text-[4vw] text-right mr-[5vw] text-slate-800 lg:text-4xl">作者：{found.artist}</p>
-                        <Link href={"/gallery"} className="fixed  bottom-0 left-0">
-                            <p className="text-[3.5vw] ml-[3vw] mb-[2vw] text-gray-300 hover:text-gray-800 lg:text-3xl lg:m-4">←ギャラリーに戻る</p>
-                        </Link>
+                        <BackTo link="/gallery" name="ギャラリー"></BackTo>
                     </div>
                     :  <NotFound text="ギャラリー" link="/gallery"></NotFound>
                     // <div className="mt-[30vw] w-screen">
@@ -49,7 +48,7 @@ export default function Page() {
                     }
                 </div>}
             </div>
-             
+            
         </div>
     )
 }

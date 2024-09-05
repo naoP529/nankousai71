@@ -4,6 +4,7 @@ import { serverClient } from "@/utils/supabase/server"
 import AllPlace from "@/components/timetable/allPlace";
 import { Suspense } from "react";
 import type { Metadata } from "next";
+import BackTo from '@/components/global/back_button';
 
 const kaiseiDecol = KaiseiDecol
 
@@ -238,7 +239,9 @@ export default async function page() {
                 </Suspense>
                 
             </div>
-            
+            <div>
+                <BackTo link="/" name="トップ"></BackTo>
+            </div>
         </div>
     )
 }

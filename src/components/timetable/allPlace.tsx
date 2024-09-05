@@ -270,7 +270,7 @@ export default function AllPlace (
                 <motion.p variants={variantsForButton} animate={day=="9/8" ? "sep8T" : "sepT"} transition={{duration:0.5, ease:"easeOut"}} className="font-medium text-[8vw] lg:text-3xl 2xl:text-4xl">9/8</motion.p> 
             </motion.div>
             <div className="flex w-full relative lg:hidden">
-                <div className="pt-[14vw] w-full absolute left-0 drop-shadow-xl bg-white -top-[0.85rem] flex flex-col pointer-events-none ">
+                <div className="pt-[14vw] w-full absolute left-0  bg-white -top-[0.85rem] flex flex-col pointer-events-none ">
                     {times.map((value, index) => (
                         <div key={index} className={`w-full h-[20vw] flex`}>
                             <p className={`text-sm inline-block text-gray-400  font-medium pl-[1.5vw]  z-20 w-[12%]`}>{value}</p>

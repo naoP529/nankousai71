@@ -9,7 +9,7 @@ const kaiseiDecol = KaiseiDecol
 
 export default function Guide() {
     return(
-        <div className="bg-[darkturquoise] pt-[23vw] pb-[10vw] 2xl:pt-32 lg:py-20  text-white">
+        <div className="bg-[darkturquoise] pt-[23vw] pb-[10vw] 2xl:pt-32 lg:py-20  text-white relative">
             <h2 className={`${kaiseiDecol.className} text-[8vw] text-center 2xl:text-7xl lg:text-5xl` }>パンフレット配布中！</h2>
             <div className="lg:flex justify-center lg:my-14">
                 <div className="w-[60vw] mx-auto h-auto relative my-[7vw] lg:my-0 xl:max-w-[500px] lg:max-w-[400px] lg:mx-12">
@@ -26,6 +26,7 @@ export default function Guide() {
                     </Link>   
                 </div>  
             </div>      
+            <p className="hidden 2xl:block text-base absolute bottom-0 right-0">所在地： 〒233-0011 神奈川県横浜市港南区東永谷２丁目１−１</p>
         </div>
     )
 }

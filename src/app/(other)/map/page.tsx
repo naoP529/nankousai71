@@ -7,6 +7,7 @@ import { KaiseiDecol } from "@/app/fonts";
 import { useEffect, useState } from "react";
 import { getEvents } from "./getEventData";
 import { SlArrowRightCircle } from "react-icons/sl";
+import BackTo from "@/components/global/back_button";
 
 const kaiseiDecol = KaiseiDecol
 
@@ -207,6 +208,9 @@ export default function Page() {
                     </div>
                 ))}
 
+            </div>
+            <div>
+                <BackTo link="/" name="トップ"></BackTo>
             </div>
         </div>
     )

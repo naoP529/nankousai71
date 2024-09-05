@@ -2,6 +2,7 @@ import Application from "@/components/info/application"
 import Attention from "@/components/info/attention"
 import Access from "@/components/info/access"
 import type { Metadata } from "next";
+import BackTo from "@/components/global/back_button";
 
 export const metadata: Metadata = {
     title: "インフォメーション | 第71回南高祭・展示の部2024",
@@ -17,6 +18,9 @@ export default function page() {
             </div>
             <div id="attention">
                 <Attention></Attention>
+            </div>
+            <div>
+                <BackTo link="/" name="トップ"></BackTo>
             </div>
         </div>
     )

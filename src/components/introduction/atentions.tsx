@@ -15,3 +15,12 @@ export function HowToPay () {
         </div>
     )
 }
+
+export function CookingClubNotice() {
+    return(
+        <div className="w-full shadow-md rounded-md">
+            <p className="text-[3vw] lg:text-lg lg:py-3 lg:px-5 text-white from-orange-400 via-orange-400 to-yellow-400 bg-gradient-to-br py-[2.2vw] px-[3vw] rounded-t-md">整理券を配布します</p>
+            <p className="from-orange-400 bg-gradient-to-br bg-clip-text text-transparent via-orange-400 to-yellow-400 text-[3vw] pt-[2vw] leading-[160%] lg:leading-[170%] pb-[3vw] px-[3vw] text-justify rounded-b-lg bg-white font-normal tracking-wide lg:text-lg lg:py-5 lg:px-5 ">7日の9:30~と15:30~の2回に渡って3回の320教室前にて整理券を配布します。支払いは現金となります。（料理部の販売は7日のみですのでご注意ください。）</p>
+        </div>
+    )
+}

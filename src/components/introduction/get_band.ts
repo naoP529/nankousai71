@@ -58,7 +58,7 @@ export async function getBandData() {
             const timeAsTimeStamp = timesAsDate.map((value) => (Math.floor(value.getTime() / 1000)))
             let timeText = ["",new_edit_Times[0][0] + ":" + new_edit_Times[0][1], new_edit_Times[1][0] + ":" + new_edit_Times[1][1]]
 
-            if(i.includes("09-07")) {
+            if(i.includes("09-07") || i.includes("9-7")) {
                 timeText[0] = "9/7"
             } else {
                 timeText[0] = "9/8"

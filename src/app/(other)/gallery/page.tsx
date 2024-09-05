@@ -1,6 +1,7 @@
 import Pamphlet from "@/components/gallery/pamphlet"
 import Gallery from "@/components/gallery/gallery"
 import type { Metadata } from "next";
+import BackTo from "@/components/global/back_button";
 
 export const metadata: Metadata = {
     title: "ギャラリー | 第71回南高祭・展示の部2024",
@@ -13,6 +14,9 @@ export default function page() {
             <Pamphlet></Pamphlet>
             <div className="mt-[15vw] lg:mt-36">
                 <Gallery></Gallery>
+            </div>
+            <div>
+                <BackTo link="/" name="トップ"></BackTo>
             </div>
         </div>
     )
