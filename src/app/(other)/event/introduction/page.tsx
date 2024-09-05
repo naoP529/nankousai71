@@ -50,6 +50,26 @@ export default function Page() {
         getData()
     },[])
 
+    const jsonLd = {
+        "@context": "http://schema.org",
+        "@type": "Event",
+        "name": "南高祭",
+        "startDate": "2024-09-07T09:30",
+        "location": {
+          "@type": "Place",
+          "name": "横浜市立南高等学校・附属中学校",
+          "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "神奈川県",
+            "addressLocality": "横浜市",
+            "streetAddress": "港南区東永谷2丁目1-1"
+              }
+        },
+        "description": `${name}のイベントの詳細を確認できます。( ˙ ˙ *)`,
+        "image": [
+          "https://drive.google.com/file/d/137obuAzNIB6r-501h6D0-6SoFgLnqXd3/view?usp=drive_link"
+        ],
+      };
 
     return(
         <div className="h-screen bg-white">

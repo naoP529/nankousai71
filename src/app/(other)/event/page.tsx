@@ -15,6 +15,27 @@ export const metadata: Metadata = {
 };
 
 export default function page() {
+    const jsonLd = {
+    "@context": "http://schema.org",
+    "@type": "Event",
+    "name": "南高祭",
+    "startDate": "2024-09-07T09:30",
+    "location": {
+        "@type": "Place",
+        "name": "横浜市立南高等学校・附属中学校",
+        "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "神奈川県",
+        "addressLocality": "横浜市",
+        "streetAddress": "港南区東永谷2丁目1-1"
+            }
+    },
+    "description": "開催中の展示一覧です。各クラスによる出し物や、部活動によるライブ・体験会、フードの販売など多種多様な催し物が用意されています。ぜひご確認ください。",
+    "image": [
+        "https://drive.google.com/file/d/137obuAzNIB6r-501h6D0-6SoFgLnqXd3/view?usp=drive_link"
+    ],
+    };
+
     return(
         <div className="pt-[min(15vw,80px)] h-screen bg-white md:pt-[13vw]  lg:pt-[min(15vw,80px)]">
             <div className="w-full h-[35vw] lg:h-60 relative">
@@ -34,6 +55,10 @@ export default function page() {
             <div>
                 <BackTo link="/" name="トップ"></BackTo>
             </div>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
         </div>
     )
 }
