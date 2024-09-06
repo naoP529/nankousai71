@@ -317,7 +317,7 @@ export default function ShowDetails (
                     <div className=" flex flex-wrap mx-[3vw] justify-start lg:mx-8 ">
                         {event.tags.map((value) => (
                             <Link key={value} href={{pathname:"/event", query:{type:value} }}>
-                                <div className={`my-[2vw] w-[26vw] aspect-[3/1] bg-gradient-to-br ${Tags.find((item) => (item.name == value))?.color} rounded-md flex mx-[2vw] opacity-90 lg:ml-0 lg:mr-8 lg:max-w-44 lg:mb-6 lg:mt-0`}>
+                                <div className={`my-[2vw] w-[25vw] aspect-[3/1] bg-gradient-to-br ${Tags.find((item) => (item.name == value))?.color} rounded-md flex mx-[2vw] opacity-90 lg:ml-0 lg:mr-8 lg:max-w-44 lg:mb-6 lg:mt-0`}>
                                     <p className="m-auto  text-[3vw] lg:text-lg text-gray-50 font-medium">{value}</p>
                                 </div>
                             </Link>    
