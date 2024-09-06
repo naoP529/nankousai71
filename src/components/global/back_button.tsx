@@ -47,7 +47,7 @@ export default function BackTo(
                 </Link> 
             </motion.div> 
             <div className="lg:hidden">
-                <Link href={link} className="items-center flex bg-white rounded-full shadow-lg border-2 border-slate-100">
+                <Link href={link} className="items-center flex bg-white rounded-full shadow-md border-2 border-slate-100">
                     <div className="text-[8vw] md:text-[7vw]">
                         <IoCaretBackCircleSharp></IoCaretBackCircleSharp>
                     </div>

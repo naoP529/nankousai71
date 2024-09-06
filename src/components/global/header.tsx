@@ -125,7 +125,7 @@ export default function Header() {
                     </motion.div>
                 </Link>
 
-                <div className={`hidden xl:flex flex-grow justify-end items-center text-white text-2xl ${kaiseiDecol.className}`}>
+                <div className={`hidden xl:flex flex-grow justify-end items-center mr-6 text-white text-2xl ${kaiseiDecol.className}`}>
                     {links_pc.map((value, i) => (
                         <Link href={value.link} onClick={clickLink} key={i}>
                             <motion.div key={value.name} whileHover={{scale:1.05, opacity:1}} whileTap={"tap"} variants={parent} onTapStart={e => setAnimateKey(value.name)} transition={{type:"spring", duration:0.3, bounce:0.2}} className="opacity-90 relative">
@@ -135,7 +135,7 @@ export default function Header() {
                             </motion.div>
                         </Link>
                     ))}
-                    <BsThreeDots className="mx-5 text-2xl cursor-pointer"  ></BsThreeDots>
+                    {/* <BsThreeDots className="mx-5 text-2xl cursor-pointer"  ></BsThreeDots> */}
                 </div>
 
                 <div className={`hidden lg:flex xl:hidden flex-grow justify-end items-center text-white text-2xl ${kaiseiDecol.className}`}>
@@ -148,7 +148,7 @@ export default function Header() {
                             </motion.div>
                         </Link>
                     ))}
-                    <BsThreeDots className="mx-5" onClick={pullDownMenu}></BsThreeDots>
+                    {/* <BsThreeDots className="mx-5" onClick={pullDownMenu}></BsThreeDots> */}
                 </div>
                 
                 <div className="flex items-center  z-10 ml-[3vw] lg:mr-7 lg:ml-2">

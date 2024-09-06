@@ -18,7 +18,7 @@ export default function Access() {
     const [isOpen, setOpen] = useState(false)
 
     const roots = [
-        {id:"kamioooka", title:"上大岡駅", walk:"26", bus:true, img:"/kamiooka_map.png", busStop:[{name:"①京急バス", destination:"南高校前", bus:["南高校前行"], type:"modal", href:""}, {name:"⑨神奈中バス", destination:"南高校前", bus:["芹が谷行", "東戸塚駅行", "上大岡循環"], type:"link", href:"https://www.kanachu.co.jp/dia/diagram/search?snid=00102366&sk=&st=0&k=%E5%8D%97%E9%AB%98%E6%A0%A1%E5%89%8D(%E6%A8%AA%E6%B5%9C%E5%B8%82%E6%B8%AF%E5%8D%97%E5%8C%BA)&rt=0&t=0&sdid=00113527"}]},
+        {id:"kamioooka", title:"上大岡駅", walk:"26", bus:true, img:"/kamiooka_map.png", busStop:[{name:"①京急バス", destination:"桜台", bus:["南高校前行"], type:"modal", href:""}, {name:"⑨神奈中バス", destination:"南高校前", bus:["芹が谷行", "東戸塚駅行", "上大岡循環"], type:"link", href:"https://www.kanachu.co.jp/dia/diagram/search?snid=00102366&sk=&st=0&k=%E5%8D%97%E9%AB%98%E6%A0%A1%E5%89%8D(%E6%A8%AA%E6%B5%9C%E5%B8%82%E6%B8%AF%E5%8D%97%E5%8C%BA)&rt=0&t=0&sdid=00113527"}]},
         {id:"kounan", title:"港南中央駅", walk:"22", bus:true, img:"/kounanntyuuou_map.png", busStop:[{name:"①総合庁舎前", destination:"南高校前", bus:["芹が谷行","上大岡行"], type:"link", href:"https://www.kanachu.co.jp/dia/diagram/search?snid=00102499&sk=&st=0&k=%E5%8D%97%E9%AB%98%E6%A0%A1%E5%89%8D(%E6%A8%AA%E6%B5%9C%E5%B8%82%E6%B8%AF%E5%8D%97%E5%8C%BA)&rt=0&t=0&sdid=00113527"}, {name:"②港南橋", destination:"南高校前", bus:["芹が谷行","上大岡行"], type:"link", href:"https://www.kanachu.co.jp/dia/diagram/search?fromStopNo=11153"}]},
         {id:"kaminagaya",title:"上永谷駅", walk:"15", bus:false, type:"none"}
     ]

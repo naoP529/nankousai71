@@ -7,10 +7,10 @@ const kaiseiDecol = KaiseiDecol
 
 export default function Attention() {
     const attentions = [
-        {title:"落とし物・迷子", content:"本部(1階エントランス)にて対応いたします。", type:""},
+        {title:"落とし物・迷子", content:"本部(1階職員室)にて対応いたします。", type:""},
         {title:"飲食について", content:"くすのき広場にて、高校3年生によるフード販売の他、1階にて食堂が営業しております。食べ歩き、決められた場所以外での飲食は禁止です。", type:""},
         {title:"ゴミについて", content:"くすのき広場、食堂で購入したもののみ、くすのき広場と食堂に設置したゴミ箱にお捨てください。", type:""},
-        {title:"写真撮影について", content:"一般の方の写真・動画の撮影、並びに写真・動画のSNSへの投稿は固く禁止します。", type:"notAllowed"},
+        {title:"写真撮影について", content:"写真・動画のSNSへの投稿はご遠慮ください。", type:"notAllowed"},
         {title:"立ち入り禁止エリア", content:"6階は立ち入り禁止エリアです。その他、通行禁止の通路がありますのでご注意ください。", type:"notAllowed"},
     ]
 

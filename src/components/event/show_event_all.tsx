@@ -8,6 +8,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { useAnimate } from "framer-motion";
 import { useSearchParams } from "next/navigation";
+import { skeleton } from "@/components/global/skeleton";
+import { toBase64 } from "@/components/global/skeleton";
 
 import { KaiseiDecol } from "@/app/fonts";
 
@@ -295,7 +297,7 @@ export default function ShowEvent(
     }
 
     return(
-        <div className="">
+        <div className="pb-[20vw] lg:pb-0">
             <div className="">
                 <ScrollContainer>
                     <div className="flex mt-[5vw] lg:mt-8 lg:mx-6">
@@ -379,7 +381,7 @@ export default function ShowEvent(
                             </div>
                             <Link href={{pathname:"/event/introduction", query:{name:value.name}}} replace>
                                 <div className="h-full aspect-square border-l-2 border-gray-50">
-                                    <Image src={value.img} alt="展示イラスト" width={1000} height={1000} className=" h-full w-full rounded-r-md object-cover"></Image>
+                                    <Image placeholder={`data:image/svg+xml;base64,${toBase64(skeleton(128, 160))}`} src={value.img} alt="展示イラスト" width={1000} height={1000} className=" h-full w-full rounded-r-md object-cover"></Image >
                                 </div>
                             </Link>
                         </div>

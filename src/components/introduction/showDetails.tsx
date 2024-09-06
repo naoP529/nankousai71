@@ -15,6 +15,7 @@ import GetFood from "./show_foods";
 import SadouClub from "./sadou_club";
 import Pranetarium_tiket from "./atentions";
 import { CookingClubNotice } from "./atentions";
+import { Cafe_trash } from "./atentions";
 
 const kaiseiDecol = KaiseiDecol
 
@@ -105,6 +106,29 @@ export default function ShowDetails (
         {name:"美術部", img:"/美術部_背景.png"},
         {name:"茶道部", img:"/Firefly 茶道 和室 日本庭園 49822.jpg"},
         {name:"食堂", img:"/食堂.png"},
+        {name:"中学1年1組", img:"/中1-1背景.png"},
+        {name:"中学1年2組", img:"/中1-2背景.png"},
+        {name:"中学1年3組", img:"/中1-3背景.png"},
+        {name:"中学1年4組", img:"/中1-4背景.png"},
+        {name:"中学2年1組", img:"/中2-1背景.png"},
+        {name:"中学2年2組", img:"/中2-2背景.png"},
+        {name:"中学2年3組", img:"/中2-3背景.png"},
+        {name:"中学2年4組", img:"/中2-4背景.png"},
+        {name:"中学3年1組", img:"/中3-1背景.png"},
+        {name:"中学3年2組", img:"/中3-2背景.png"},
+        {name:"中学3年3組", img:"/中3-3背景.png"},
+        {name:"中学3年4組", img:"/中3-4背景.png"},
+        {name:"高校1年1組", img:"/高1-1背景.png"},
+        {name:"高校1年2組", img:"/高1-2背景.png"},
+        {name:"高校1年3組", img:"/高1-3背景.png"},
+        {name:"高校1年4組", img:"/高1-4背景.png"},
+        {name:"高校1年5組", img:"/高1-5背景.png"},
+        {name:"高校2年1組", img:"/高2-1背景.png"},
+        {name:"高校2年2組", img:"/高2-2背景.png"},
+        {name:"高校2年3組", img:"/高2-3背景.png"},
+        {name:"高校2年4組", img:"/高2-4背景.png"},
+        {name:"高校2年5組", img:"/高2-5背景.png"},
+        {name:"学校紹介", img:"/IMGR6082.JPG"},
     ]
 
     let img_tag = ""
@@ -252,6 +276,11 @@ export default function ShowDetails (
                 {name == "高校料理部" && 
                     <div className="w-full px-[4vw] lg:px-6 mb-[10vw] lg:mb-14 lg:w-[80%] lg:mx-auto">
                         <CookingClubNotice></CookingClubNotice>
+                    </div>
+                }
+                {name == "食堂" && 
+                    <div className="w-full px-[4vw] lg:px-6 mb-[10vw] lg:mb-14 lg:w-[80%] lg:mx-auto">
+                        <Cafe_trash></Cafe_trash>
                     </div>
                 }
                 {event.tags.includes("フード") &&

@@ -24,3 +24,13 @@ export function CookingClubNotice() {
         </div>
     )
 }
+
+export function Cafe_trash() {
+    return(
+        <div className="w-full shadow-md rounded-md">
+            <p className="text-[3vw] lg:text-lg lg:py-3 lg:px-5 text-white from-rose-400 via-red-400 to-orange-400 bg-gradient-to-br py-[2.2vw] px-[3vw] rounded-t-md">食堂のゴミの分別</p>
+            <p className="from-rose-400 via-red-400 to-orange-400  bg-gradient-to-br bg-clip-text text-transparent  text-[3vw] pt-[2vw] leading-[160%] lg:leading-[170%] pb-[3vw] px-[3vw] text-justify rounded-b-lg bg-white font-normal tracking-wide lg:text-lg lg:py-5 lg:px-5 ">食堂と環境美化委員会の2種のゴミ箱がございます。食堂のゴミ箱には食堂で出されたフードのゴミを（プラと紙の区別不要）環境美化のゴミ箱には、高校3年生のフードのゴミなどを必ず分別して捨ててください。尚、残飯はどちらに捨てても構いません。
+            </p>
+        </div>
+    )
+}

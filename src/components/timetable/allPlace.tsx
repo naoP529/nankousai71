@@ -117,6 +117,7 @@ export default function AllPlace (
         {name:"美術部", img:"/美術部_背景.png"},
         {name:"茶道部", img:"/Firefly 茶道 和室 日本庭園 49822.jpg"},
         {name:"食堂", img:"/食堂.png"},
+        {name:"学校紹介", img:"/IMGR6082.JPG"},
     ]
 
     const imageTag = (name:string) => {
