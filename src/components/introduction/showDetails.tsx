@@ -314,7 +314,7 @@ export default function ShowDetails (
                 
                 <div className="my-[5vw] lg:mt-14 lg:mb-0 lg:pb-14 rounded-lg  lg:mx-6">
                     <p className={`my-[3vw] ${kaiseiDecol.className} text-[5vw] text-[darkturquoise] text-center lg:text-4xl lg:py-8 lg:my-0`}>・・・関連タグ・・・</p>
-                    <div className=" flex flex-wrap mx-[3vw] justify-start lg:mx-8 ">
+                    <div className=" flex flex-wrap mx-[3vw] justify-start lg:mx-4 ">
                         {event.tags.map((value) => (
                             <Link key={value} href={{pathname:"/event", query:{type:value} }}>
                                 <div className={`my-[2vw] w-[25vw] aspect-[3/1] bg-gradient-to-br ${Tags.find((item) => (item.name == value))?.color} rounded-md flex mx-[2vw] opacity-90 lg:ml-0 lg:mr-8 lg:max-w-44 lg:mb-6 lg:mt-0`}>
