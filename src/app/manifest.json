@@ -4,8 +4,8 @@
     "description": "横浜市立南高校・南高附属中最大の行事へようこそ。「みんなが仲間に みんなが楽しく みんなで創ろう」の精神を基に、たくさんの魅力的な展示を公開しています。フード販売や生演奏なども開催予定。ぜひ気軽にお越しください！",
     "start_url": "/",
     "display": "standalone",
-    "background_color": "#fff",
-    "theme_color": "#fff",
+    "background_color": "#000",
+    "theme_color": "#000",
     "icons": [
       { "src": "/icon-192x192.png", "type": "image/png", "sizes": "192x192" },
       { "src": "/icon-512x512.png", "type": "image/png", "sizes": "512x512" }

@@ -41,8 +41,8 @@ export default function BackTo(
                     <div className="text-6xl">
                         <IoCaretBackCircleSharp></IoCaretBackCircleSharp>
                     </div>
-                    <motion.div variants={items}  className="overflow-hidden text-nowrap text-3xl">
-                        <p className={`mr-[1vw] -translate-y-[2%] ${kaiseiDecol.className}`}>{name}に戻る</p>
+                    <motion.div variants={items}  className="overflow-hidden text-nowrap text-2xl">
+                        <p className={`mr-[1.5vw] -translate-y-[2%] `}>{name}に戻る</p>
                     </motion.div>
                 </Link> 
             </motion.div> 
@@ -52,7 +52,7 @@ export default function BackTo(
                         <IoCaretBackCircleSharp></IoCaretBackCircleSharp>
                     </div>
                     <div   className="overflow-hidden text-nowrap text-3xl">
-                        <p className={`mr-[2vw] -translate-y-[5%] text-[5vw] md:text-[4vw] ${kaiseiDecol.className}`}>{name}へ</p>
+                        <p className={`mr-[3vw] ml-[0.vw] -translate-y-[5%] text-[4vw] md:text-[3vw] `}>{name}へ</p>
                     </div>
                 </Link> 
             </div>  

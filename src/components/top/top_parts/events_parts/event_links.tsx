@@ -56,7 +56,7 @@ export function ClubEvent() {
                     <p className={`text-[darkturquoise] font-normal text-justify text-[3.5vw] leading-[150%] tracking-tight my-[2vw]`}>中高の部活動によるアクティビティや体験の数々</p>
                 </div>         
                 <div className="grow bg-yellow-100 aspect-[5/4] ml-[5vw] mr-[8vw] mt-[8vw]  relative"> 
-                    <Image src={"/IMGR4481.JPG"} alt="展示の様子" fill className="rounded-xl opacity-90 object-cover " placeholder={`data:image/svg+xml;base64,${toBase64(skeleton(128, 128))}`}></Image>
+                    <Image src={"/後夜祭写真.png"} alt="展示の様子" fill className="rounded-xl opacity-90 object-cover " placeholder={`data:image/svg+xml;base64,${toBase64(skeleton(128, 128))}`}></Image>
                 </div>
                 <div className="w-full mt-[7vw]">
                     <Link href={{pathname:"/event", query:{type:"部活動展示"}}}>
@@ -97,7 +97,7 @@ export function FoodEvent() {
 export function EventLinkPC() {
     const eventData = [
         {title:"クラス展示",comment:"27クラスによる色彩豊かな展示を体験できます。", src:"/クラス展示.png", value:"クラス展示"},
-        {title:"部活動展示",comment:"中高の部活動によるアクティビティや体験の数々", src:"IMGR4481.JPG", value:"部活動展示"},
+        {title:"部活動展示",comment:"中高の部活動によるアクティビティや体験の数々", src:"/後夜祭写真.png", value:"部活動展示"},
         {title:"フード販売",comment:"高校3年、食堂などによる絶品フードとドリンク", src:"/burger-2762431_1920.jpg", value:"フード"},
     ]
 

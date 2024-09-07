@@ -293,7 +293,7 @@ export default function ShowDetails (
                     
                     <div className="w-auto">
                     {newDetails.map((value) => (
-                        <div key={value.title} className="mb-[12vw]  mx-[4vw] lg:mx-8 lg:mb-14 lg:my-2">
+                        <div key={value.title} className="mb-[12vw] mt-[7vw] mx-[4vw] lg:mx-8 lg:mb-14 lg:my-10">
                             <div className="flex shadow-slate-100 shadow-md">
                                 <div className=" w-[2vw] lg:w-4 bg-gradient-to-b from-[#01e1e5] to-[#039fa2]"></div>
                                 <p className={`${kaiseiDecol.className} text-[7vw] lg:text-4xl lg:ml-6 lg:py-4 ml-[2vw] py-[1vw] bg-gradient-to-b from-[#01e1e5] to-[#009294]  text-transparent bg-clip-text font-bold`}>{value.title}</p>
@@ -317,7 +317,7 @@ export default function ShowDetails (
                     <div className=" flex flex-wrap mx-[3vw] justify-start lg:mx-4 ">
                         {event.tags.map((value) => (
                             <Link key={value} href={{pathname:"/event", query:{type:value} }}>
-                                <div className={`my-[2vw] w-[25vw] aspect-[3/1] bg-gradient-to-br ${Tags.find((item) => (item.name == value))?.color} rounded-md flex mx-[2vw] opacity-90 lg:ml-0 lg:mr-8 lg:max-w-44 lg:mb-6 lg:mt-0`}>
+                                <div className={`my-[2vw] w-[25vw] aspect-[3/1] bg-gradient-to-br ${Tags.find((item) => (item.name == value))?.color} rounded-md flex mx-[2vw] opacity-90 lg:ml-0 lg:mr-6 lg:max-w-[10.5rem] lg:mb-6 lg:mt-0`}>
                                     <p className="m-auto  text-[3vw] lg:text-lg text-gray-50 font-medium">{value}</p>
                                 </div>
                             </Link>    
