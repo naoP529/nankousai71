@@ -382,7 +382,7 @@ export default function ShowEvent(
                             <Link href={{pathname:"/event/introduction", query:{name:value.name}}} replace>
                                 <div className="h-full aspect-square border-l-2 border-gray-50">
                                     {value.name == "M-box" ?
-                                        <Image placeholder={`data:image/svg+xml;base64,${toBase64(skeleton(128, 160))}`} src={"/M-box.png"} alt="展示イラスト" width={1000} height={1000} className=" h-full w-full rounded-r-md object-cover"></Image >
+                                        <Image placeholder={`data:image/svg+xml;base64,${toBase64(skeleton(128, 160))}`} src={"/1725741490270.jpg"} alt="展示イラスト" width={1000} height={1000} className=" h-full w-full rounded-r-md object-cover"></Image >
                                     :
                                         <Image placeholder={`data:image/svg+xml;base64,${toBase64(skeleton(128, 160))}`} src={value.img} alt="展示イラスト" width={1000} height={1000} className=" h-full w-full rounded-r-md object-cover"></Image >
                                     }

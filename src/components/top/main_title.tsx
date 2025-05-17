@@ -37,7 +37,7 @@ export default function MainTitle() {
                 </Link>
             </div>
             <p className="absolute bottom-[3vw] right-[3vw] text-white opacity-80 
-            text-[2.8vw] ">イラスト ©黒田真梨奈</p>
+            text-[2.8vw] ">イラスト ©黒田真梨菜</p>
             <p className={`absolute top-[155vw] md:top-[80svh] left-[7vw] text-[7.5vw] md:text-[6vw] text-white opacity-90 z-40
                 ${kaiseiDecol.className}`}>南高祭71st</p>
             <RiArrowDownWideFill className="absolute text-white bottom-[1%] left-1/2 -translate-x-1/2 size-[12vw] opacity-85"></RiArrowDownWideFill>
