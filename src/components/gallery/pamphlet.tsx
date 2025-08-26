@@ -62,7 +62,15 @@ export default function Pamphlet () {
         "/s24rondo23.png",
         "/s24rondo24.png",
         "/s24rondo25.png",
-    ]
+    ];
+
+    // (function () {
+    //     let exist = true;
+    //     let i = 1;
+    //     while (exist == true) {
+
+    //     }
+    // }());
 
 
     return(

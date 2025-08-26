@@ -16,7 +16,13 @@ export const metadata: Metadata = {
   openGraph:{images:"https://drive.google.com/file/d/137obuAzNIB6r-501h6D0-6SoFgLnqXd3/view?usp=drive_link", type:"website", description:"南高・南高附属中最大の行事へようこそ。どなたでも来場可。魅力的な催し物をたくさん用意しています。"},
   other:{
     "google-site-verification":["0oZkaqm-Q6yVAvi6FkC6TXOroxI5c0S2dUMsxRa__uw"]
-  }
+  },
+    robots: {
+    index: false, // noindexの設定
+    googleBot: {
+      index: false, // Google のクローラーをブロック
+    },
+  },
 };
 
 export default function RootLayout({

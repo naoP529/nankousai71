@@ -144,16 +144,6 @@ export default function ShowEvent(
 
     const init = initContent(type)
     const [selected_card, setSelectCard] = useState<Array<any>>(init)
-    
-
-    // const textColors = [
-    //     { name:"中学1年", color:"text-amber-500"},
-    //     { name:"中学2年", color:"text-blue-700"},
-    //     { name:"中学3年", color:"text-red-700"},
-    //     { name:"高校1年", color:"text-blue-700"},
-    //     { name:"高校2年", color:"text-red-700"},
-    //     { name:"高校3年", color:"text-amber-500"},
-    // ]
 
     const setTextColor = (e:any) => {
         let result = ""
