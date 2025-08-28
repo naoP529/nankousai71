@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    { 
+      "source": "/",
+      "destination": "https://nankousai.vercel.app/", 
+      "permanent": true
+    }
+  ]
+}
