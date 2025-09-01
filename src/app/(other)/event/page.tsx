@@ -10,8 +10,8 @@ import { KaiseiDecol } from "@/app/fonts";
 const kaiseiDecol = KaiseiDecol
 
 export const metadata: Metadata = {
-    title: "展示一覧 | 第71回南高祭・展示の部2024",
-    description: "南高・南高附属中最大の行事へようこそ。南高創立70周年・附属中創立10周年を迎えた今年、歴代の南高生から引き継がれた、「みんなが仲間に みんなが楽しく みんなで創ろう」の精神を次世代へと繋ぎます。",
+    title: "展示一覧 | 第72回南高祭・展示の部2025",
+    description: "2025年度のサイトがオープンしました！ 南高・南高附属中最大の行事へようこそ。南高創立70周年・附属中創立10周年を迎えた今年、歴代の南高生から引き継がれた、「みんなが仲間に みんなが楽しく みんなで創ろう」の精神を次世代へと繋ぎます。",
 };
 
 export default function page() {

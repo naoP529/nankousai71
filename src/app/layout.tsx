@@ -17,12 +17,6 @@ export const metadata: Metadata = {
   other:{
     "google-site-verification":["0oZkaqm-Q6yVAvi6FkC6TXOroxI5c0S2dUMsxRa__uw"]
   },
-    robots: {
-    index: false, // noindexの設定
-    googleBot: {
-      index: false, // Google のクローラーをブロック
-    },
-  },
 };
 
 export default function RootLayout({
